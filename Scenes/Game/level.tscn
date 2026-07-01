@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c41h5hg75pyv1"]
+
+[ext_resource type="Script" uid="uid://b42k15yg7363h" path="res://Scripts/world_gen.gd" id="1_qiay6"]
+[ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Scenes/UI/options_combined.tscn" id="2_5xcqo"]
+
+[node name="Level" type="Node2D" unique_id=1811816869]
+script = ExtResource("1_qiay6")
+
+[node name="FPS_COUNTER" type="Label" parent="." unique_id=1837517564]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1696235547]
+position = Vector2(960, 540)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=442072788]
+
+[node name="Options" parent="CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
+unique_name_in_owner = true
+visible = false
+is_in_game = true

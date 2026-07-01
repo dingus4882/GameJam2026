@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bhvknoaj7ovag"]
+
+[ext_resource type="Script" uid="uid://2bm0q7xgmjn2" path="res://Scripts/UI/Options/options_combined.gd" id="1_fdqpn"]
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Scenes/UI/UI_Background.tscn" id="2_lj24i"]
+[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Scenes/UI/button.tscn" id="3_y7b1q"]
+[ext_resource type="Script" uid="uid://du68ct0nprjuy" path="res://Scripts/UI/xor_button.gd" id="4_ngy7l"]
+[ext_resource type="PackedScene" uid="uid://w5qni7fw8e6t" path="res://Scenes/UI/settings.tscn" id="5_joqkp"]
+[ext_resource type="PackedScene" uid="uid://cq3jtapqvyk22" path="res://Scenes/UI/keybinds.tscn" id="6_ec4o1"]
+
+[node name="Options" type="Node2D" unique_id=685411329]
+script = ExtResource("1_fdqpn")
+
+[node name="UI_Background" parent="." unique_id=266321983 instance=ExtResource("2_lj24i")]
+
+[node name="Button" parent="." unique_id=1314000419 instance=ExtResource("3_y7b1q")]
+offset_left = 30.0
+offset_top = 970.0
+offset_right = 283.0
+offset_bottom = 1045.0
+text = "Return to Game"
+
+[node name="Settings" parent="." unique_id=1203979265 node_paths=PackedStringArray("other_categories") instance=ExtResource("3_y7b1q")]
+offset_left = 30.0
+offset_top = 236.0
+offset_right = 283.0
+offset_bottom = 311.0
+text = "Settings"
+script = ExtResource("4_ngy7l")
+other_categories = [NodePath("../Keybinds")]
+
+[node name="OptionsMenu" parent="Settings" unique_id=651911818 instance=ExtResource("5_joqkp")]
+visible = false
+layout_mode = 0
+offset_left = 233.0
+offset_top = -209.0
+offset_right = 233.0
+offset_bottom = -209.0
+mouse_filter = 2
+
+[node name="Keybinds" parent="." unique_id=750341588 node_paths=PackedStringArray("other_categories") instance=ExtResource("3_y7b1q")]
+offset_left = 30.0
+offset_top = 474.0
+offset_right = 283.0
+offset_bottom = 549.0
+text = "Keybinds"
+script = ExtResource("4_ngy7l")
+other_categories = [NodePath("../Settings")]
+
+[node name="Keybinds" parent="Keybinds" unique_id=1089213491 instance=ExtResource("6_ec4o1")]
+visible = false
+layout_mode = 0
+offset_left = 233.0
+offset_top = -446.0
+offset_right = 233.0
+offset_bottom = -446.0
+mouse_filter = 2
+
+[node name="exit" parent="." unique_id=788206626 instance=ExtResource("3_y7b1q")]
+unique_name_in_owner = true
+offset_left = 30.0
+offset_top = 805.0
+offset_right = 283.0
+offset_bottom = 880.0
+text = "Exit to Menu"
+
+[connection signal="pressed" from="Button" to="." method="_return_pressed"]
+[connection signal="pressed" from="exit" to="." method="_exit_pressed"]

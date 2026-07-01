@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dbydq5xc2copp"]
+
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Scenes/UI/UI_Background.tscn" id="1_u8hdi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8el2f"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1494872730]
+layer = 128
+
+[node name="UI_Background" parent="." unique_id=299081113 instance=ExtResource("1_u8hdi")]
+
+[node name="SceneLoadingProgressBar" type="TextureProgressBar" parent="." unique_id=791079150]
+offset_left = 715.0
+offset_top = 848.0
+offset_right = 2635.0
+offset_bottom = 1388.0
+scale = Vector2(0.25, 0.25)
+size_flags_vertical = 4
+value = 1.0
+
+[node name="LoadingTexts" type="Label" parent="." unique_id=1942418645]
+offset_left = 646.0
+offset_top = 962.0
+offset_right = 1263.0
+offset_bottom = 1028.0
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="Node2D" parent="." unique_id=1568082148]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ProgressBar" unique_id=115927846]
+position = Vector2(960.00006, 850.00006)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_8el2f")
+autoplay = "default"

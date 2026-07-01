@@ -4,6 +4,8 @@
 
 # Godot-specific ignores
 .import/
+*.import/
+*.import
 export.cfg
 export_credentials.cfg
 *.tmp
@@ -15,3 +17,9 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Editor and IDE directories
+.vscode/
+.idea/
+*.sln
+*.csproj

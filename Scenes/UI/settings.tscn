@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://w5qni7fw8e6t"]
+
+[ext_resource type="Script" uid="uid://cip1txbi5pegd" path="res://Scripts/UI/Options/settings.gd" id="1_v5qja"]
+[ext_resource type="PackedScene" uid="uid://bsygl5ah3gmhv" path="res://Scenes/UI/slider.tscn" id="6_jf2m2"]
+
+[node name="OptionsMenu" type="Control" unique_id=651911818]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 320.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_v5qja")
+
+[node name="Titel" type="Label" parent="." unique_id=1709145628]
+z_index = 2
+layout_mode = 0
+offset_left = 791.0
+offset_top = 25.0
+offset_right = 1128.0
+offset_bottom = 138.0
+theme_override_font_sizes/font_size = 36
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="." unique_id=1376970645]
+z_index = 2
+layout_mode = 0
+offset_left = 423.0
+offset_top = 276.0
+offset_right = 757.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 24
+text = "Music"
+horizontal_alignment = 1
+
+[node name="Music Volume" parent="." unique_id=1166674059 instance=ExtResource("6_jf2m2")]
+
+[node name="Sound" type="Label" parent="." unique_id=915224658]
+z_index = 2
+layout_mode = 0
+offset_left = 1074.0
+offset_top = 276.0
+offset_right = 1412.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 24
+text = "Sound"
+horizontal_alignment = 1
+
+[node name="Sound Volume" parent="." unique_id=1869480924 instance=ExtResource("6_jf2m2")]

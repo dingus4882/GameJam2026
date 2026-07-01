@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cl60a21tuu74r"]
+
+[ext_resource type="Script" uid="uid://dwi1gplwqsk82" path="res://Scripts/UI/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Scenes/UI/UI_Background.tscn" id="8_kl3t2"]
+[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Scenes/UI/button.tscn" id="11_dvisc"]
+
+[node name="MainMenu" type="Control" unique_id=1544638842]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1960.0
+offset_bottom = 1080.0
+script = ExtResource("1_1ehe0")
+
+[node name="UI_Background" parent="." unique_id=1972084934 instance=ExtResource("8_kl3t2")]
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=1964222502]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 0
+offset_left = 760.0
+offset_top = 416.0
+offset_right = 1160.0
+offset_bottom = 1016.0
+
+[node name="Button" parent="Buttons" unique_id=1314000419 instance=ExtResource("11_dvisc")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Game / Levels"
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons" unique_id=1169918062]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Button2" parent="Buttons" unique_id=1023722645 instance=ExtResource("11_dvisc")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Settings"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Buttons" unique_id=387234991]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Button3" parent="Buttons" unique_id=575893851 instance=ExtResource("11_dvisc")]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+disabled = true
+text = "Credits"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Buttons" unique_id=963930071]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+
+[node name="Button4" parent="Buttons" unique_id=942318106 instance=ExtResource("11_dvisc")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/Button" to="." method="_game_selection_pressed"]
+[connection signal="pressed" from="Buttons/Button2" to="." method="_settings_pressed"]
+[connection signal="pressed" from="Buttons/Button3" to="." method="_credits_pressed"]
+[connection signal="pressed" from="Buttons/Button4" to="." method="_end_game_pressed"]

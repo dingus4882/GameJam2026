@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dl1li43ls2rps"]
+
+[ext_resource type="Texture2D" uid="uid://4khmtavm85b7" path="res://icon.svg" id="1_bg351"]
+[ext_resource type="Texture2D" uid="uid://dwr3tgndxql0i" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
+
+[sub_resource type="GDScript" id="GDScript_ui_bg"]
+script/source = "extends Node2D
+
+func _ready():
+	var parent = get_parent()
+	if parent is CanvasLayer and parent.layer < 0:
+		$ClickBlocker.mouse_filter = Control.MOUSE_FILTER_IGNORE
+"
+
+[sub_resource type="Environment" id="Environment_bg351"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 2.0
+glow_strength = 1.2
+
+[node name="UI_Background" type="Node2D" unique_id=266321983]
+script = SubResource("GDScript_ui_bg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=468981070]
+modulate = Color(1, 1, 1, 0.34509805)
+position = Vector2(964, 512)
+scale = Vector2(15, 15)
+texture = ExtResource("1_bg351")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=406515797]
+environment = SubResource("Environment_bg351")
+
+[node name="ClickBlocker" type="Control" parent="." unique_id=762757794]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Label2" type="Label" parent="." unique_id=1540224410]
+offset_left = 1673.0
+offset_top = 923.0
+offset_right = 2273.9937
+offset_bottom = 1097.9993
+theme_override_font_sizes/font_size = 46
+text = "Made with"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=497049081]
+position = Vector2(1789, 1028)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_i5j4f")

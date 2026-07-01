@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://cq3jtapqvyk22"]
+
+[ext_resource type="Script" uid="uid://qg30d4ja51e5" path="res://Scripts/UI/Options/keybinds.gd" id="1_wl70v"]
+[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Scenes/UI/button.tscn" id="2_fv62c"]
+[ext_resource type="Script" uid="uid://dfbh5lrcv760a" path="res://Scripts/UI/button.gd" id="3_f6rh0"]
+
+[node name="Keybinds" type="Control" unique_id=981403807]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 319.0
+offset_right = 1919.0
+offset_bottom = 1080.0
+script = ExtResource("1_wl70v")
+
+[node name="Titles" type="HBoxContainer" parent="." unique_id=1170933651]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 0
+offset_left = 435.0
+offset_top = 177.0
+offset_right = 1636.0
+offset_bottom = 277.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Titles" unique_id=1441405443]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="Titles" unique_id=1724644551]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Keytype"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Titles/name" unique_id=544432849]
+modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
+z_index = -1
+position = Vector2(79, 13)
+scale = Vector2(0.1, 0.1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="Titles" unique_id=1244308643]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="name2" type="Label" parent="Titles" unique_id=2040197126]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Input 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Titles/name2" unique_id=382265344]
+modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
+z_index = -1
+position = Vector2(72, 13)
+scale = Vector2(0.1, 0.1)
+
+[node name="MarginContainer3" type="MarginContainer" parent="Titles" unique_id=8603340]
+custom_minimum_size = Vector2(204, 0)
+layout_mode = 2
+
+[node name="MarginContainer4" type="MarginContainer" parent="Titles" unique_id=1865912303]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="name4" type="Label" parent="Titles" unique_id=1303403829]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Input 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Titles/name4" unique_id=891481769]
+modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
+z_index = -1
+position = Vector2(72, 13)
+scale = Vector2(0.1, 0.1)
+
+[node name="MarginContainer5" type="MarginContainer" parent="Titles" unique_id=222291726]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Buttons" type="ScrollContainer" parent="." unique_id=427927229]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 261.0
+offset_right = 1563.0
+offset_bottom = 1011.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttons" unique_id=1408956629]
+custom_minimum_size = Vector2(1000, 750)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons/VBoxContainer" unique_id=1183033506]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Keybind0" type="HBoxContainer" parent="Buttons/VBoxContainer" unique_id=1178196536]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+alignment = 2
+
+[node name="warning_MarginContainer" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=151358713]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="warning" type="Label" parent="Buttons/VBoxContainer/Keybind0" unique_id=1353442408]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Duplicate"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/warning" unique_id=2043337974]
+modulate = Color(1, 0, 0, 1)
+z_index = -1
+position = Vector2(79, 13)
+scale = Vector2(0.1, 0.1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=976885074]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="name" type="Label" parent="Buttons/VBoxContainer/Keybind0" unique_id=884510061]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Keytype"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/name" unique_id=1546814620]
+z_index = -1
+position = Vector2(79, 13)
+scale = Vector2(0.1, 0.1)
+
+[node name="MarginContainer2" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=684666984]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="input1" type="Label" parent="Buttons/VBoxContainer/Keybind0" unique_id=1048230326]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Input 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/input1" unique_id=799354021]
+z_index = -1
+position = Vector2(72, 13)
+scale = Vector2(0.1, 0.1)
+
+[node name="MarginContainer3" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=260948721]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="change1" parent="Buttons/VBoxContainer/Keybind0" unique_id=1314000419 instance=ExtResource("2_fv62c")]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+script = ExtResource("3_f6rh0")
+
+[node name="MarginContainer4" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=1444992555]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="input2" type="Label" parent="Buttons/VBoxContainer/Keybind0" unique_id=1534606882]
+custom_minimum_size = Vector2(150, 20)
+layout_mode = 2
+text = "Input 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/input2" unique_id=1030889326]
+z_index = -1
+position = Vector2(72, 13)
+scale = Vector2(0.1, 0.1)
+
+[node name="MarginContainer5" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=1971334328]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="change2" parent="Buttons/VBoxContainer/Keybind0" unique_id=1314960516 instance=ExtResource("2_fv62c")]
+layout_mode = 2
+
+[node name="Decorations" type="Node2D" parent="." unique_id=542191981]
+
+[node name="Titel" type="Label" parent="Decorations" unique_id=1072485294]
+z_index = 2
+offset_left = 791.0
+offset_top = 23.0
+offset_right = 1129.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 36
+text = "Keybinds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=83466348]
+z_index = 1
+position = Vector2(960, 80)
+scale = Vector2(0.2, 0.2)
+
+[connection signal="mouse_entered" from="Buttons/VBoxContainer/Keybind0/change1" to="Buttons/VBoxContainer/Keybind0/change1" method="hover_start"]
+[connection signal="mouse_exited" from="Buttons/VBoxContainer/Keybind0/change1" to="Buttons/VBoxContainer/Keybind0/change1" method="hover_end"]
+[connection signal="pressed" from="Buttons/VBoxContainer/Keybind0/change1" to="Buttons/VBoxContainer/Keybind0/change1" method="on_press"]
