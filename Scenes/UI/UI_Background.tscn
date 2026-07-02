@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dl1li43ls2rps"]
 
-[ext_resource type="Texture2D" uid="uid://4khmtavm85b7" path="res://icon.svg" id="1_bg351"]
-[ext_resource type="Texture2D" uid="uid://dwr3tgndxql0i" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
+[ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="1_bg351"]
+[ext_resource type="Texture2D" uid="uid://cnysgy8hj2gmm" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
 
 [sub_resource type="GDScript" id="GDScript_ui_bg"]
 script/source = "extends Node2D
