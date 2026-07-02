@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dbn7phfs4fq0o"]
+
+[ext_resource type="Texture2D" uid="uid://gk44vvw8hg3g" path="res://Sprites/FastStarter.png" id="1_cxytt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1dfe"]
+atlas = ExtResource("1_cxytt")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgkwl"]
+atlas = ExtResource("1_cxytt")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1dfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgkwl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(10, 13)
+
+[node name="FastEnemy" type="Node2D" unique_id=2025786892]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1516798216]
+position = Vector2(-11, -12.000001)
+scale = Vector2(0.65294117, 0.7380952)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame_progress = 0.5993464
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1183401433]
+position = Vector2(-1, -8.5)
+shape = SubResource("RectangleShape2D_g4v7s")

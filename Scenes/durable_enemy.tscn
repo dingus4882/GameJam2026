@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://coy6yav0mtg3f"]
+
+[ext_resource type="Texture2D" uid="uid://vir7akipn8su" path="res://Sprites/DurableStarter.png" id="1_2klqh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjo1g"]
+atlas = ExtResource("1_2klqh")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8kdw"]
+atlas = ExtResource("1_2klqh")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_squ0a"]
+atlas = ExtResource("1_2klqh")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjo1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8kdw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_squ0a")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(17, 14)
+
+[node name="DurableEnemy" type="Node2D" unique_id=1791129900]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=141873186]
+position = Vector2(14, -16)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1622669813]
+position = Vector2(-1.5, -9)
+shape = SubResource("RectangleShape2D_g4v7s")
