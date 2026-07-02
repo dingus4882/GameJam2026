@@ -1,8 +1,8 @@
 extends Control
 
 func _ready() -> void:
-	%Button4.visible = !VariableController.is_running_embedded
-	%Button4.disabled = VariableController.is_running_embedded
+	%Quit.visible = !VariableController.is_running_embedded
+	%Quit.disabled = VariableController.is_running_embedded
 
 func _credits_pressed ():
 	SceneLoader.load_scene(SceneLoader.Scenes.CREDITS)

@@ -6,22 +6,32 @@
 
 [node name="MainMenu" type="Control" unique_id=1544638842]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1960.0
-offset_bottom = 1080.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_1ehe0")
 
 [node name="UI_Background" parent="." unique_id=1972084934 instance=ExtResource("8_kl3t2")]
+layout_mode = 1
 
 [node name="Buttons" type="VBoxContainer" parent="." unique_id=1964222502]
 custom_minimum_size = Vector2(400, 600)
-layout_mode = 0
-offset_left = 760.0
-offset_top = 416.0
-offset_right = 1160.0
-offset_bottom = 1016.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -300.0
+offset_right = 200.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Button" parent="Buttons" unique_id=1314000419 instance=ExtResource("11_dvisc")]
+[node name="Game_Levels" parent="Buttons" unique_id=1314000419 instance=ExtResource("11_dvisc")]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "Game / Levels"
@@ -30,7 +40,7 @@ text = "Game / Levels"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Button2" parent="Buttons" unique_id=1023722645 instance=ExtResource("11_dvisc")]
+[node name="Settings" parent="Buttons" unique_id=1023722645 instance=ExtResource("11_dvisc")]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "Settings"
@@ -39,7 +49,7 @@ text = "Settings"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Button3" parent="Buttons" unique_id=575893851 instance=ExtResource("11_dvisc")]
+[node name="Credits" parent="Buttons" unique_id=575893851 instance=ExtResource("11_dvisc")]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 disabled = true
@@ -49,13 +59,13 @@ text = "Credits"
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="Button4" parent="Buttons" unique_id=942318106 instance=ExtResource("11_dvisc")]
+[node name="Quit" parent="Buttons" unique_id=942318106 instance=ExtResource("11_dvisc")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="Buttons/Button" to="." method="_game_selection_pressed"]
-[connection signal="pressed" from="Buttons/Button2" to="." method="_settings_pressed"]
-[connection signal="pressed" from="Buttons/Button3" to="." method="_credits_pressed"]
-[connection signal="pressed" from="Buttons/Button4" to="." method="_end_game_pressed"]
+[connection signal="pressed" from="Buttons/Game_Levels" to="." method="_game_selection_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_settings_pressed"]
+[connection signal="pressed" from="Buttons/Credits" to="." method="_credits_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_end_game_pressed"]

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnysgy8hj2gmm" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
 
 [sub_resource type="GDScript" id="GDScript_ui_bg"]
-script/source = "extends Node2D
+script/source = "extends Control
 
 func _ready():
 	var parent = get_parent()
@@ -18,34 +18,77 @@ glow_enabled = true
 glow_intensity = 2.0
 glow_strength = 1.2
 
-[node name="UI_Background" type="Node2D" unique_id=266321983]
+[node name="UI_Background" type="Control" unique_id=1357555529]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = SubResource("GDScript_ui_bg")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=468981070]
-modulate = Color(1, 1, 1, 0.34509805)
-position = Vector2(964, 512)
-scale = Vector2(15, 15)
-texture = ExtResource("1_bg351")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=406515797]
 environment = SubResource("Environment_bg351")
 
 [node name="ClickBlocker" type="Control" parent="." unique_id=762757794]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="Label2" type="Label" parent="." unique_id=1540224410]
-offset_left = 1673.0
-offset_top = 923.0
-offset_right = 2273.9937
-offset_bottom = 1097.9993
-theme_override_font_sizes/font_size = 46
-text = "Made with"
-metadata/_edit_use_anchors_ = true
+[node name="Back_gound" type="Control" parent="." unique_id=1478036431]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=497049081]
-position = Vector2(1789, 1028)
+[node name="Background" type="TextureRect" parent="Back_gound" unique_id=1229684070]
+modulate = Color(1, 1, 1, 0.34509805)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -275.0
+offset_right = 275.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_bg351")
+expand_mode = 1
+
+[node name="Credits" type="Control" parent="." unique_id=97512140]
+layout_mode = 1
+anchor_left = 0.86614585
+anchor_top = 0.90462965
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+
+[node name="Credits" type="TextureRect" parent="Credits" unique_id=1477047747]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -103.0
+offset_right = 687.0
+offset_bottom = 230.0
+grow_horizontal = 0
+grow_vertical = 0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_i5j4f")
+
+[node name="Text" type="Label" parent="Credits" unique_id=1540224410]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -53.0
+offset_right = 603.99365
+offset_bottom = 121.99927
+theme_override_font_sizes/font_size = 46
+text = "Made with"
