@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://coy6yav0mtg3f"]
 
 [ext_resource type="Texture2D" uid="uid://vir7akipn8su" path="res://Sprites/DurableStarter.png" id="1_2klqh"]
+[ext_resource type="PackedScene" uid="uid://cmvn7t6ppu3ir" path="res://Scenes/killzone.tscn" id="2_wjo1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjo1g"]
 atlas = ExtResource("1_2klqh")
@@ -40,6 +41,9 @@ size = Vector2(17, 14)
 position = Vector2(14, -16)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1622669813]
-position = Vector2(-1.5, -9)
+[node name="Killzone" parent="." unique_id=465615600 instance=ExtResource("2_wjo1g")]
+position = Vector2(-1, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1622669813]
+position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_g4v7s")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://2vc7kwnwu0dg"]
 
 [ext_resource type="Texture2D" uid="uid://c036iudjvwmg7" path="res://Sprites/StrongStarter.png" id="1_nb7h0"]
+[ext_resource type="PackedScene" uid="uid://cmvn7t6ppu3ir" path="res://Scenes/killzone.tscn" id="2_vwpjo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb7h0"]
 atlas = ExtResource("1_nb7h0")
@@ -41,6 +42,10 @@ position = Vector2(5, -10)
 scale = Vector2(0.6, 0.64285713)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=508872512]
-position = Vector2(-1, -5.25)
+[node name="Killzone" parent="." unique_id=465615600 instance=ExtResource("2_vwpjo")]
+position = Vector2(-9, -6)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=508872512]
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_g4v7s")

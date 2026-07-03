@@ -43,3 +43,11 @@ func _update_animation():
 	# This check prevents the animation from restarting on every frame.
 	if animated_sprite.animation != new_anim:
 		animated_sprite.play(new_anim)
+
+var level = 0
+var EXP = 1
+
+func _process(_delta: float) -> void:
+	while EXP <=  5 + (level * 5):
+		if EXP == 5 + (level * 5):
+			level += 1

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c32jssom1fpmh"]
 
 [ext_resource type="Script" uid="uid://cf7c6jwjonv1m" path="res://Scenes/Game/player.gd" id="1_xxwah"]
-[ext_resource type="Texture2D" uid="uid://bw6ycjauy1x5p" path="res://Sprites/BrainlessgamejamGETO1.png" id="2_lq2ly"]
+[ext_resource type="Texture2D" uid="uid://dxkixoldjikna" path="res://Sprites/BrainlessgamejamGETO1.png" id="2_lq2ly"]
 
 [sub_resource type="Animation" id="Animation_lq2ly"]
 resource_name = "idle"
@@ -86,6 +86,7 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1310183170]
 scale = Vector2(4, 4)
+collision_layer = 2
 script = ExtResource("1_xxwah")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812563504]
@@ -99,4 +100,3 @@ position = Vector2(0.5, -13.75)
 sprite_frames = SubResource("SpriteFrames_ps246")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.77479225
