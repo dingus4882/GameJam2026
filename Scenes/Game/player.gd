@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 300.0
-@export var jump_velocity = -400.0
+@export var speed = 500.0
+@export var jump_velocity = -600.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -35,8 +35,10 @@ func _update_animation():
 	elif velocity.x < 0:
 		animated_sprite.flip_h = true
 
-	# Determine which animation to play. For now, we only have "idle".
+	# Determine which animation to play.
 	var new_anim = "idle"
+	if is_on_floor() and not is_zero_approx(velocity.x):
+		new_anim = "walk"
 
 	# This check prevents the animation from restarting on every frame.
 	if animated_sprite.animation != new_anim:

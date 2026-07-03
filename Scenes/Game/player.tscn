@@ -15,33 +15,73 @@ _data = {
 radius = 5.0
 height = 47.5
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq2ly"]
+atlas = ExtResource("2_lq2ly")
+region = Rect2(0, 0, 50, 75)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjqwj"]
 atlas = ExtResource("2_lq2ly")
-region = Rect2(0, 0, 50, 48)
+region = Rect2(0, 75, 50, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jfvq"]
 atlas = ExtResource("2_lq2ly")
-region = Rect2(0, 48, 50, 48)
+region = Rect2(0, 150, 50, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3abv"]
 atlas = ExtResource("2_lq2ly")
-region = Rect2(0, 96, 50, 48)
+region = Rect2(50, 0, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vi63e"]
+atlas = ExtResource("2_lq2ly")
+region = Rect2(50, 75, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajor6"]
+atlas = ExtResource("2_lq2ly")
+region = Rect2(50, 150, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssbfe"]
+atlas = ExtResource("2_lq2ly")
+region = Rect2(50, 225, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pet2p"]
+atlas = ExtResource("2_lq2ly")
+region = Rect2(50, 300, 50, 75)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ps246"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_lq2ly")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sjqwj")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8jfvq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n3abv")
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 2.0
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3abv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vi63e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajor6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ssbfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pet2p")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 15.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1310183170]
@@ -55,7 +95,8 @@ libraries/ = SubResource("AnimationLibrary_sjqwj")
 shape = SubResource("CapsuleShape2D_4hbra")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2118874258]
-position = Vector2(0.5, 0)
+position = Vector2(0.5, -13.75)
 sprite_frames = SubResource("SpriteFrames_ps246")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.77479225
