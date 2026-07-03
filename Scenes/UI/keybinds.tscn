@@ -178,6 +178,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="change2" parent="Buttons/VBoxContainer/Keybind0" unique_id=1314960516 instance=ExtResource("2_fv62c")]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
 [node name="Decorations" type="Node2D" parent="." unique_id=542191981]

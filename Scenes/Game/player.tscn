@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c32jssom1fpmh"]
+
+[ext_resource type="Script" uid="uid://cf7c6jwjonv1m" path="res://Scenes/Game/player.gd" id="1_xxwah"]
+[ext_resource type="Texture2D" uid="uid://bw6ycjauy1x5p" path="res://Sprites/BrainlessgamejamGETO1.png" id="2_lq2ly"]
+
+[sub_resource type="Animation" id="Animation_lq2ly"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjqwj"]
+_data = {
+&"idle": SubResource("Animation_lq2ly")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hbra"]
+radius = 5.0
+height = 47.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjqwj"]
+atlas = ExtResource("2_lq2ly")
+region = Rect2(0, 0, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jfvq"]
+atlas = ExtResource("2_lq2ly")
+region = Rect2(0, 48, 50, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3abv"]
+atlas = ExtResource("2_lq2ly")
+region = Rect2(0, 96, 50, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps246"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjqwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jfvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3abv")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 2.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1310183170]
+scale = Vector2(4, 4)
+script = ExtResource("1_xxwah")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812563504]
+libraries/ = SubResource("AnimationLibrary_sjqwj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636077142]
+shape = SubResource("CapsuleShape2D_4hbra")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2118874258]
+position = Vector2(0.5, 0)
+sprite_frames = SubResource("SpriteFrames_ps246")
+animation = &"idle"
+autoplay = "idle"
