@@ -30,7 +30,7 @@ const CHUNK_SIZE = 64
 var num_chunks_x = 1
 var num_chunks_y = 1
 var total_chunks := 0
-var processed_chunks := 0
+var processed_chunks := 0.0
 
 func _ready():
 	# Disable all UI/Button interactions globally

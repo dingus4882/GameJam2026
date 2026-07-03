@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbn7phfs4fq0o"]
 
-[ext_resource type="Texture2D" uid="uid://gk44vvw8hg3g" path="res://Sprites/FastStarter.png" id="1_cxytt"]
+[ext_resource type="Texture2D" uid="uid://gk44vvw8hg3g" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="1_cxytt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1dfe"]
 atlas = ExtResource("1_cxytt")

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cl60a21tuu74r"]
 
-[ext_resource type="Script" uid="uid://dwi1gplwqsk82" path="res://Scripts/UI/main_menu.gd" id="1_1ehe0"]
-[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Scenes/UI/UI_Background.tscn" id="8_kl3t2"]
-[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Scenes/UI/button.tscn" id="11_dvisc"]
+[ext_resource type="Script" uid="uid://dwi1gplwqsk82" path="res://Main/UI/Main_menu_screen/main_menu.gd" id="1_pcp5t"]
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Main/UI/UI_Background.tscn" id="2_hhena"]
+[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Main/UI/button.tscn" id="3_rnxqk"]
 
 [node name="MainMenu" type="Control" unique_id=1544638842]
 layout_mode = 3
@@ -11,9 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1ehe0")
+script = ExtResource("1_pcp5t")
 
-[node name="UI_Background" parent="." unique_id=1972084934 instance=ExtResource("8_kl3t2")]
+[node name="UI_Background" parent="." unique_id=1972084934 instance=ExtResource("2_hhena")]
 layout_mode = 1
 
 [node name="Buttons" type="VBoxContainer" parent="." unique_id=1964222502]
@@ -31,7 +31,7 @@ offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Game_Levels" parent="Buttons" unique_id=1314000419 instance=ExtResource("11_dvisc")]
+[node name="Game_Levels" parent="Buttons" unique_id=1314000419 instance=ExtResource("3_rnxqk")]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "Game / Levels"
@@ -40,7 +40,7 @@ text = "Game / Levels"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Settings" parent="Buttons" unique_id=1023722645 instance=ExtResource("11_dvisc")]
+[node name="Settings" parent="Buttons" unique_id=1023722645 instance=ExtResource("3_rnxqk")]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "Settings"
@@ -49,7 +49,7 @@ text = "Settings"
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Credits" parent="Buttons" unique_id=575893851 instance=ExtResource("11_dvisc")]
+[node name="Credits" parent="Buttons" unique_id=575893851 instance=ExtResource("3_rnxqk")]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 disabled = true
@@ -59,7 +59,7 @@ text = "Credits"
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
-[node name="Quit" parent="Buttons" unique_id=942318106 instance=ExtResource("11_dvisc")]
+[node name="Quit" parent="Buttons" unique_id=942318106 instance=ExtResource("3_rnxqk")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2

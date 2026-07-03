@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dbydq5xc2copp"]
 
-[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Scenes/UI/UI_Background.tscn" id="1_u8hdi"]
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Main/UI/UI_Background.tscn" id="1_d378u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8el2f"]
 animations = [{
 "frames": [],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 0.0
 }]
@@ -13,7 +13,7 @@ animations = [{
 [node name="LoadingScreen" type="CanvasLayer" unique_id=1494872730]
 layer = 128
 
-[node name="UI_Background" parent="." unique_id=299081113 instance=ExtResource("1_u8hdi")]
+[node name="UI_Background" parent="." unique_id=299081113 instance=ExtResource("1_d378u")]
 
 [node name="SceneLoadingProgressBar" type="TextureProgressBar" parent="." unique_id=791079150]
 offset_left = 715.0

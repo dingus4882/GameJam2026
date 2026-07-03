@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsygl5ah3gmhv"]
 
-[ext_resource type="Script" uid="uid://ba3qcj08cxh6v" path="res://Scripts/UI/slider.gd" id="1_slider_script"]
+[ext_resource type="Script" uid="uid://ba3qcj08cxh6v" path="res://Main/UI/slider.gd" id="1_slider_script"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m2k1j"]
 animations = [{
@@ -308,7 +308,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 0.0
 }]
