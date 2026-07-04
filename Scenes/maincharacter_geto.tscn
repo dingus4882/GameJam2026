@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dgsio5l1os5rl"]
+
+[ext_resource type="Texture2D" path="res://Sprites/BrainlessgamejamGETO1.png" id="1_3mqsd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0aigr"]
+atlas = ExtResource("1_3mqsd")
+region = Rect2(0, 0, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2gkk"]
+atlas = ExtResource("1_3mqsd")
+region = Rect2(0, 48, 64, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_legk6"]
+atlas = ExtResource("1_3mqsd")
+region = Rect2(0, 96, 64, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_taruv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0aigr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2gkk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_legk6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w48ex"]
+size = Vector2(7, 46)
+
+[node name="MaincharacterGETO" type="CharacterBody2D" unique_id=108096032]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=326044871]
+position = Vector2(7, -24)
+sprite_frames = SubResource("SpriteFrames_taruv")
+frame = 2
+frame_progress = 0.30272853
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=836642067]
+position = Vector2(-0.5, -24)
+shape = SubResource("RectangleShape2D_w48ex")

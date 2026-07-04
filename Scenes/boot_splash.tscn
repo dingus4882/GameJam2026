@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dpqrkck74edu2"]
+
+[ext_resource type="PackedScene" path="res://Scenes/UI/UI_Background.tscn" id="1_6igev"]
+[ext_resource type="Script" path="res://Scripts/UI/boot_splash.gd" id="1_k6n68"]
+
+[sub_resource type="Animation" id="Animation_k6n68"]
+resource_name = "boot_splash"
+length = 5.0
+step = 0.0055555557
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ye1pq"]
+_data = {
+&"boot_splash": SubResource("Animation_k6n68")
+}
+
+[node name="BootSplash" type="Control" unique_id=541929090]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k6n68")
+
+[node name="UI_Background" parent="." unique_id=1248700291 instance=ExtResource("1_6igev")]
+z_index = -5
+layout_mode = 1
+
+[node name="ContinueLabel" type="Label" parent="." unique_id=363399838]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -200.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Press any button to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1283905410]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_ye1pq")
+autoplay = &"boot_splash"
