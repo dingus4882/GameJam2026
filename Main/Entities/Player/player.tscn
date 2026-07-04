@@ -128,7 +128,6 @@ position = Vector2(20.75, 0)
 
 [node name="JumpComponent" type="Node" parent="." unique_id=832193259]
 script = ExtResource("5_r86g3")
-max_extra_jumps = 2
 metadata/_custom_type_script = "uid://1u2c2e41771e"
 
 [node name="Coyote_jump" type="Node" parent="JumpComponent" unique_id=534372789]

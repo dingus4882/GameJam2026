@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dbn7phfs4fq0o"]
 
+[ext_resource type="Script" uid="uid://b60spjuu4qpyh" path="res://Main/Entities/Fast_enemy/fast_enemy.gd" id="1_76r8s"]
 [ext_resource type="Texture2D" uid="uid://dm4edw2it7ch5" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="1_cxytt"]
 [ext_resource type="PackedScene" uid="uid://cmvn7t6ppu3ir" path="res://Main/Map/Kill_zone/killzone.tscn" id="2_k1dfe"]
 
@@ -26,21 +27,29 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(10, 13)
+size = Vector2(105, 118)
 
 [node name="FastEnemy" type="Node2D" unique_id=2025786892]
+script = ExtResource("1_76r8s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1516798216]
-position = Vector2(-11, -12.000001)
-scale = Vector2(0.65294117, 0.7380952)
+position = Vector2(-114, -116)
+scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
-frame_progress = 0.5993464
 
 [node name="Killzone" parent="." unique_id=465615600 instance=ExtResource("2_k1dfe")]
 position = Vector2(-1, -9)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1183401433]
-position = Vector2(0, 0.5)
+position = Vector2(-13, -69)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=2129938638]
+position = Vector2(28, -48)
+target_position = Vector2(70, 1)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1401228423]
+position = Vector2(-50, -49)
+target_position = Vector2(-49, 2)

@@ -34,14 +34,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
-size = Vector2(75, 79.75)
+size = Vector2(131, 141.875)
 
 [node name="StrongEnemy" type="Node2D" unique_id=206408161]
 script = ExtResource("1_ocipj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827702322]
-position = Vector2(41.999996, -77)
-scale = Vector2(4.346079, 4.8794646)
+position = Vector2(88.04375, -140)
+scale = Vector2(8.037498, 8.689733)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
 
@@ -50,13 +50,13 @@ position = Vector2(-9, -6)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=508872512]
-position = Vector2(7.5, -35.125)
+position = Vector2(17.5, -66.0625)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1357909276]
-position = Vector2(0, -41)
-target_position = Vector2(45, 0)
+position = Vector2(8, -72)
+target_position = Vector2(82, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=2139001939]
-position = Vector2(-1, -41)
-target_position = Vector2(-48, 0)
+position = Vector2(9, -72)
+target_position = Vector2(-84, -1)
