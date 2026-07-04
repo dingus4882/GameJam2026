@@ -40,7 +40,7 @@ size = Vector2(131, 141.875)
 script = ExtResource("1_ocipj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=827702322]
-position = Vector2(88.04375, -140)
+position = Vector2(87.00001, -140)
 scale = Vector2(8.037498, 8.689733)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
@@ -55,8 +55,8 @@ shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="RayCastRight" type="RayCast2D" parent="." unique_id=1357909276]
 position = Vector2(8, -72)
-target_position = Vector2(82, 0)
+target_position = Vector2(294, -2)
 
 [node name="RayCastLeft" type="RayCast2D" parent="." unique_id=2139001939]
 position = Vector2(9, -72)
-target_position = Vector2(-84, -1)
+target_position = Vector2(-133, 1)
