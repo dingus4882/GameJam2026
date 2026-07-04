@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bs20oy4bpbibq"]
+
+[ext_resource type="Script" uid="uid://gp3lr46neu20" path="res://Components/For-Players_parts/Player_component/player_component.gd" id="1_5ih5o"]
+[ext_resource type="Script" uid="uid://divgrg1t3n3ta" path="res://Main/Entities/Player/camera.gd" id="2_xthyn"]
+
+[node name="PlayerComponent" type="Node2D" unique_id=1842573424]
+script = ExtResource("1_5ih5o")
+metadata/_custom_type_script = "uid://gp3lr46neu20"
+
+[node name="Camera2D2" type="Camera2D" parent="." unique_id=1543759895]
+script = ExtResource("2_xthyn")

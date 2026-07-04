@@ -21,7 +21,7 @@ func _load_scene():
 	level_dict[Scenes.SETTINGS]						= "res://Main/UI/Options/options_combined.tscn"
 	#level_dict[Scenes.GAME_SELECTION]				= "res://Scenes/UI/game_selection.tscn"
 	#level_dict[Scenes.CREDITS]   					= "res://Scenes/UI/credits.tscn"
-	level_dict[Scenes.GAME]   						= "res://Main/Game/level.tscn"
+	level_dict[Scenes.GAME]   						= "res://Scenes/Game/level.tscn"
 
 var active_preloads: Array = []
 var unloading_queue: Array = []

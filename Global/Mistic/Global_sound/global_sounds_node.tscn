@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cqghto3bhn7ey"]
+
+[ext_resource type="AudioStream" uid="uid://ecjl1tg3yfyf" path="res://Global/Global_sound/turtle game - beach map loop.wav" id="1_jgg7d"]
+[ext_resource type="Script" uid="uid://ijly0vqrq0vd" path="res://Global/Global_sound/Global_sound.gd" id="1_y8m3a"]
+[ext_resource type="AudioStream" uid="uid://b5vv2bf6nikve" path="res://Global/Global_sound/turtle game - main menu theme.wav" id="2_ygl8b"]
+[ext_resource type="AudioStream" uid="uid://yikips42cs4n" path="res://Global/Global_sound/turtle game - sewers theme.wav" id="3_xh6g4"]
+[ext_resource type="AudioStream" uid="uid://xfb6txmn6qq5" path="res://Global/Global_sound/turtle game - forest map melody loop.wav" id="4_cixqc"]
+
+[node name="Global_sounds_node" type="Node" unique_id=578013398]
+script = ExtResource("1_y8m3a")
+
+[node name="Beach" type="AudioStreamPlayer" parent="." unique_id=762210549]
+stream = ExtResource("1_jgg7d")
+
+[node name="Forest" type="AudioStreamPlayer" parent="." unique_id=1490432007]
+stream = ExtResource("1_jgg7d")
+
+[node name="Main_menu" type="AudioStreamPlayer" parent="." unique_id=830146978]
+stream = ExtResource("2_ygl8b")
+
+[node name="Sewers" type="AudioStreamPlayer" parent="." unique_id=12916614]
+stream = ExtResource("3_xh6g4")
+
+[node name="Village" type="AudioStreamPlayer" parent="." unique_id=1247109373]
+stream = ExtResource("4_cixqc")

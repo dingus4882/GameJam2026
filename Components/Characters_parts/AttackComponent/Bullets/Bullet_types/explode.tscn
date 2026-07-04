@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b7jhrboox403v"]
+
+[ext_resource type="Script" uid="uid://bpbc3drlvjiou" path="res://Components/Characters_parts/AttackComponent/Bullets/bullet.gd" id="1_ra6mi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xue2p"]
+radius = 43.0
+
+[node name="Explode" type="Area2D" unique_id=2067930531]
+script = ExtResource("1_ra6mi")
+metadata/_custom_type_script = "uid://bpbc3drlvjiou"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=699479175]
+shape = SubResource("CircleShape2D_xue2p")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=863846640]
+visible = false

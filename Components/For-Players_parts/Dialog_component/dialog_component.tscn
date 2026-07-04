@@ -1,0 +1,257 @@
+[gd_scene format=3 uid="uid://bf6pmlrjdevri"]
+
+[ext_resource type="Script" uid="uid://cf2yhobunpyk7" path="res://Components/For-Players_parts/Dialog_component/dialog_component.gd" id="1_taole"]
+[ext_resource type="Texture2D" uid="uid://3hy3ragk5uv2" path="res://Main/Level_editor/Entities/Player/Turtle/Sprites/Turtle.png" id="2_uo21d"]
+[ext_resource type="Texture2D" uid="uid://efqm7d0sxosq" path="res://Main/Level_editor/Entities/Objects/Sign/sign.png" id="3_uo21d"]
+[ext_resource type="Texture2D" uid="uid://cmjbtxm8u18v7" path="res://icon.svg" id="4_lssrv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5xjic"]
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_lssrv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog_box/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Left_side:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(90, 380)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Left_side:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Left_side:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Right_side:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(957, 373)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Right_side:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Right_side:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2q6s2"]
+resource_name = "Text_scroll"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog_box/Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2l0y2"]
+_data = {
+&"RESET": SubResource("Animation_lssrv"),
+&"Text_scroll": SubResource("Animation_2q6s2")
+}
+
+[sub_resource type="Animation" id="Animation_2l0y2"]
+resource_name = "left_talking"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Left_side:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(90, 380), Vector2(187, 317)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Left_side:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.4, 1.4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Left_side:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.4627451, 0.4627451, 0.4627451, 0.8), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Right_side:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.03333334, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(814.99994, 317), Vector2(960, 380)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Right_side:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.4, 1.4), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Right_side:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.4627451, 0.4627451, 0.4627451, 0.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5o33"]
+_data = {
+&"left_talking": SubResource("Animation_2l0y2")
+}
+
+[node name="dialog_component" type="Control" unique_id=247023177]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_taole")
+
+[node name="Left_side" type="TextureRect" parent="." unique_id=882982123]
+texture_filter = 1
+layout_mode = 0
+offset_left = 90.0
+offset_top = 380.0
+offset_right = 217.99945
+offset_bottom = 508.0
+texture = ExtResource("2_uo21d")
+
+[node name="Right_side" type="TextureRect" parent="." unique_id=1243208042]
+texture_filter = 1
+layout_mode = 0
+offset_left = 957.0
+offset_top = 373.0
+offset_right = 1085.0
+offset_bottom = 501.0
+texture = ExtResource("3_uo21d")
+
+[node name="dialog_box" type="Panel" parent="." unique_id=1440198933]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 496.0
+offset_right = 999.0
+offset_bottom = 650.0
+
+[node name="Label" type="Label" parent="dialog_box" unique_id=643374281]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 43.0
+offset_right = 751.0
+offset_bottom = 136.0
+text = "aaaaaa aaaaaaaaaaa aaaaa aaaaaa aaaaa aaaaaaaaaaaaaaaaaaa"
+label_settings = SubResource("LabelSettings_5xjic")
+autowrap_mode = 3
+
+[node name="Next" type="Button" parent="." unique_id=2029768487]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 509.0
+offset_right = 1085.0
+offset_bottom = 645.0
+icon = ExtResource("4_lssrv")
+
+[node name="Handle_txt" type="AnimationPlayer" parent="." unique_id=1698309282]
+libraries/ = SubResource("AnimationLibrary_2l0y2")
+
+[node name="Handle_sprites" type="AnimationPlayer" parent="." unique_id=96536330]
+libraries/ = SubResource("AnimationLibrary_q5o33")
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]

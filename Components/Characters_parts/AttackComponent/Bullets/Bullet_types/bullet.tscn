@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://evlvccvquw8f"]
+
+[ext_resource type="Script" uid="uid://du7bb4m7uxwhq" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullets_movement_script/simple_fly_forward.gd" id="1_184yi"]
+[ext_resource type="Texture2D" uid="uid://drq08genyit3d" path="res://Components/Characters_parts/AttackComponent/Bullets/bullet.png" id="2_2ie5w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bpp4q"]
+radius = 6.0
+
+[node name="Bullet" type="Area2D" unique_id=27210506]
+collision_mask = 9
+script = ExtResource("1_184yi")
+bullet_sprite = ExtResource("2_2ie5w")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=416109835]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=798576752]
+shape = SubResource("CircleShape2D_bpp4q")

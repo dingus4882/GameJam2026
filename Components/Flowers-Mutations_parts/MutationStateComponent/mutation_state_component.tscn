@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dswydexo4mnob"]
+
+[ext_resource type="Script" uid="uid://dlher8ea6xpkw" path="res://Components/Flowers-Mutations_parts/MutationStateComponent/mutation_state_component.gd" id="1_ox80v"]
+
+[node name="MutationComponent" type="Node" unique_id=857205836]
+script = ExtResource("1_ox80v")

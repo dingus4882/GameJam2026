@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cpk85aclyih0r"]
+
+[ext_resource type="Script" uid="uid://bpbc3drlvjiou" path="res://Components/Characters_parts/AttackComponent/Bullets/bullet.gd" id="1_mm1ml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmtkg"]
+radius = 11.045361
+
+[node name="Hurt_box" type="Area2D" unique_id=1579192024]
+script = ExtResource("1_mm1ml")
+damage = 15.0
+metadata/_custom_type_script = "uid://bpbc3drlvjiou"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=374268262]
+shape = SubResource("CircleShape2D_gmtkg")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=432193887]

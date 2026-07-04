@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://ci70emcuttxgr"]
+
+[ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_1k5x0"]
+[ext_resource type="PackedScene" uid="uid://bs20oy4bpbibq" path="res://Components/For-Players_parts/Player_component/player_component_scene.tscn" id="1_53jsn"]
+[ext_resource type="Texture2D" uid="uid://bw8scdjcriolf" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
+[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="4_wau81"]
+[ext_resource type="Script" uid="uid://1u2c2e41771e" path="res://Components/Characters_parts/Jump_component/jump_component.gd" id="5_r86g3"]
+
+[sub_resource type="Animation" id="Animation_lq2ly"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjqwj"]
+_data = {
+&"idle": SubResource("Animation_lq2ly")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4hbra"]
+radius = 5.0
+height = 47.5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r86g3"]
+atlas = ExtResource("2_wau81")
+region = Rect2(0, 0, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k54y"]
+atlas = ExtResource("2_wau81")
+region = Rect2(0, 75, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2cii"]
+atlas = ExtResource("2_wau81")
+region = Rect2(0, 150, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkrey"]
+atlas = ExtResource("2_wau81")
+region = Rect2(50, 0, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ndns"]
+atlas = ExtResource("2_wau81")
+region = Rect2(50, 75, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe3jf"]
+atlas = ExtResource("2_wau81")
+region = Rect2(50, 150, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqlt1"]
+atlas = ExtResource("2_wau81")
+region = Rect2(50, 225, 50, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljsop"]
+atlas = ExtResource("2_wau81")
+region = Rect2(50, 300, 50, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps246"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r86g3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k54y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2cii")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkrey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ndns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe3jf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqlt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljsop")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 15.0
+}]
+
+[node name="Geto" type="CharacterBody2D" unique_id=492334250 node_paths=PackedStringArray("health_bar", "health_component", "sprite", "direction_point")]
+scale = Vector2(4, 4)
+collision_layer = 2
+script = ExtResource("1_1k5x0")
+is_sprite_towards_the_right = true
+health_bar = NodePath("Health_bar")
+health_component = NodePath("HealthComponent")
+sprite = NodePath("AnimatedSprite2D")
+direction_point = NodePath("Shoot_point")
+metadata/_custom_type_script = "uid://chypt44vkylf5"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812563504]
+libraries/ = SubResource("AnimationLibrary_sjqwj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=636077142]
+shape = SubResource("CapsuleShape2D_4hbra")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2118874258]
+position = Vector2(0.5, -13.75)
+sprite_frames = SubResource("SpriteFrames_ps246")
+animation = &"walk"
+autoplay = "idle"
+
+[node name="PlayerComponent" parent="." unique_id=1842573424 instance=ExtResource("1_53jsn")]
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1209726691]
+script = ExtResource("4_wau81")
+metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
+
+[node name="Health_bar" type="ProgressBar" parent="." unique_id=393438325]
+offset_left = -1.0
+offset_top = -52.5
+offset_right = 3.0
+offset_bottom = -25.5
+
+[node name="Shoot_point" type="Marker2D" parent="." unique_id=1670614334]
+position = Vector2(20.75, 0)
+
+[node name="JumpComponent" type="Node" parent="." unique_id=832193259]
+script = ExtResource("5_r86g3")
+metadata/_custom_type_script = "uid://1u2c2e41771e"
+
+[node name="Coyote_jump" type="Node" parent="JumpComponent" unique_id=534372789]
