@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cq3jtapqvyk22"]
 
-[ext_resource type="Script" uid="uid://qg30d4ja51e5" path="res://Scripts/UI/Options/keybinds.gd" id="1_wl70v"]
-[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Scenes/UI/button.tscn" id="2_fv62c"]
-[ext_resource type="Script" uid="uid://dfbh5lrcv760a" path="res://Scripts/UI/button.gd" id="3_f6rh0"]
+[ext_resource type="Script" uid="uid://qg30d4ja51e5" path="res://Main/UI/Keybinds/keybinds.gd" id="1_wl70v"]
+[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Main/UI/button.tscn" id="2_fv62c"]
+[ext_resource type="Script" uid="uid://dfbh5lrcv760a" path="res://Main/UI/button.gd" id="3_f6rh0"]
 
 [node name="Keybinds" type="Control" unique_id=981403807]
 layout_mode = 3

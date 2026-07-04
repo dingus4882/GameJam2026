@@ -14,10 +14,10 @@ func _ready():
 	_load_sounds()
 
 func _load_sounds():
-	sound_dict[SoundType.BUTTON]    = [load("res://Assets/Sounds/TMP_ingame_button.wav"),
-										load("res://Assets/Sounds/TMP_ingame_button (2).wav")]
-	sound_dict[SoundType.SLIDER]    = [load("res://Assets/Sounds/TMP_ingame_button.wav")]
-	sound_dict[SoundType.NOTIFICATION] = [load("res://Assets/Sounds/TMP_ingame_button.wav")]
+	sound_dict[SoundType.BUTTON]    = [load("res://Main/SoundAndMusic/Sounds/TMP_ingame_button.wav"),
+										load("res://Main/SoundAndMusic/Sounds/TMP_ingame_button (2).wav")]
+	sound_dict[SoundType.SLIDER]    = [load("res://Main/SoundAndMusic/Sounds/TMP_ingame_button.wav")]
+	sound_dict[SoundType.NOTIFICATION] = [load("res://Main/SoundAndMusic/Sounds/TMP_ingame_button.wav")]
 
 func play_sound(sound: SoundType) -> void:
 	if not sound_dict.has(sound):

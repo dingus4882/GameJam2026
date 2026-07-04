@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://nb3cuqdugyo1"]
 
-[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Scenes/UI/UI_Background.tscn" id="1_6igev"]
-[ext_resource type="Script" uid="uid://b4yi5i0kfweqg" path="res://Scripts/UI/boot_splash.gd" id="1_k6n68"]
+[ext_resource type="Script" uid="uid://b4yi5i0kfweqg" path="res://Main/UI/Boot_splash_screen/boot_splash.gd" id="1_xur6f"]
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Main/UI/UI_Background.tscn" id="2_jqi61"]
 
 [sub_resource type="Animation" id="Animation_k6n68"]
 resource_name = "boot_splash"
@@ -20,9 +20,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_k6n68")
+script = ExtResource("1_xur6f")
 
-[node name="UI_Background" parent="." unique_id=1248700291 instance=ExtResource("1_6igev")]
+[node name="UI_Background" parent="." unique_id=1248700291 instance=ExtResource("2_jqi61")]
 z_index = -5
 layout_mode = 1
 

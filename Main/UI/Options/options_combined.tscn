@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://bhvknoaj7ovag"]
 
-[ext_resource type="Script" uid="uid://2bm0q7xgmjn2" path="res://Scripts/UI/Options/options_combined.gd" id="1_fdqpn"]
-[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Scenes/UI/UI_Background.tscn" id="2_lj24i"]
-[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Scenes/UI/button.tscn" id="3_y7b1q"]
-[ext_resource type="Script" uid="uid://du68ct0nprjuy" path="res://Scripts/UI/xor_button.gd" id="4_ngy7l"]
-[ext_resource type="PackedScene" uid="uid://w5qni7fw8e6t" path="res://Scenes/UI/settings.tscn" id="5_joqkp"]
-[ext_resource type="PackedScene" uid="uid://cq3jtapqvyk22" path="res://Scenes/UI/keybinds.tscn" id="6_ec4o1"]
+[ext_resource type="Script" uid="uid://2bm0q7xgmjn2" path="res://Main/UI/Options/options_combined.gd" id="1_fdqpn"]
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Main/UI/UI_Background.tscn" id="2_lj24i"]
+[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Main/UI/button.tscn" id="3_y7b1q"]
+[ext_resource type="Script" uid="uid://du68ct0nprjuy" path="res://Main/UI/xor_button.gd" id="4_ngy7l"]
+[ext_resource type="PackedScene" uid="uid://w5qni7fw8e6t" path="res://Main/UI/Settings/settings.tscn" id="5_joqkp"]
+[ext_resource type="PackedScene" uid="uid://cq3jtapqvyk22" path="res://Main/UI/Keybinds/keybinds.tscn" id="6_ec4o1"]
 
 [node name="Options" type="Node2D" unique_id=685411329]
 script = ExtResource("1_fdqpn")

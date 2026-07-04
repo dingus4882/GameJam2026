@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var loading_screen_scene = preload("res://Scenes/loading_screen.tscn")
+@onready var loading_screen_scene = preload("res://Main/UI/Loading_screen/loading_screen.tscn")
 
 var scene_to_load_path
 var loading_screen_instance
@@ -17,11 +17,11 @@ enum Scenes {
 }
 
 func _load_scene():
-	level_dict[Scenes.MAIN_MENU]					= "res://Scenes/main_menu.tscn"
-	level_dict[Scenes.SETTINGS]						= "res://Scenes/UI/options_combined.tscn"
+	level_dict[Scenes.MAIN_MENU]					= "res://Main/UI/Main_menu_screen/main_menu.tscn"
+	level_dict[Scenes.SETTINGS]						= "res://Main/UI/Options/options_combined.tscn"
 	#level_dict[Scenes.GAME_SELECTION]				= "res://Scenes/UI/game_selection.tscn"
 	#level_dict[Scenes.CREDITS]   					= "res://Scenes/UI/credits.tscn"
-	level_dict[Scenes.GAME]   						= "res://Scenes/Game/level.tscn"
+	level_dict[Scenes.GAME]   						= "res://Main/Game/level.tscn"
 
 var active_preloads: Array = []
 var unloading_queue: Array = []
@@ -67,11 +67,11 @@ func load_scene(scene_enum: Scenes):
 	if not wait_for_world_generation and ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_LOADED:
 		if unloading_queue.has(path):
 			unloading_queue.erase(path)
-		var current_scene = get_tree().current_scene
+		var _current_scene = get_tree().current_scene
 		var packed_scene = ResourceLoader.load_threaded_get(path)
 		var loaded_scene = packed_scene.instantiate()
 		
-		current_scene.queue_free()
+		_current_scene.queue_free()
 		get_tree().root.add_child(loaded_scene)
 		get_tree().current_scene = loaded_scene
 		

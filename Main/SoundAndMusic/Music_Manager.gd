@@ -27,17 +27,17 @@ func _load_sounds():
 		music_dict[music_type] = []
 
 	music_dict[MusicType.BOOT_SPLASH] += [
-		load("res://Assets/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
+		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
 	]
 
 	music_dict[MusicType.LEVEL] += [
-		load("res://Assets/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3"),
-		load("res://Assets/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
+		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3"),
+		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
 	]
 
 	music_dict[MusicType.MENU] += [
-		load("res://Assets/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3"),
-		load("res://Assets/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
+		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3"),
+		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
 	]
 
 func _process(_delta):
