@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://coy6yav0mtg3f"]
 
-[ext_resource type="Texture2D" uid="uid://vir7akipn8su" path="res://Sprites/DurableStarter.png" id="1_2klqh"]
-[ext_resource type="PackedScene" uid="uid://cmvn7t6ppu3ir" path="res://Scenes/killzone.tscn" id="2_wjo1g"]
+[ext_resource type="Texture2D" uid="uid://vir7akipn8su" path="res://Main/Entities/Durable_enemy/DurableStarter.png" id="1_2klqh"]
+[ext_resource type="PackedScene" uid="uid://cmvn7t6ppu3ir" path="res://Main/Map/Kill_zone/killzone.tscn" id="2_wjo1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjo1g"]
 atlas = ExtResource("1_2klqh")

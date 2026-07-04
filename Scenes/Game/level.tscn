@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://c41h5hg75pyv1"]
 
-[ext_resource type="Script" uid="uid://b42k15yg7363h" path="res://Scripts/world_gen.gd" id="1_qiay6"]
-[ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Scenes/UI/options_combined.tscn" id="2_5xcqo"]
-[ext_resource type="Script" uid="uid://divgrg1t3n3ta" path="res://Scenes/Game/camera.gd" id="2_to5rb"]
-[ext_resource type="PackedScene" uid="uid://c32jssom1fpmh" path="res://Scenes/Game/player.tscn" id="4_to5rb"]
-[ext_resource type="Texture2D" uid="uid://ch8031nqpt1og" path="res://Sprites/BrainlessGameJamMapSet.png" id="5_4hbra"]
+[ext_resource type="Script" uid="uid://b42k15yg7363h" path="res://Main/Game/world_gen.gd" id="1_qiay6"]
+[ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_5xcqo"]
+[ext_resource type="Script" uid="uid://divgrg1t3n3ta" path="res://Main/Game/camera.gd" id="2_to5rb"]
+[ext_resource type="PackedScene" uid="uid://c32jssom1fpmh" path="res://Main/Game/player.tscn" id="4_to5rb"]
+[ext_resource type="Texture2D" uid="uid://ch8031nqpt1og" path="res://Main/Map/BrainlessGameJamMapSet.png" id="5_4hbra"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_752co"]
 texture = ExtResource("5_4hbra")

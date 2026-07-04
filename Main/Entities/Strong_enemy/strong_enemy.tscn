@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://2vc7kwnwu0dg"]
 
-[ext_resource type="Texture2D" uid="uid://c036iudjvwmg7" path="res://Sprites/StrongStarter.png" id="1_nb7h0"]
-[ext_resource type="PackedScene" uid="uid://cmvn7t6ppu3ir" path="res://Scenes/killzone.tscn" id="2_vwpjo"]
+[ext_resource type="Texture2D" uid="uid://c036iudjvwmg7" path="res://Main/Entities/Strong_enemy/StrongStarter.png" id="1_nb7h0"]
+[ext_resource type="PackedScene" uid="uid://cmvn7t6ppu3ir" path="res://Main/Map/Kill_zone/killzone.tscn" id="2_vwpjo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nb7h0"]
 atlas = ExtResource("1_nb7h0")
