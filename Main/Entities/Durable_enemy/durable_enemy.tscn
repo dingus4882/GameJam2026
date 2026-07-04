@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://coy6yav0mtg3f"]
 
-[ext_resource type="Texture2D" uid="uid://vir7akipn8su" path="res://Main/Entities/Durable_enemy/DurableStarter.png" id="1_2klqh"]
+[ext_resource type="Texture2D" uid="uid://c7vfs6ho37r5g" path="res://Main/Entities/Durable_enemy/DurableStarter.png" id="1_2klqh"]
 [ext_resource type="PackedScene" uid="uid://cmvn7t6ppu3ir" path="res://Main/Map/Kill_zone/killzone.tscn" id="2_wjo1g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wjo1g"]
@@ -40,9 +40,11 @@ size = Vector2(17, 14)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=141873186]
 position = Vector2(14, -16)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
 
 [node name="Killzone" parent="." unique_id=465615600 instance=ExtResource("2_wjo1g")]
 position = Vector2(-1, -10)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1622669813]
 position = Vector2(-0.5, 1)

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_5xcqo"]
 [ext_resource type="Texture2D" uid="uid://bi3ngs6sf88hi" path="res://Main/Map/BrainlessGameJamMapSet.png" id="5_4hbra"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="5_752co"]
+[ext_resource type="PackedScene" uid="uid://2vc7kwnwu0dg" path="res://Main/Entities/Strong_enemy/strong_enemy.tscn" id="5_r6akh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_752co"]
 texture = ExtResource("5_4hbra")
@@ -74,3 +75,6 @@ tile_map_data = PackedByteArray("AAB5ADQAAAAAAAAAAAD8/zQAAAAAAAAAAAD8/zUAAAAAAAE
 tile_set = SubResource("TileSet_ps246")
 
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
+
+[node name="StrongEnemy" parent="." unique_id=206408161 instance=ExtResource("5_r6akh")]
+position = Vector2(-2601, 882)
