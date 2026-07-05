@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpqrkck74edu2"]
 
-[ext_resource type="PackedScene" path="res://Scenes/UI/UI_Background.tscn" id="1_6igev"]
-[ext_resource type="Script" path="res://Scripts/UI/boot_splash.gd" id="1_k6n68"]
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Main/UI/UI_Background.tscn" id="1_6igev"]
+[ext_resource type="Script" uid="uid://b4yi5i0kfweqg" path="res://Main/UI/Boot_splash_screen/boot_splash.gd" id="1_k6n68"]
 
 [sub_resource type="Animation" id="Animation_k6n68"]
 resource_name = "boot_splash"
