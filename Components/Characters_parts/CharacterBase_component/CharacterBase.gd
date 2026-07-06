@@ -20,13 +20,15 @@ const  GRAVITY = 980.0
 var last_direction:float 
 var direction: float:
 	set(new_value):
-		flip = "flip_h".repeat( int(not flip_h_or_v) ) + "flip_v".repeat( int(flip_h_or_v) )
+		#flip = "flip_h".repeat( int(not flip_h_or_v) ) + "flip_v".repeat( int(flip_h_or_v) )
+		var x = scale.x * (int(not flip_h_or_v)    * 2 - 1)
+		var y = scale.y * (int( flip_h_or_v)    * 2 - 1)
+		var scalar = Vector2(x,y)
 
 		if last_direction != new_value and new_value != 0:
-
-			if disable_auto_turn == false: 
-				sprite.set(flip, not sprite.get(flip))  
-			direction_point.position.x = - direction_point.position.x
+			
+			set("scale",- scalar)
+			
 			last_direction = new_value
 
 				
@@ -42,7 +44,6 @@ var direction: float:
 
 
 
-@export var health_bar: ProgressBar 
 @export var health_component: HealthComponent 
 @export var attack_component: AttackComponent 
 
@@ -53,8 +54,7 @@ var direction: float:
 
 func _ready() -> void:
 
-	health_bar.max_value = health_component.max_health
-	health_bar.value = health_component.max_health
+
 	
 
 	last_direction = float(is_sprite_towards_the_right) * 2 - 1
@@ -69,6 +69,7 @@ func _ready() -> void:
 	
 @export var attack_stop:bool = false 
 func movement(_delta: float): 
+	
 	#SideNote: JUMP/ FALL States take priority over MOVE State.
 	if current_state == States.ATTACKING and (sprite.animation == "attacking" and  attack_stop):
 		return
