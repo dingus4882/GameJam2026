@@ -65,16 +65,17 @@ func fire() -> void:
 	
 	bullet.bullet_sprite = currentBullet.bullet_sprite
 	bullet.damage = currentBullet.damage
+	bullet.scale = currentBullet.scale
 	
 	bullet.global_position = shoot_point.global_position
 
-	bullet.direction = (Vector2.RIGHT if not sprite.flip_h else Vector2.LEFT)
+	#bullet.direction = (Vector2.RIGHT if not sprite.flip_h else Vector2.LEFT)
 	
 	bullet.bullet_owner = character
 	#endregion
 	
 	
-	get_node("/root/" + GlobalVar.current_level_name + "/Projectile_container").call_deferred("add_child",bullet)
+	get_tree().current_scene.call_deferred("add_child",bullet)
 	if $"..".attack_stop == true:
 		await $"../Sprite".animation_finished
 	await get_tree().create_timer(fire_rate).timeout
