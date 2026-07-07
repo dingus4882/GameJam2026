@@ -6,6 +6,8 @@
 radius = 11.045361
 
 [node name="Hurt_box" type="Area2D" unique_id=1579192024]
+collision_layer = 0
+collision_mask = 6
 script = ExtResource("1_mm1ml")
 damage = 15.0
 metadata/_custom_type_script = "uid://bpbc3drlvjiou"

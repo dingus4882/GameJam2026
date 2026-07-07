@@ -2,12 +2,15 @@
 
 [ext_resource type="Script" uid="uid://b42k15yg7363h" path="res://Main/Game/world_gen.gd" id="1_qiay6"]
 [ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_5xcqo"]
-[ext_resource type="Texture2D" uid="uid://bi3ngs6sf88hi" path="res://Main/Map/BrainlessGameJamMapSet.png" id="5_4hbra"]
+[ext_resource type="Texture2D" uid="uid://ch8031nqpt1og" path="res://Main/Map/BrainlessGameJamMapSet.png" id="5_4hbra"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="5_752co"]
 [ext_resource type="PackedScene" uid="uid://2vc7kwnwu0dg" path="res://Main/Entities/Strong_enemy/strong_enemy.tscn" id="5_r6akh"]
 [ext_resource type="PackedScene" uid="uid://dbn7phfs4fq0o" path="res://Main/Entities/Fast_enemy/fast_enemy.tscn" id="6_752co"]
 [ext_resource type="PackedScene" uid="uid://coy6yav0mtg3f" path="res://Main/Entities/Durable_enemy/durable_enemy.tscn" id="7_r6akh"]
 [ext_resource type="Script" uid="uid://divgrg1t3n3ta" path="res://Main/Entities/Player/camera.gd" id="8_uj4gc"]
+[ext_resource type="PackedScene" uid="uid://2vc7kwnwu0dg" path="res://Main/Entities/Strong_enemy/Glorbo_strong.tscn" id="5_r6akh"]
+[ext_resource type="PackedScene" uid="uid://dbn7phfs4fq0o" path="res://Main/Entities/Fast_enemy/Glorbo_fast.tscn" id="6_752co"]
+[ext_resource type="PackedScene" uid="uid://coy6yav0mtg3f" path="res://Main/Entities/Durable_enemy/Glorbo_durable.tscn" id="7_r6akh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_752co"]
 texture = ExtResource("5_4hbra")
@@ -81,10 +84,7 @@ offset_bottom = 42.0
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
 
 [node name="StrongEnemy" parent="." unique_id=206408161 instance=ExtResource("5_r6akh")]
-position = Vector2(-2601, 882)
-
-[node name="FastEnemy" parent="." unique_id=2025786892 instance=ExtResource("6_752co")]
-position = Vector2(4708, 886)
+position = Vector2(-512, 865)
 
 [node name="DurableEnemy" parent="." unique_id=1791129900 instance=ExtResource("7_r6akh")]
 position = Vector2(1228, 882)
@@ -92,3 +92,7 @@ position = Vector2(1228, 882)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1478607820 node_paths=PackedStringArray("target")]
 script = ExtResource("8_uj4gc")
 target = NodePath("../Geto")
+position = Vector2(149, 876)
+
+[node name="Glorbo_Fast" parent="." unique_id=1813766542 instance=ExtResource("6_752co")]
+position = Vector2(212, 371)
