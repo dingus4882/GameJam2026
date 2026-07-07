@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dl1li43ls2rps"]
 
-[ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="1_bg351"]
-[ext_resource type="Texture2D" uid="uid://cnysgy8hj2gmm" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
+[ext_resource type="Texture2D" uid="uid://4khmtavm85b7" path="res://icon.svg" id="1_bg351"]
+[ext_resource type="Texture2D" uid="uid://dwr3tgndxql0i" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
 
 [sub_resource type="GDScript" id="GDScript_ui_bg"]
 script/source = "extends Control
@@ -51,12 +51,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -275.0
-offset_top = -275.0
-offset_right = 275.0
-offset_bottom = 275.0
+offset_left = -1171.0
+offset_top = -945.0
+offset_right = -621.0
+offset_bottom = -395.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(4, 4)
 texture = ExtResource("1_bg351")
 expand_mode = 1
 
@@ -66,6 +67,10 @@ anchor_left = 0.86614585
 anchor_top = 0.90462965
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 932.0
+offset_top = 538.0
+offset_right = 932.0
+offset_bottom = 538.0
 grow_horizontal = 2
 
 [node name="Credits" type="TextureRect" parent="Credits" unique_id=1477047747]
@@ -86,9 +91,9 @@ texture = ExtResource("5_i5j4f")
 
 [node name="Text" type="Label" parent="Credits" unique_id=1540224410]
 layout_mode = 0
-offset_left = 3.0
-offset_top = -53.0
-offset_right = 603.99365
-offset_bottom = 121.99927
+offset_left = -262.0
+offset_top = -174.0
+offset_right = 338.99365
+offset_bottom = 0.9992676
 theme_override_font_sizes/font_size = 46
 text = "Made with"
