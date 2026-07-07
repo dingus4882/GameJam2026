@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://2vc7kwnwu0dg"]
 
-[ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_iilr1"]
+[ext_resource type="Script" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_iilr1"]
 [ext_resource type="Texture2D" uid="uid://c036iudjvwmg7" path="res://Main/Entities/Strong_enemy/StrongStarter.png" id="2_nkvyx"]
-[ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_cmeuc"]
-[ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_6spu2"]
+[ext_resource type="Script" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_cmeuc"]
+[ext_resource type="Script" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_6spu2"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_fg5y0"]
-[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_k13w3"]
+[ext_resource type="Script" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_k13w3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yupjj"]
 atlas = ExtResource("2_nkvyx")
@@ -78,6 +78,7 @@ radius = 133.03383
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_iilr1")
+speed = 100.0
 is_sprite_towards_the_right = true
 health_component = NodePath("HealthComponent")
 attack_component = NodePath("AttackComponent")

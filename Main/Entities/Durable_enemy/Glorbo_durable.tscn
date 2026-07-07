@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://coy6yav0mtg3f"]
 
 [ext_resource type="Texture2D" uid="uid://c7vfs6ho37r5g" path="res://Main/Entities/Durable_enemy/DurableStarter.png" id="1_2klqh"]
-[ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_umlbo"]
-[ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_bje7m"]
-[ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_avor4"]
+[ext_resource type="Script" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_umlbo"]
+[ext_resource type="Script" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_bje7m"]
+[ext_resource type="Script" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_avor4"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_2voyg"]
-[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_ascpk"]
+[ext_resource type="Script" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_ascpk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tidt"]
 atlas = ExtResource("1_2klqh")
@@ -78,6 +78,7 @@ radius = 133.03383
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_umlbo")
+speed = 45.0
 is_sprite_towards_the_right = true
 health_component = NodePath("HealthComponent")
 attack_component = NodePath("AttackComponent")
@@ -87,7 +88,7 @@ metadata/_custom_type_script = "uid://chypt44vkylf5"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=949499809]
 position = Vector2(0, -119)
-scale = Vector2(6.506733, 7.308222)
+scale = Vector2(7.1, 7.95)
 sprite_frames = SubResource("SpriteFrames_0uoa6")
 animation = &"idle"
 autoplay = "idle"

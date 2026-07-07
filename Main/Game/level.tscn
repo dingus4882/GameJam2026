@@ -69,7 +69,6 @@ target = NodePath("../CharacterBody2D")
 
 [node name="Options" parent="CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
 unique_name_in_owner = true
-visible = false
 is_in_game = true
 
 [node name="CharacterBody2D" parent="." unique_id=1310183170 instance=ExtResource("4_to5rb")]
