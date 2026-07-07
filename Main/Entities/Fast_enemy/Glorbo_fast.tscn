@@ -62,6 +62,7 @@ radius = 133.03383
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mr1jg"]
 
 [node name="Glorbo_Fast" type="CharacterBody2D" unique_id=1813766542 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
+scale = Vector2(0.7, 0.7)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_m3agm")
@@ -81,6 +82,7 @@ animation = &"walk"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1374343038]
+visible = false
 position = Vector2(-5, -85.5)
 shape = SubResource("RectangleShape2D_s7wsd")
 
@@ -98,6 +100,7 @@ metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 position = Vector2(0, -88)
 
 [node name="Direction_point" type="Marker2D" parent="." unique_id=1206671242]
+visible = false
 position = Vector2(77, -80)
 
 [node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=1988673475]
@@ -130,8 +133,10 @@ character = NodePath("..")
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_cgror")]
-position = Vector2(0, -88)
-scale = Vector2(11.894737, 11.894737)
+visible = false
+position = Vector2(0, -64)
+scale = Vector2(14.5747385, 14.5747385)
+damage = 5.0
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=623949627]
