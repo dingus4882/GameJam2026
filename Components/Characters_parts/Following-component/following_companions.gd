@@ -30,9 +30,9 @@ func _ready():
 		call_deferred("_debug_spawn_followers")
 
 func _debug_spawn_followers():
-	var strong_enemy_scene = preload("res://Main/Entities/Strong_enemy/Glorbo_strong.tscn")
-	var fast_enemy_scene = preload("res://Main/Entities/Fast_enemy/Glorbo_fast.tscn")
-	var durable_enemy_scene = preload("res://Main/Entities/Durable_enemy/Glorbo_durable.tscn")
+	var strong_enemy_scene = load("res://Main/Entities/Strong_enemy/Glorbo_strong.tscn")
+	var fast_enemy_scene = load("res://Main/Entities/Fast_enemy/Glorbo_fast.tscn")
+	var durable_enemy_scene = load("res://Main/Entities/Durable_enemy/Glorbo_durable.tscn")
 
 	var enemies_to_spawn = [strong_enemy_scene, fast_enemy_scene, durable_enemy_scene]
 	var spawn_offset = Vector2(150, 0)

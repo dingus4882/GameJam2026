@@ -72,18 +72,19 @@ sources/0 = SubResource("TileSetScenesCollectionSource_rtntr")
 [node name="Level" type="Node2D" unique_id=1811816869]
 script = ExtResource("1_qiay6")
 
-[node name="FPS_COUNTER" type="Label" parent="." unique_id=1837517564]
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=442072788]
 
 [node name="Options" parent="CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
 unique_name_in_owner = true
-visible = false
 is_in_game = true
 
+[node name="FPS_COUNTER" type="Label" parent="CanvasLayer" unique_id=1837517564]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
+
+[node name="Camera2D" type="Camera2D" parent="Geto" unique_id=226333579]
 
 [node name="Map" type="Node2D" parent="." unique_id=2022004810]
 

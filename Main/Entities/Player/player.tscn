@@ -155,10 +155,10 @@ metadata/_custom_type_script = "uid://1u2c2e41771e"
 
 [node name="Coyote_jump" type="Node" parent="JumpComponent" unique_id=534372789]
 
-[node name="FollowingCompanions" type="Node" parent="." node_paths=PackedStringArray("target")]
+[node name="FollowingCompanions" type="Node" parent="." unique_id=432369961]
 script = ExtResource("6_s1y7g")
-target = NodePath("..")
-debug_add_followers = true
+metadata/_custom_type_script = "uid://d36cmfdwa0te6"
+
 [node name="Static" type="Node" parent="." unique_id=769726374]
 
 [node name="Follower" type="Marker2D" parent="Static" unique_id=1406350777]
