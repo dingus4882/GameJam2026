@@ -8,14 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cq3jtapqvyk22" path="res://Main/UI/Keybinds/keybinds.tscn" id="6_ec4o1"]
 
 [node name="Options" type="Node2D" unique_id=685411329]
-visible = false
 script = ExtResource("1_fdqpn")
 
-[node name="UI_Background" parent="." unique_id=266321983 instance=ExtResource("2_lj24i")]
-offset_left = 960.0
-offset_top = 540.0
-offset_right = 960.0
-offset_bottom = 540.0
+[node name="UI_Background" parent="." unique_id=1357555529 instance=ExtResource("2_lj24i")]
 
 [node name="Button" parent="." unique_id=1314000419 instance=ExtResource("3_y7b1q")]
 offset_left = 30.0

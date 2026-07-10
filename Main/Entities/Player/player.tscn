@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_1k5x0"]
 [ext_resource type="PackedScene" uid="uid://bs20oy4bpbibq" path="res://Components/For-Players_parts/Player_component/player_component_scene.tscn" id="1_53jsn"]
-[ext_resource type="Texture2D" uid="uid://bw8scdjcriolf" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
+[ext_resource type="Texture2D" uid="uid://c4cd57xtdykki" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="4_wau81"]
 [ext_resource type="Script" uid="uid://1u2c2e41771e" path="res://Components/Characters_parts/Jump_component/jump_component.gd" id="5_r86g3"]
 [ext_resource type="Script" uid="uid://d36cmfdwa0te6" path="res://Components/Characters_parts/Following-component/following_companions.gd" id="6_s1y7g"]
@@ -155,8 +155,9 @@ metadata/_custom_type_script = "uid://1u2c2e41771e"
 
 [node name="Coyote_jump" type="Node" parent="JumpComponent" unique_id=534372789]
 
-[node name="FollowingCompanions" type="Node" parent="." unique_id=432369961]
+[node name="FollowingCompanions" type="Node" parent="." unique_id=432369961 node_paths=PackedStringArray("target")]
 script = ExtResource("6_s1y7g")
+target = NodePath("..")
 metadata/_custom_type_script = "uid://d36cmfdwa0te6"
 
 [node name="Static" type="Node" parent="." unique_id=769726374]
