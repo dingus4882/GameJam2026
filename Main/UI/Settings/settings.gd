@@ -6,6 +6,8 @@ extends Control
 var is_in_game : bool = false
 
 func _ready():
+	
+	
 	is_in_game = get_parent().get_parent().is_in_game
 	MusicManager.play_music(MusicManager.MusicType.MENU)
 
@@ -25,6 +27,5 @@ func _on_sound_changed(new_value: float) -> void:
 
 func ingame_return():
 	self.visible = false
-
 func ingame_show():
 	self.visible = true
