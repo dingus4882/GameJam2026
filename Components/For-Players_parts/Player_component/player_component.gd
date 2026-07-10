@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var base_node = get_node("..")
 # Called when the node enters the scene tree for the first time.
-
+@export var attack_sorce: AttackComponent
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,10 +31,9 @@ func _physics_process(delta):
 	base_node.movement(delta)
 	base_node.animation()
 	
-	if Input.is_action_pressed("fire"):
+	if Input.is_action_pressed("fire") and attack_sorce != null:
 		base_node.attack_component.fire()
 	
-	if Input.is_action_just_pressed("esc"):
-		%Ui_container.add_child(GlobalFunc.instantiate_node("res://Main/Ui/Game_menu/game_menu.tscn"))
+
 	
 	#print(current_state)
