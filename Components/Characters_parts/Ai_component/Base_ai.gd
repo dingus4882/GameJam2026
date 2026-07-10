@@ -55,6 +55,9 @@ func spawn_attack(the_attacked):
 	if the_attacked.has_node("PlayerComponent")	:
 		Attack_source.fire()
 func _physics_process(_delta):
+	if TimeManager._menu_open_count > 0:
+		return
+
 	if not is_instance_valid(character):
 		_resolve_references()
 		if not is_instance_valid(character):

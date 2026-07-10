@@ -120,7 +120,8 @@ func animation() -> void:
 
 
 func _physics_process(_delta):
-
+	if TimeManager._menu_open_count > 0:
+		return
 
 	
 	

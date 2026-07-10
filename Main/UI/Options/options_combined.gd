@@ -17,10 +17,12 @@ func _return_pressed():
 	if !is_in_game:
 		SceneLoader.load_scene(SceneLoader.Scenes.MAIN_MENU)
 	else:
+		TimeManager.resume_from_menu()
 		visible = false
 
 func ingame_show():
 	visible = true
+	TimeManager.pause_for_menu()
 
 func _exit_pressed():
 	get_parent().get_parent()._exit_tree()

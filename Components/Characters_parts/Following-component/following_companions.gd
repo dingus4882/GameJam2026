@@ -178,7 +178,7 @@ func _get_idle_path_target(follower: Node2D, player_position: Vector2, delta: fl
 	return candidate
 
 func _physics_process(delta: float):
-	if not is_following_active or not is_instance_valid(target):
+	if not is_following_active or not is_instance_valid(target) or TimeManager._menu_open_count > 0:
 		return
 
 	var i = 0
