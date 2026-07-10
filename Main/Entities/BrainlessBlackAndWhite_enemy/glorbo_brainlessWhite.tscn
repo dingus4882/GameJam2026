@@ -1,63 +1,35 @@
-[gd_scene format=3 uid="uid://durndgx6uylyb"]
+[gd_scene format=3 uid="uid://c8jy88la6bu0"]
 
-[ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_a0of6"]
-[ext_resource type="Texture2D" uid="uid://dlaw58y1tov0a" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/BrainlessWhiteAndBlackOcto.png" id="2_2gt50"]
-[ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_01hqs"]
-[ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_jjq68"]
-[ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_nfkyx"]
-[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_qn5bo"]
+[ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_v1q5g"]
+[ext_resource type="Texture2D" uid="uid://dlaw58y1tov0a" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/BrainlessWhiteAndBlackOcto.png" id="2_b4fq8"]
+[ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_s74db"]
+[ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_0qikj"]
+[ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_2kisd"]
+[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_danfh"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1fsw6"]
-atlas = ExtResource("2_2gt50")
-region = Rect2(64, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1q5g"]
+atlas = ExtResource("2_b4fq8")
+region = Rect2(128, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_voe3t"]
-atlas = ExtResource("2_2gt50")
-region = Rect2(64, 64, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4fq8"]
+atlas = ExtResource("2_b4fq8")
+region = Rect2(128, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sj83q"]
-atlas = ExtResource("2_2gt50")
-region = Rect2(64, 96, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s74db"]
+atlas = ExtResource("2_b4fq8")
+region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ky7gm"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1fsw6")
+"texture": SubResource("AtlasTexture_v1q5g")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_voe3t")
+"texture": SubResource("AtlasTexture_b4fq8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sj83q")
-}],
-"loop": 1,
-"name": &"attacking",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1fsw6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_voe3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sj83q")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1fsw6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_voe3t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sj83q")
+"texture": SubResource("AtlasTexture_s74db")
 }],
 "loop": 1,
 "name": &"walk",
@@ -78,7 +50,7 @@ radius = 133.03383
 scale = Vector2(0.7, 0.7)
 collision_layer = 4
 collision_mask = 3
-script = ExtResource("1_a0of6")
+script = ExtResource("1_v1q5g")
 is_sprite_towards_the_right = true
 health_component = NodePath("HealthComponent")
 attack_component = NodePath("AttackComponent")
@@ -90,9 +62,7 @@ metadata/_custom_type_script = "uid://chypt44vkylf5"
 position = Vector2(0, -119)
 scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_ky7gm")
-animation = &"attacking"
-autoplay = "idle"
-frame_progress = 0.86351055
+animation = &"walk"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=2076421479]
 visible = false
@@ -100,7 +70,7 @@ position = Vector2(-5, -85.5)
 shape = SubResource("RectangleShape2D_bn5f1")
 
 [node name="Base_Ai" type="Node" parent="." unique_id=1069005555 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source")]
-script = ExtResource("3_01hqs")
+script = ExtResource("3_s74db")
 character = NodePath("..")
 attacking_range = NodePath("../Direction_point/Attack_range")
 block_detection = NodePath("../Direction_point/Detect_block")
@@ -139,18 +109,18 @@ position = Vector2(19, 104)
 shape = SubResource("RectangleShape2D_svjn8")
 
 [node name="AttackComponent" type="Node" parent="." unique_id=820789077 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
-script = ExtResource("4_jjq68")
+script = ExtResource("4_0qikj")
 bullets = [NodePath("Hurt_box")]
 shoot_point = NodePath("../Shoot_point")
 character = NodePath("..")
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
-[node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_nfkyx")]
+[node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_2kisd")]
 visible = false
 position = Vector2(0, -64)
 scale = Vector2(11.894737, 11.894737)
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=389683601]
-script = ExtResource("6_qn5bo")
+script = ExtResource("6_danfh")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
