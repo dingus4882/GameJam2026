@@ -8,14 +8,16 @@ var actions = [
 	"move_left",
 	"move_right",
 	"jump",
-	"ui_cancel"
+	"esc",
+	"fire"
 ]
 
 var action_texts = {
 	"move_left": "Move Left",
 	"move_right": "Move Right",
 	"jump": "Jump",
-	"ui_cancel": "Cancel"
+	"esc": "Cancel",
+	"fire": "Attack"
 }
 
 var waiting_for_input = false

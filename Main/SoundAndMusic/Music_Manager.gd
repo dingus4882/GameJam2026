@@ -27,17 +27,15 @@ func _load_sounds():
 		music_dict[music_type] = []
 
 	music_dict[MusicType.BOOT_SPLASH] += [
-		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
+		load("res://Main/SoundAndMusic/Music/Dark Intro.mp3")
 	]
 
 	music_dict[MusicType.LEVEL] += [
-		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3"),
-		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
+		load("res://Main/SoundAndMusic/Music/level.mp3")
 	]
 
 	music_dict[MusicType.MENU] += [
-		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3"),
-		load("res://Main/SoundAndMusic/Music/TMP_Crown of the Silent Empire_ sunoAI_DO NOT USE.mp3")
+		load("res://Main/SoundAndMusic/Music/menu.mp3")
 	]
 
 func _process(_delta):
@@ -64,9 +62,6 @@ func play_music(music: MusicType) -> void:
 
 	#if current_type == MusicType.BATTLE:
 	#	music = MusicType.BATTLE
-
-	if current_type == MusicType.BOOT_SPLASH:
-		music = MusicType.MENU
 
 	if current_type == MusicType.LOADING:
 		music = MusicType.LOADING
@@ -100,8 +95,8 @@ func play_music(music: MusicType) -> void:
 	update_volume()
 
 	match music:
-		#MusicType.BATTLE:
-		#	queued_next_type = MusicType.LEVEL
+		MusicType.BOOT_SPLASH:
+			queued_next_type = MusicType.MENU
 		_:
 			queued_next_type = music
 
