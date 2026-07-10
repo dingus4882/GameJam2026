@@ -11,6 +11,7 @@
 script = ExtResource("1_fdqpn")
 
 [node name="UI_Background" parent="." unique_id=1357555529 instance=ExtResource("2_lj24i")]
+visible = true
 
 [node name="Button" parent="." unique_id=1314000419 instance=ExtResource("3_y7b1q")]
 offset_left = 30.0

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b42k15yg7363h" path="res://Main/Game/world_gen.gd" id="1_qiay6"]
 [ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_5xcqo"]
-
 [ext_resource type="Texture2D" uid="uid://cka828ye5dkqd" path="res://Main/Map/BrainlessGameJamMapSet.png" id="5_4hbra"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="5_752co"]
 [ext_resource type="PackedScene" uid="uid://bhhmtoi0eigg7" path="res://Main/Entities/Fire_enemy/glorbo_fire.tscn" id="5_hxm02"]
@@ -11,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://o60v2ssd087p" path="res://Main/Entities/FourArmed_enemy/glorbo_fourarmed.tscn" id="6_tjmgu"]
 [ext_resource type="PackedScene" uid="uid://coy6yav0mtg3f" path="res://Main/Entities/Durable_enemy/Glorbo_durable.tscn" id="7_r6akh"]
 [ext_resource type="PackedScene" uid="uid://c1ut558fexpx8" path="res://Main/Entities/MagmaMiniBoss_enemy/glorbo_magma.tscn" id="10_qis04"]
-[ext_resource type="PackedScene" uid="uid://dgl5q3t5u63i" path="res://Main/Entities/Rock_enemy/glorbo_rock.tscn" id="11_pli2s"]
-[ext_resource type="PackedScene" uid="uid://durndgx6uylyb" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/glorbo_brainless.tscn" id="12_gehky"]
 [ext_resource type="Script" uid="uid://divgrg1t3n3ta" path="res://Main/Entities/Player/camera.gd" id="10_tjmgu"]
+[ext_resource type="PackedScene" uid="uid://dgl5q3t5u63i" path="res://Main/Entities/Rock_enemy/glorbo_rock.tscn" id="11_pli2s"]
 [ext_resource type="Script" uid="uid://lcawci382r10" path="res://Components/heal_component/heal_collider.gd" id="11_rtntr"]
+[ext_resource type="PackedScene" uid="uid://durndgx6uylyb" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/glorbo_brainless.tscn" id="12_gehky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_752co"]
 texture = ExtResource("5_4hbra")
@@ -92,15 +91,22 @@ script = ExtResource("1_qiay6")
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=442072788]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=482614033 node_paths=PackedStringArray("target")]
+position = Vector2(250, 662)
+script = ExtResource("10_tjmgu")
+target = NodePath("../Geto")
 
-[node name="Options" parent="CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=442072788]
+layer = 20
+
+[node name="Options" parent="Camera2D/CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
 unique_name_in_owner = true
+visible = false
+z_index = 20
 is_in_game = true
 
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
-
-[node name="Camera2D" type="Camera2D" parent="Geto" unique_id=436545842]
+position = Vector2(243, 677)
 
 [node name="Map" type="Node2D" parent="." unique_id=2022004810]
 
@@ -119,10 +125,6 @@ tile_set = SubResource("TileSet_ps246")
 position = Vector2(-2850, -2765)
 tile_map_data = PackedByteArray("AAAOABQAAAAAAAAAAQALABkAAAAAAAAAAQALABsAAAAAAAAAAQARABoAAAAAAAAAAgAEABkAAAAAAAAAAwAjABoAAAAAAAAABAAeABkAAAAAAAAABQAgABgAAAAAAAAABQA=")
 tile_set = SubResource("TileSet_s7wsd")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=482614033 node_paths=PackedStringArray("target")]
-script = ExtResource("10_tjmgu")
-target = NodePath("../Geto")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1390667912]
 position = Vector2(-3108, 339)
