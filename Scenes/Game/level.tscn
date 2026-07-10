@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://b42k15yg7363h" path="res://Main/Game/world_gen.gd" id="1_qiay6"]
 [ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_5xcqo"]
-[ext_resource type="Texture2D" uid="uid://bi3ngs6sf88hi" path="res://Main/Map/BrainlessGameJamMapSet.png" id="5_4hbra"]
+[ext_resource type="Texture2D" uid="uid://ch8031nqpt1og" path="res://Main/Map/BrainlessGameJamMapSet.png" id="5_4hbra"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="5_752co"]
 [ext_resource type="PackedScene" uid="uid://bhhmtoi0eigg7" path="res://Main/Entities/Fire_enemy/glorbo_fire.tscn" id="5_hxm02"]
 [ext_resource type="PackedScene" uid="uid://2vc7kwnwu0dg" path="res://Main/Entities/Strong_enemy/Glorbo_strong.tscn" id="5_r6akh"]
 [ext_resource type="PackedScene" uid="uid://dbn7phfs4fq0o" path="res://Main/Entities/Fast_enemy/Glorbo_fast.tscn" id="6_752co"]
 [ext_resource type="PackedScene" uid="uid://o60v2ssd087p" path="res://Main/Entities/FourArmed_enemy/glorbo_fourarmed.tscn" id="6_tjmgu"]
 [ext_resource type="PackedScene" uid="uid://coy6yav0mtg3f" path="res://Main/Entities/Durable_enemy/Glorbo_durable.tscn" id="7_r6akh"]
+[ext_resource type="PackedScene" uid="uid://c1ut558fexpx8" path="res://Main/Entities/MagmaMiniBoss_enemy/glorbo_magma.tscn" id="10_qis04"]
+[ext_resource type="PackedScene" uid="uid://dgl5q3t5u63i" path="res://Main/Entities/Rock_enemy/glorbo_rock.tscn" id="11_pli2s"]
+[ext_resource type="PackedScene" uid="uid://durndgx6uylyb" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/glorbo_brainless.tscn" id="12_gehky"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_752co"]
 texture = ExtResource("5_4hbra")
@@ -64,10 +67,17 @@ scenes/2/scene = ExtResource("5_hxm02")
 scenes/3/scene = ExtResource("6_tjmgu")
 scenes/4/scene = ExtResource("5_r6akh")
 scenes/5/scene = ExtResource("6_752co")
+scenes/6/scene = ExtResource("10_qis04")
+scenes/7/scene = ExtResource("11_pli2s")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sxjtx"]
+resource_name = "brainless"
+scenes/1/scene = ExtResource("12_gehky")
 
 [sub_resource type="TileSet" id="TileSet_s7wsd"]
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetScenesCollectionSource_rtntr")
+sources/1 = SubResource("TileSetScenesCollectionSource_sxjtx")
 
 [node name="Level" type="Node2D" unique_id=1811816869]
 script = ExtResource("1_qiay6")
@@ -80,7 +90,6 @@ offset_bottom = 23.0
 
 [node name="Options" parent="CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
 unique_name_in_owner = true
-visible = false
 is_in_game = true
 
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]

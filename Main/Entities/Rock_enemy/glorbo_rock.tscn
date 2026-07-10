@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://dgl5q3t5u63i"]
+
+[ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_j43jc"]
+[ext_resource type="Texture2D" uid="uid://i4vaf3jc3aie" path="res://Main/Entities/Rock_enemy/RockOcto.png" id="2_j43jc"]
+[ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_bvyms"]
+[ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_namq6"]
+[ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_owatf"]
+[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_cyjmk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j43jc"]
+atlas = ExtResource("2_j43jc")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46a2x"]
+atlas = ExtResource("2_j43jc")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvyms"]
+atlas = ExtResource("2_j43jc")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_namq6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j43jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46a2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvyms")
+}],
+"loop": 1,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j43jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46a2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvyms")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j43jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46a2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvyms")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn5f1"]
+size = Vector2(160, 185)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3qpar"]
+radius = 133.03383
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cap33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svjn8"]
+
+[node name="Glorbo_rock" type="CharacterBody2D" unique_id=1180871919 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
+scale = Vector2(0.7, 0.7)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_j43jc")
+is_sprite_towards_the_right = true
+health_component = NodePath("HealthComponent")
+attack_component = NodePath("AttackComponent")
+sprite = NodePath("Sprite")
+direction_point = NodePath("Direction_point")
+metadata/_custom_type_script = "uid://chypt44vkylf5"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1675237199]
+position = Vector2(0, -119)
+scale = Vector2(6.506733, 7.308222)
+sprite_frames = SubResource("SpriteFrames_namq6")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=2076421479]
+visible = false
+position = Vector2(-5, -85.5)
+shape = SubResource("RectangleShape2D_bn5f1")
+
+[node name="Base_Ai" type="Node" parent="." unique_id=1069005555 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source")]
+script = ExtResource("3_bvyms")
+character = NodePath("..")
+attacking_range = NodePath("../Direction_point/Attack_range")
+block_detection = NodePath("../Direction_point/Detect_block")
+no_block_detection = NodePath("../Direction_point/Detect_no_block")
+Attack_source = NodePath("../AttackComponent")
+direction = 1.0
+metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
+
+[node name="Shoot_point" type="Marker2D" parent="." unique_id=1732449337]
+position = Vector2(0, -88)
+
+[node name="Direction_point" type="Marker2D" parent="." unique_id=94451725]
+visible = false
+position = Vector2(77, -80)
+
+[node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=1642153622]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=227127329]
+position = Vector2(-77, -8)
+shape = SubResource("CircleShape2D_3qpar")
+
+[node name="Detect_block" type="Area2D" parent="Direction_point" unique_id=1527286471]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_block" unique_id=174667853]
+position = Vector2(19, 0)
+shape = SubResource("RectangleShape2D_cap33")
+
+[node name="Detect_no_block" type="Area2D" parent="Direction_point" unique_id=1647349964]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_no_block" unique_id=1930862483]
+position = Vector2(19, 104)
+shape = SubResource("RectangleShape2D_svjn8")
+
+[node name="AttackComponent" type="Node" parent="." unique_id=820789077 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
+script = ExtResource("4_namq6")
+bullets = [NodePath("Hurt_box")]
+shoot_point = NodePath("../Shoot_point")
+character = NodePath("..")
+metadata/_custom_type_script = "uid://da5q3wm4386jl"
+
+[node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_owatf")]
+visible = false
+position = Vector2(0, -64)
+scale = Vector2(11.894737, 11.894737)
+is_library = true
+
+[node name="HealthComponent" type="Node" parent="." unique_id=389683601]
+script = ExtResource("6_cyjmk")
+metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
