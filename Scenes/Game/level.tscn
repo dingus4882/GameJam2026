@@ -80,10 +80,11 @@ offset_bottom = 23.0
 
 [node name="Options" parent="CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
 unique_name_in_owner = true
-visible = false
 is_in_game = true
 
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
+
+[node name="Camera2D" type="Camera2D" parent="Geto" unique_id=436545842]
 
 [node name="Map" type="Node2D" parent="." unique_id=2022004810]
 
