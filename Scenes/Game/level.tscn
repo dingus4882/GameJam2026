@@ -89,6 +89,8 @@ is_in_game = true
 
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
 
+[node name="Camera2D" type="Camera2D" parent="Geto" unique_id=436545842]
+
 [node name="Map" type="Node2D" parent="." unique_id=2022004810]
 
 [node name="Background" type="TileMapLayer" parent="Map" unique_id=755799782]
