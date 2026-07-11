@@ -1,6 +1,17 @@
 class_name FollowingCompanions
 extends Node
 
+# Companion Scene Library
+const BRAINLESS = "res://Main/Entities/BrainlessBlackAndWhite_enemy/glorbo_brainless.tscn"
+const BRAINLESS_WHITE = "res://Main/Entities/BrainlessBlackAndWhite_enemy/glorbo_brainlessWhite.tscn"
+const DURABLE = "res://Main/Entities/Durable_enemy/Glorbo_durable.tscn"
+const FAST = "res://Main/Entities/Fast_enemy/Glorbo_fast.tscn"
+const FIRE = "res://Main/Entities/Fire_enemy/glorbo_fire.tscn"
+const FOUR_ARMED = "res://Main/Entities/FourArmed_enemy/glorbo_fourarmed.tscn"
+const MAGMA = "res://Main/Entities/MagmaMiniBoss_enemy/glorbo_magma.tscn"
+const STRONG = "res://Main/Entities/Strong_enemy/Glorbo_strong.tscn"
+
+
 var followers: Array[Node2D] = []
 
 @export var target: Node2D
@@ -13,56 +24,53 @@ var followers: Array[Node2D] = []
 @export var walk_vertical_offset: float = -20.0
 @export var idle_wander_radius: float = 220.0
 @export var player_avoidance_radius: float = 140.0
-@export var idle_path_radius: float = 180.0
+@export var idle_path_radius: float = 220.0 
 @export var idle_path_speed: float = 0.35
 @export var min_follower_spacing: float = 50.0
 
-@export var debug_add_followers: bool = false
+@export var debug_add_followers: bool = true
 
 var is_following_active = true
 var ground_tilemap_cache: TileMapLayer = null
+
+var _sacrificing_follower: Node2D = null
+@onready var _sacrifice_particles: CPUParticles2D = $"../CPUParticles2D"
+@onready var _mouth_pos: Node2D = $"../moutn_pos"
 
 func _ready():
 	if not is_instance_valid(target):
 		target = get_parent()
 	
+	_sacrifice_particles.process_mode = Node.PROCESS_MODE_ALWAYS
+
+	if not _sacrifice_particles.texture:
+		var gradient = Gradient.new()
+		# A gradient from opaque white in the center to transparent white at the edge.
+		gradient.offsets = PackedFloat32Array([0.0, 1.0])
+		gradient.colors = PackedColorArray([Color.WHITE, Color(1, 1, 1, 0)])
+
+		var gradient_tex = GradientTexture2D.new()
+		gradient_tex.gradient = gradient
+		gradient_tex.width = 16
+		gradient_tex.height = 16
+		gradient_tex.fill = GradientTexture2D.FILL_RADIAL
+		_sacrifice_particles.texture = gradient_tex
+
 	if debug_add_followers:
 		call_deferred("_debug_spawn_followers")
 
 func _debug_spawn_followers():
-	var strong_enemy_scene = load("res://Main/Entities/Strong_enemy/Glorbo_strong.tscn")
-	var fast_enemy_scene = load("res://Main/Entities/Fast_enemy/Glorbo_fast.tscn")
-	var durable_enemy_scene = load("res://Main/Entities/Durable_enemy/Glorbo_durable.tscn")
-
-	var enemies_to_spawn = [strong_enemy_scene, fast_enemy_scene, durable_enemy_scene]
+	# Spawns a few companions for debugging.
+	var enemies_to_spawn = [STRONG, FAST, DURABLE]
 	var spawn_offset = Vector2(150, 0)
 
-	for enemy_scene in enemies_to_spawn:
+	for enemy_path in enemies_to_spawn:
+		var enemy_scene = load(enemy_path)
 		var enemy = enemy_scene.instantiate()
-		# Add to the same parent as the player to be in the same space.
 		target.get_parent().add_child(enemy)
 		enemy.global_position = target.global_position + spawn_offset
 		add_follower(enemy)
 		spawn_offset += Vector2(150, 0)
-
-func _disable_node_recursively(node: Node) -> void:
-	if not is_instance_valid(node):
-		return
-
-	if node is AnimatedSprite2D or node is Sprite2D:
-		for child in node.get_children():
-			_disable_node_recursively(child)
-		return
-
-	node.set_process(false)
-	node.set_physics_process(false)
-	node.set_process_input(false)
-	node.set_process_unhandled_input(false)
-	node.set_process_shortcut_input(false)
-	node.set_process_unhandled_key_input(false)
-
-	for child in node.get_children():
-		_disable_node_recursively(child)
 
 func _get_animated_sprite(node: Node2D) -> AnimatedSprite2D:
 	var sprite = node.get_node_or_null("Sprite")
@@ -76,14 +84,39 @@ func _get_animated_sprite(node: Node2D) -> AnimatedSprite2D:
 	return null
 
 func add_follower(follower: Node2D):
+	_disable_enemy_components(follower)
+	_initialize_follower_metadata(follower)
+	followers.append(follower)
+
+func _disable_enemy_components(follower: Node2D):
+	# Disables AI and physics processing.
+	var ai_node = follower.get_node_or_null("Base_Ai")
+	if ai_node:
+		ai_node.set_physics_process(false)
+	follower.set_physics_process(false)
+
+	# Disable all collision shapes.
+	if follower is CollisionObject2D:
+		follower.collision_layer = 0
+		follower.collision_mask = 0
+	for collision_shape in follower.find_children("*", "CollisionShape2D", true):
+		collision_shape.set_deferred("disabled", true)
+
+	# Disable attack components.
+	var attack_component = follower.get_node_or_null("AttackComponent")
+	if attack_component:
+		attack_component.set_process(false)
+		if "can_fire" in attack_component:
+			attack_component.set("can_fire", false)
+
+func _initialize_follower_metadata(follower: Node2D):
 	follower.scale = follower_scale
 
-	# Keep the formation evenly spaced with a combined 75px diagonal offset.
-	var diagonal_offset: float = 75.0
-	follower.set_meta("follow_offset_idle", Vector2(diagonal_offset, diagonal_offset))
-	follower.set_meta("follow_offset_move", Vector2(diagonal_offset + 20.0, diagonal_offset - 15.0))
-	follower.set_meta("follow_offset", Vector2(diagonal_offset, diagonal_offset))
-	var follower_type = follower.get_class()
+	# Use the scene path as a type identifier.
+	var follower_type = follower.scene_file_path
+	follower.set_meta("companion_type", follower_type)
+	
+	# These meta properties add variation and personality to each follower's movement.
 	var idle_speed = 0.35 + (follower_type.hash() % 5) * 0.04
 	follower.set_meta("idle_speed", idle_speed)
 	follower.set_meta("orbit_phase", randf_range(0.0, TAU))
@@ -92,72 +125,105 @@ func add_follower(follower: Node2D):
 	follower.set_meta("path_bias", randf_range(-0.35, 0.35))
 	follower.set_meta("path_frequency", 0.75 + randf_range(0.0, 0.25))
 
-	# Disable collision to prevent followers from interacting with the world or player.
-	if follower is CollisionObject2D:
-		follower.collision_layer = 0
-		follower.collision_mask = 0
-
-	# Disable collision shapes so they cannot physically hit the player or world.
-	for collision_shape in follower.find_children("*", "CollisionShape2D", true):
-		if collision_shape is CollisionShape2D:
-			collision_shape.set_deferred("disabled", true)
-
-	# Disable attack components and their bullets to prevent followers from dealing damage.
-	var attack_component = follower.get_node_or_null("AttackComponent")
-	if attack_component:
-		if "can_fire" in attack_component:
-			attack_component.set("can_fire", false)
-		for child in attack_component.get_children():
-			if child is Area2D:
-				child.set_deferred("monitoring", false)
-				child.set_deferred("monitorable", false)
-				for subchild in child.get_children():
-					if subchild is CollisionShape2D:
-						subchild.set_deferred("disabled", true)
-
-	# Disable the follower's own AI/physics processing to stop them from falling or moving on their own.
-	_disable_node_recursively(follower)
-
-	followers.append(follower)
+func can_sacrifice() -> bool:
+	return not followers.is_empty() and not is_instance_valid(_sacrificing_follower)
 
 func sacrifice_follower_of_type(type_name: String) -> bool:
-	for i in range(followers.size() - 1, -1, -1): # Iterate in reverse to find the last added
+	if is_instance_valid(_sacrificing_follower):
+		return false
+
+	# Iterate in reverse to find the most recently added follower.
+	for i in range(followers.size() - 1, -1, -1):
 		var follower = followers[i]
-		if is_instance_valid(follower) and follower.get_class() == type_name:
-			remove_follower(follower)
-			return true # Successfully sacrificed a follower
-	return false # No follower of the specified type found
+		if is_instance_valid(follower) and follower.get_meta("companion_type", "") == type_name:
+			followers.remove_at(i)
+			_sacrificing_follower = follower
+			_start_sacrifice_animation(follower)
+			return true
+	return false
 
+func _start_sacrifice_animation(follower: Node2D):
+	var tween = create_tween()
 
+	# Reparent the follower to the target so it moves with the player during the animation.
+	var original_transform = follower.global_transform
+	follower.get_parent().remove_child(follower)
+	target.add_child(follower)
+	follower.global_transform = original_transform
+
+	var local_mouth_pos = _mouth_pos.position
+	var local_pre_mouth_pos = local_mouth_pos + Vector2(60.0 * sign(target.scale.x), 0.0)
+
+	follower.set_physics_process(false)
+	follower.set_process(false)
+
+	# Phase 1: Move to staging point.
+	tween.tween_property(follower, "position", local_pre_mouth_pos, 0.4).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+	# Phase 2: Trigger particles, then move to mouth and shrink.
+	tween.tween_callback(_trigger_sacrifice_particles)
+	tween.tween_property(follower, "position", local_mouth_pos, 0.4).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property(follower, "scale", Vector2.ZERO, 0.4).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+
+	tween.finished.connect(_on_sacrifice_animation_finished.bind(follower), CONNECT_ONE_SHOT)
+
+func _trigger_sacrifice_particles():
+	if not is_instance_valid(_sacrifice_particles):
+		return
+
+	# Ensure particles emit from the correct location and set burst properties.
+	_sacrifice_particles.position = _mouth_pos.position
+	_sacrifice_particles.direction = Vector2.RIGHT
+
+	call_deferred("_emit_particles")
+
+func _emit_particles():
+	# This is called deferred to ensure properties are set before emission.
+	if not is_instance_valid(_sacrifice_particles):
+		return
+	_sacrifice_particles.emitting = true
+
+func _on_sacrifice_animation_finished(follower: Node2D):
+	if is_instance_valid(follower):
+		follower.queue_free()
+	_sacrificing_follower = null
 
 func remove_follower(follower: Node2D):
 	var index = followers.find(follower)
 	if index != -1:
 		followers.remove_at(index)
-		follower.queue_free() # Or whatever should happen to it.
+		follower.queue_free()
 
 func _find_ground_tilemap() -> TileMapLayer:
+	# Caches the ground tilemap for performance.
 	if is_instance_valid(ground_tilemap_cache):
 		return ground_tilemap_cache
 
-	var root = get_tree().current_scene
-	if not is_instance_valid(root):
-		root = get_tree().root
+	# Using groups is more efficient than searching the entire scene tree.
+	# Add your ground TileMapLayer node to a group named "ground_tilemap" in the editor.
+	var nodes_in_group = get_tree().get_nodes_in_group("ground_tilemap")
+	if not nodes_in_group.is_empty():
+		ground_tilemap_cache = nodes_in_group[0] as TileMapLayer
+		if is_instance_valid(ground_tilemap_cache):
+			return ground_tilemap_cache
 
-	var stack: Array[Node] = [root]
-	while stack.size() > 0:
-		var node = stack.pop_back()
+	# Fallback: If no group is found, search the scene tree.
+	var root = get_tree().current_scene if is_instance_valid(get_tree().current_scene) else get_tree().root
+	var queue: Array[Node] = [root]
+	while not queue.is_empty():
+		var node = queue.pop_front()
 		if node is TileMapLayer:
 			ground_tilemap_cache = node
-			return node
+			return ground_tilemap_cache
 		for child in node.get_children():
-			stack.append(child)
-
+			queue.append(child)
+	
 	return null
 
 func _is_grounded_position(world_pos: Vector2) -> bool:
 	var tilemap = _find_ground_tilemap()
-	if not is_instance_valid(tilemap):
+	# Prevent error spam if a TileMapLayer without a TileSet is found.
+	if not is_instance_valid(tilemap) or not is_instance_valid(tilemap.tile_set):
 		return false
 
 	var map_pos = tilemap.local_to_map(tilemap.to_local(world_pos))
@@ -171,14 +237,22 @@ func _get_idle_path_target(follower: Node2D, player_position: Vector2, delta: fl
 	var path_angle = orbit_phase + path_direction * (0.8 + orbit_speed * 0.2) + path_bias
 	var orbit_radius = idle_path_radius + (follower.get_instance_id() % 5) * 18.0
 	var candidate = player_position + Vector2(cos(path_angle), sin(path_angle * (0.65 + abs(path_bias) * 0.2))) * orbit_radius
-	candidate.y -= 35.0
+	candidate.y += 15.0
 	if _is_grounded_position(candidate):
 		candidate.y -= 60.0
 	follower.set_meta("orbit_phase", orbit_phase + idle_path_speed * delta * (0.8 + orbit_speed * 0.2))
 	return candidate
 
 func _physics_process(delta: float):
-	if not is_following_active or not is_instance_valid(target) or TimeManager._menu_open_count > 0:
+	if TimeManager._menu_open_count > 0:
+		return
+
+	if Input.is_action_just_pressed("use_companion") and can_sacrifice():
+		var last_follower = followers.back()
+		if is_instance_valid(last_follower):
+			sacrifice_follower_of_type(last_follower.get_meta("companion_type", ""))
+
+	if not is_following_active or not is_instance_valid(target):
 		return
 
 	var i = 0

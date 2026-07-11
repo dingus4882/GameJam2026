@@ -7,7 +7,7 @@ signal generation_finished()
 var generation_started := false
 
 @onready var options = %Options
-@onready var fps_label  = $CanvasLayer/FPS_COUNTER # for debug only or checking frames overall
+@onready var fps_label  = $FPS_COUNTER # for debug only or checking frames overall
 var update_timer := 0.0
 
 func _process(delta: float) -> void:

@@ -9,7 +9,8 @@ var actions = [
 	"move_right",
 	"jump",
 	"esc",
-	"fire"
+	"fire",
+	"use_companion"
 ]
 
 var action_texts = {
@@ -17,7 +18,8 @@ var action_texts = {
 	"move_right": "Move Right",
 	"jump": "Jump",
 	"esc": "Cancel",
-	"fire": "Attack"
+	"fire": "Attack",
+	"use_companion": "Sacrifice Companion"
 }
 
 var waiting_for_input = false

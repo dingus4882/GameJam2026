@@ -7,6 +7,23 @@
 [ext_resource type="Script" uid="uid://1u2c2e41771e" path="res://Components/Characters_parts/Jump_component/jump_component.gd" id="5_r86g3"]
 [ext_resource type="Script" uid="uid://d36cmfdwa0te6" path="res://Components/Characters_parts/Following-component/following_companions.gd" id="6_s1y7g"]
 
+[sub_resource type="Gradient" id="Gradient_5k54y"]
+offsets = PackedFloat32Array(0.65682656, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_afle1"]
+gradient = SubResource("Gradient_5k54y")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.1, 0.9)
+
+[sub_resource type="Curve" id="Curve_5k54y"]
+_data = [Vector2(0.35494882, 0.7927927), 0.0, 0.0, 0, 0, Vector2(1, 0.49549544), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [sub_resource type="Animation" id="Animation_lq2ly"]
 resource_name = "idle"
 
@@ -126,6 +143,29 @@ sprite = NodePath("Sprite")
 direction_point = NodePath("Shoot_point")
 metadata/_custom_type_script = "uid://chypt44vkylf5"
 
+[node name="moutn_pos" type="Node2D" parent="." unique_id=1291663938]
+position = Vector2(0, -12.5)
+scale = Vector2(0.25, 0.25)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1291148082]
+z_index = 10
+position = Vector2(0, -12.5)
+scale = Vector2(0.25, 0.25)
+emitting = false
+amount = 20
+texture = SubResource("GradientTexture2D_afle1")
+lifetime = 0.75
+one_shot = true
+randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 13.0
+gravity = Vector2(0, 460)
+initial_velocity_min = 120.0
+initial_velocity_max = 240.0
+scale_amount_min = 0.75
+scale_amount_curve = SubResource("Curve_5k54y")
+color = Color(0.53333336, 0.03137255, 0.03137255, 1)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=812563504]
 libraries/ = SubResource("AnimationLibrary_sjqwj")
 
@@ -136,7 +176,7 @@ shape = SubResource("CapsuleShape2D_4hbra")
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2118874258]
 position = Vector2(0.5, -13.75)
 sprite_frames = SubResource("SpriteFrames_ps246")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="PlayerComponent" parent="." unique_id=1842573424 instance=ExtResource("1_53jsn")]

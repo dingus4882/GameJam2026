@@ -14,6 +14,8 @@ extends Node
 @export var direction: float 
 
 @export var is_normal_movement:bool = true
+
+var _is_turning: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	call_deferred("_resolve_references")
@@ -37,19 +39,13 @@ func _resolve_references() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func turn_around(_throw):
-	if block_detection != null:
-		block_detection.disconnect("body_entered",turn_around)
-	if no_block_detection != null:
-		no_block_detection.disconnect("body_exited",turn_around)
-	print("around")
-	direction  = -direction
-	await get_tree().create_timer(0.1).timeout
-
-	if block_detection != null:
-		block_detection.connect("body_entered",turn_around)
-	if no_block_detection != null:
-		no_block_detection.connect("body_exited",turn_around)
+func turn_around(_body):
+	if _is_turning:
+		return
+	_is_turning = true
+	direction = -direction
+	await get_tree().create_timer(0.2).timeout # Cooldown to prevent rapid turning
+	_is_turning = false
 
 func spawn_attack(the_attacked):
 	if the_attacked.has_node("PlayerComponent")	:

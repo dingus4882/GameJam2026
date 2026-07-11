@@ -90,7 +90,7 @@ metadata/_custom_type_script = "uid://chypt44vkylf5"
 position = Vector2(0, -119)
 scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_iixdt")
-animation = &"attacking"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=359877986]

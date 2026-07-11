@@ -17,8 +17,8 @@ var flip: String
 const  GRAVITY = 980.0
 @export var disable_auto_turn: bool
 
-var last_direction:float 
-var direction: float:
+var last_direction : float 
+var direction : float:
 	set(new_value):
 		#flip = "flip_h".repeat( int(not flip_h_or_v) ) + "flip_v".repeat( int(flip_h_or_v) )
 		var x = scale.x * (int(not flip_h_or_v)    * 2 - 1)
