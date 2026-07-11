@@ -28,7 +28,7 @@ var followers: Array[Node2D] = []
 @export var idle_path_speed: float = 0.35
 @export var min_follower_spacing: float = 50.0
 
-@export var debug_add_followers: bool = true
+@export var debug_add_followers: bool = false
 
 var is_following_active = true
 var ground_tilemap_cache: TileMapLayer = null
