@@ -4,6 +4,7 @@ extends Node
 @export var max_health: float = 100.0
 
 @export var health_bar: ProgressBar
+var is_dead: bool = false
 var current_health: float
 
 var _following_companions: FollowingCompanions
@@ -24,13 +25,16 @@ func _ready() -> void:
 	current_health = max_health
 
 func take_damage(amount: int, damage_source: Node = null):
+	if is_dead:
+		return
+
 	if _following_companions and damage_source:
 		# If the damage source is a follower, or owned by a follower (like a projectile), ignore it.
 		var source = damage_source
 		# This assumes projectiles/attacks have an 'owner' property pointing to who created them.
 		if "owner" in source and source.owner is Node:
 			source = source.owner
-		
+
 		if _following_companions.followers.has(source):
 			return # Damage from a follower is ignored.
 
@@ -38,9 +42,24 @@ func take_damage(amount: int, damage_source: Node = null):
 	health_changed.emit(current_health, max_health)
 	if health_bar != null:
 		health_bar.value = current_health
-	
+
 	if current_health <= 0:
+		is_dead = true
 		died.emit()
+
+		# Check if this is an enemy killed by the player, to convert it into a companion.
+		if get_parent().has_node("Base_Ai"): # A simple way to identify enemies.
+			var killer = damage_source
+			if killer and "owner" in killer and killer.owner is Node:
+				killer = killer.owner
+
+			if killer and killer.has_node("PlayerComponent"):
+				var following_comp = killer.get_node_or_null("FollowingCompanions")
+				if following_comp:
+					following_comp.add_follower(get_parent())
+					return # Converted to follower, so we don't queue_free.
+
+		# If not converted, or if it's the player, die normally.
 		get_node("..").queue_free()
 
 

@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://dl1li43ls2rps"]
 
-[ext_resource type="Texture2D" uid="uid://ch8031nqpt1og" path="res://Main/Map/BrainlessGameJamMapSet.png" id="1_cmaq3"]
+[ext_resource type="Texture2D" uid="uid://cka828ye5dkqd" path="res://Main/Map/BrainlessGameJamMapSet.png" id="1_cmaq3"]
 [ext_resource type="Texture2D" uid="uid://c1axr3sntd2xp" path="res://Main/Entities/FourArmed_enemy/FourArmOcto.png" id="3_37olu"]
 [ext_resource type="Texture2D" uid="uid://ddpxkoymtp7th" path="res://Main/Entities/Fire_enemy/FireOcto.png" id="4_esrup"]
-[ext_resource type="Texture2D" uid="uid://gk44vvw8hg3g" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="5_01sav"]
-[ext_resource type="Texture2D" uid="uid://cnysgy8hj2gmm" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
+[ext_resource type="Texture2D" uid="uid://b77vcadkramvx" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="5_01sav"]
+[ext_resource type="Texture2D" uid="uid://bjnsbu7wp06mc" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
 
 [sub_resource type="GDScript" id="GDScript_ui_bg"]
 script/source = "extends Control
@@ -234,7 +234,6 @@ animations = [{
 }]
 
 [node name="UI_Background" type="Control" unique_id=1357555529]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
