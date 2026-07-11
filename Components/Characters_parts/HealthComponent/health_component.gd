@@ -68,3 +68,9 @@ func heal_damage(amount: int):
 	if health_bar != null:
 		health_bar.value = current_health
 	health_changed.emit(current_health, max_health)
+
+func fully_heal():
+	current_health = max_health
+	if health_bar != null:
+		health_bar.value = current_health
+	health_changed.emit(current_health, max_health)
