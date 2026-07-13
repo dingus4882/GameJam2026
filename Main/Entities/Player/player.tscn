@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_1k5x0"]
 [ext_resource type="PackedScene" uid="uid://bs20oy4bpbibq" path="res://Components/For-Players_parts/Player_component/player_component_scene.tscn" id="1_53jsn"]
-[ext_resource type="Texture2D" uid="uid://c4cd57xtdykki" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
+[ext_resource type="Texture2D" uid="uid://bw8scdjcriolf" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="4_wau81"]
 [ext_resource type="Script" uid="uid://1u2c2e41771e" path="res://Components/Characters_parts/Jump_component/jump_component.gd" id="5_r86g3"]
 [ext_resource type="Script" uid="uid://d36cmfdwa0te6" path="res://Components/Characters_parts/Following-component/following_companions.gd" id="6_s1y7g"]
@@ -131,6 +131,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsd"]
+size = Vector2(707.75, 270.75)
+
 [node name="Geto" type="CharacterBody2D" unique_id=492334250 node_paths=PackedStringArray("health_component", "sprite", "direction_point")]
 scale = Vector2(4, 4)
 collision_layer = 2
@@ -191,6 +194,8 @@ position = Vector2(20.75, 0)
 
 [node name="JumpComponent" type="Node" parent="." unique_id=832193259]
 script = ExtResource("5_r86g3")
+JUMP_VELOCITY = -900.0
+max_extra_jumps = 1
 metadata/_custom_type_script = "uid://1u2c2e41771e"
 
 [node name="Coyote_jump" type="Node" parent="JumpComponent" unique_id=534372789]
@@ -218,3 +223,12 @@ scale = Vector2(0.25, 0.25)
 remote_path = NodePath("../Static/Follower")
 update_rotation = false
 update_scale = false
+
+[node name="chunk_handler" type="Area2D" parent="." unique_id=250306228]
+visible = false
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chunk_handler" unique_id=1149452925]
+position = Vector2(2.125, 0)
+shape = SubResource("RectangleShape2D_s7wsd")

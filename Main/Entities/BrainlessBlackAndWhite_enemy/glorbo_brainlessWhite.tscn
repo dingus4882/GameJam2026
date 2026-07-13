@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c8jy88la6bu0"]
 
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_v1q5g"]
-[ext_resource type="Texture2D" uid="uid://dlaw58y1tov0a" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/BrainlessWhiteAndBlackOcto.png" id="2_b4fq8"]
+[ext_resource type="Texture2D" uid="uid://cqd7y0r4v81tn" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/BrainlessWhiteAndBlackOcto.png" id="2_b4fq8"]
 [ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_s74db"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_0qikj"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_2kisd"]
@@ -21,6 +21,28 @@ region = Rect2(128, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ky7gm"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1q5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4fq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s74db")
+}],
+"loop": 1,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1q5g")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v1q5g")
@@ -62,7 +84,8 @@ metadata/_custom_type_script = "uid://chypt44vkylf5"
 position = Vector2(0, -119)
 scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_ky7gm")
-animation = &"walk"
+animation = &"attacking"
+autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=2076421479]
 visible = false
