@@ -303,24 +303,24 @@ offset_bottom = 1090.9993
 theme_override_font_sizes/font_size = 46
 text = "Made with"
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Credits" unique_id=1351849575]
-position = Vector2(182.10767, 306.93152)
+[node name="Sprite2" type="AnimatedSprite2D" parent="." unique_id=1351849575]
+position = Vector2(178.10767, 303.93152)
 scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_4l2m7")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Sprite2" type="AnimatedSprite2D" parent="Credits" unique_id=885883446]
-position = Vector2(1722.1077, 491.93152)
+[node name="Sprite3" type="AnimatedSprite2D" parent="." unique_id=885883446]
+position = Vector2(1718.1077, 488.93152)
 scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_yvlrm")
 animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Credits/Sprite2" unique_id=1641752044]
-position = Vector2(-190.72552, 45.01779)
-scale = Vector2(1, 1.123)
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1641752044]
+position = Vector2(477.10767, 817.9315)
+scale = Vector2(6.506733, 8.207133)
 sprite_frames = SubResource("SpriteFrames_f0nvx")
 animation = &"walk"
 autoplay = "idle"

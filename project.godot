@@ -13,6 +13,7 @@ config_version=5
 config/name="Brainless Game Jam 2026"
 run/main_scene="uid://nb3cuqdugyo1"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/image="uid://bco20c12muoin"
 config/icon="res://icon.svg"
 
 [autoload]
