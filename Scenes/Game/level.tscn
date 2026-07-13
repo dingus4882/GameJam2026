@@ -51,7 +51,7 @@ offset_bottom = 23.0
 
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
 z_index = 1
-position = Vector2(186, 759)
+position = Vector2(-5440, -2848)
 
 [node name="Cam" type="Camera2D" parent="Geto" unique_id=1705573718 node_paths=PackedStringArray("target")]
 position = Vector2(251, 448)
@@ -71,12 +71,12 @@ is_in_game = true
 [node name="Map" type="Node2D" parent="." unique_id=2022004810]
 
 [node name="Enemies" type="TileMapLayer" parent="Map" unique_id=1577728904]
-position = Vector2(-2850, -2765)
+position = Vector2(-7872, -6272)
 tile_map_data = PackedByteArray("AAAOABQAAAAAAAAAAQALABkAAAAAAAAAAQALABsAAAAAAAAAAQARABoAAAAAAAAAAgAEABkAAAAAAAAAAwAjABoAAAAAAAAABAAeABkAAAAAAAAABQAgABgAAAAAAAAABQCY/wgAAAAAAAAABgBG//D/AQAAAAAAAQA5/+7/AQAAAAAAAgAY/+P/AAAAAAAABwA=")
 tile_set = SubResource("TileSet_rp17r")
 
 [node name="Special" type="TileMapLayer" parent="Map" unique_id=251646573]
-position = Vector2(-2850, -2765)
+position = Vector2(-7808, -6304)
 tile_map_data = PackedByteArray("AACG98b+AAAAAAAAAQA2+Tj/AAAAAAAAAQCf+q3/AAAAAAAAAQAq/AMAAAAAAAAAAQCj/WAAAAAAAAAAAQDu/8UAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_s7rlf")
 
