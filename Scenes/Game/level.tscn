@@ -61,11 +61,12 @@ offset_bottom = 23.0
 
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
 z_index = 1
-position = Vector2(186, 759)
+position = Vector2(-2208, -2944)
 
 [node name="Cam" type="Camera2D" parent="Geto" unique_id=1705573718 node_paths=PackedStringArray("target")]
 position = Vector2(251, 448)
 scale = Vector2(20.128263, 1.323997)
+zoom = Vector2(0.5, 0.5)
 script = ExtResource("10_tjmgu")
 target = NodePath("..")
 
@@ -78,13 +79,15 @@ visible = false
 z_index = 20
 is_in_game = true
 
-[node name="Map" type="TileMapLayer" parent="." unique_id=1839988819 node_paths=PackedStringArray("player")]
+[node name="Map" type="TileMapLayer" parent="." unique_id=1839988819 node_paths=PackedStringArray("layers", "player")]
 tile_set = SubResource("TileSet_0cvp5")
 script = ExtResource("5_xmsy7")
+layers = [NodePath("Enemies"), NodePath("Special"), NodePath("Ground")]
 player = NodePath("../Geto")
 metadata/_custom_type_script = "uid://jpcvrnatus77"
 
 [node name="Enemies" type="TileMapLayer" parent="Map" unique_id=1577728904]
+position = Vector2(-3360, -3136)
 tile_map_data = PackedByteArray("AAAOABQAAAAAAAAAAQALABkAAAAAAAAAAQALABsAAAAAAAAAAQARABoAAAAAAAAAAgAEABkAAAAAAAAAAwAjABoAAAAAAAAABAAeABkAAAAAAAAABQAgABgAAAAAAAAABQCY/wgAAAAAAAAABgBG//D/AQAAAAAAAQA5/+7/AQAAAAAAAgAY/+P/AAAAAAAABwA=")
 tile_set = SubResource("TileSet_rp17r")
 
