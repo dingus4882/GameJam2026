@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dnt6vm73iyku4"]
+
+[ext_resource type="Script" uid="uid://dfbh5lrcv760a" path="res://Main/UI/button.gd" id="1_y5po6"]
+[ext_resource type="Texture2D" uid="uid://cehxibl6dr4nt" path="res://Main/UI/button hover.png" id="2_e2sdh"]
+[ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="3_51t10"]
+
+[node name="change1" type="Button" unique_id=1388512022]
+custom_minimum_size = Vector2(100, 0)
+text = "Edit"
+flat = true
+script = ExtResource("1_y5po6")
+
+[node name="hover" type="Sprite2D" parent="." unique_id=11905100]
+visible = false
+z_index = -1
+position = Vector2(51, 50)
+scale = Vector2(5, 5)
+texture = ExtResource("2_e2sdh")
+
+[node name="normal" type="Sprite2D" parent="." unique_id=820672049]
+z_index = -2
+position = Vector2(51, 51)
+scale = Vector2(5, 5)
+texture = ExtResource("3_51t10")
+
+[connection signal="mouse_entered" from="." to="." method="hover_start"]
+[connection signal="mouse_exited" from="." to="." method="hover_end"]
+[connection signal="pressed" from="." to="." method="on_press"]

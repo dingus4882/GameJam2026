@@ -7,6 +7,7 @@ extends Node2D
 func _ready():
 	# Open settings menu by default
 	exit_button.visible = is_in_game
+	if !is_in_game: $Button.text = "Return to Menu"
 	settings_btn.show_buttons(true)
 
 func _update_ui_text():

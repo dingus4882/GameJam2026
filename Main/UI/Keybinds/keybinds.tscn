@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cq3jtapqvyk22"]
 
 [ext_resource type="Script" uid="uid://qg30d4ja51e5" path="res://Main/UI/Keybinds/keybinds.gd" id="1_wl70v"]
-[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Main/UI/button.tscn" id="2_fv62c"]
-[ext_resource type="Script" uid="uid://dfbh5lrcv760a" path="res://Main/UI/button.gd" id="3_f6rh0"]
+[ext_resource type="Texture2D" uid="uid://cehxibl6dr4nt" path="res://Main/UI/button hover.png" id="2_8a4y7"]
+[ext_resource type="PackedScene" uid="uid://dnt6vm73iyku4" path="res://Main/UI/keybinds_button.tscn" id="3_8a4y7"]
+[ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="3_j4mu8"]
 
 [node name="Keybinds" type="Control" unique_id=981403807]
 layout_mode = 3
@@ -32,10 +33,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Titles/name" unique_id=544432849]
-modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
 z_index = -1
-position = Vector2(79, 13)
-scale = Vector2(0.1, 0.1)
+position = Vector2(75, 13)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Titles" unique_id=1244308643]
 custom_minimum_size = Vector2(100, 0)
@@ -49,10 +50,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Titles/name2" unique_id=382265344]
-modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
 z_index = -1
 position = Vector2(72, 13)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer3" type="MarginContainer" parent="Titles" unique_id=8603340]
 custom_minimum_size = Vector2(204, 0)
@@ -70,10 +71,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Titles/name4" unique_id=891481769]
-modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
 z_index = -1
 position = Vector2(72, 13)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer5" type="MarginContainer" parent="Titles" unique_id=222291726]
 custom_minimum_size = Vector2(100, 0)
@@ -111,10 +112,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/warning" unique_id=2043337974]
-modulate = Color(1, 0, 0, 1)
+modulate = Color(1, 0.54124093, 0.4767593, 1)
 z_index = -1
-position = Vector2(79, 13)
-scale = Vector2(0.1, 0.1)
+position = Vector2(76, 13)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=976885074]
 custom_minimum_size = Vector2(50, 0)
@@ -128,9 +130,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/name" unique_id=1546814620]
+modulate = Color(0.8132577, 0.8132577, 0.81325763, 1)
 z_index = -1
-position = Vector2(79, 13)
-scale = Vector2(0.1, 0.1)
+position = Vector2(78, 13)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=684666984]
 custom_minimum_size = Vector2(100, 0)
@@ -144,18 +148,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/input1" unique_id=799354021]
+modulate = Color(0.8132577, 0.8132577, 0.81325763, 1)
 z_index = -1
-position = Vector2(72, 13)
-scale = Vector2(0.1, 0.1)
+position = Vector2(72.00006, 13)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer3" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=260948721]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="change1" parent="Buttons/VBoxContainer/Keybind0" unique_id=1314000419 instance=ExtResource("2_fv62c")]
-custom_minimum_size = Vector2(100, 0)
+[node name="change1" parent="Buttons/VBoxContainer/Keybind0" unique_id=1388512022 instance=ExtResource("3_8a4y7")]
 layout_mode = 2
-script = ExtResource("3_f6rh0")
 
 [node name="MarginContainer4" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=1444992555]
 custom_minimum_size = Vector2(150, 0)
@@ -169,16 +173,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/input2" unique_id=1030889326]
+modulate = Color(0.8132577, 0.8132577, 0.81325763, 1)
 z_index = -1
 position = Vector2(72, 13)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer5" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=1971334328]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="change2" parent="Buttons/VBoxContainer/Keybind0" unique_id=1314960516 instance=ExtResource("2_fv62c")]
-custom_minimum_size = Vector2(100, 0)
+[node name="change2" parent="Buttons/VBoxContainer/Keybind0" unique_id=532345302 instance=ExtResource("3_8a4y7")]
 layout_mode = 2
 
 [node name="Decorations" type="Node2D" parent="." unique_id=542191981]
@@ -199,6 +204,7 @@ z_index = 1
 position = Vector2(960, 80)
 scale = Vector2(0.2, 0.2)
 
-[connection signal="mouse_entered" from="Buttons/VBoxContainer/Keybind0/change1" to="Buttons/VBoxContainer/Keybind0/change1" method="hover_start"]
-[connection signal="mouse_exited" from="Buttons/VBoxContainer/Keybind0/change1" to="Buttons/VBoxContainer/Keybind0/change1" method="hover_end"]
-[connection signal="pressed" from="Buttons/VBoxContainer/Keybind0/change1" to="Buttons/VBoxContainer/Keybind0/change1" method="on_press"]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=642518548]
+position = Vector2(959.99994, 82.00001)
+scale = Vector2(19.766, 6.719)
+texture = ExtResource("3_j4mu8")

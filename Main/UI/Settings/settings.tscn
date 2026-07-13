@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cip1txbi5pegd" path="res://Main/UI/Settings/settings.gd" id="1_qxg8b"]
 [ext_resource type="PackedScene" uid="uid://bsygl5ah3gmhv" path="res://Main/UI/slider.tscn" id="2_6xqt3"]
+[ext_resource type="Texture2D" uid="uid://cehxibl6dr4nt" path="res://Main/UI/button hover.png" id="2_88orn"]
+[ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="3_6xqt3"]
 
 [node name="OptionsMenu" type="Control" unique_id=651911818]
 layout_mode = 3
@@ -34,7 +36,16 @@ theme_override_font_sizes/font_size = 24
 text = "Music"
 horizontal_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="Music" unique_id=1670222996]
+modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
+z_index = -1
+position = Vector2(166, 19)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_88orn")
+
 [node name="Music Volume" parent="." unique_id=1166674059 instance=ExtResource("2_6xqt3")]
+position = Vector2(432, 350)
+value = 50.0
 
 [node name="Sound" type="Label" parent="." unique_id=915224658]
 z_index = 2
@@ -47,4 +58,18 @@ theme_override_font_sizes/font_size = 24
 text = "Sound"
 horizontal_alignment = 1
 
+[node name="Sprite2D" type="Sprite2D" parent="Sound" unique_id=1001668917]
+modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
+z_index = -1
+position = Vector2(166, 17)
+scale = Vector2(7.5, 3)
+texture = ExtResource("2_88orn")
+
 [node name="Sound Volume" parent="." unique_id=1869480924 instance=ExtResource("2_6xqt3")]
+position = Vector2(1087, 350)
+value = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1336028802]
+position = Vector2(959.99994, 84.00001)
+scale = Vector2(19.766, 6.719)
+texture = ExtResource("3_6xqt3")
