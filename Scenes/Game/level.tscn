@@ -43,7 +43,6 @@ scenes/1/scene = ExtResource("12_gehky")
 scenes/2/scene = ExtResource("14_sxjtx")
 
 [sub_resource type="TileSet" id="TileSet_rp17r"]
-tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetScenesCollectionSource_dhpv8")
 sources/1 = SubResource("TileSetScenesCollectionSource_1y5r3")
 
