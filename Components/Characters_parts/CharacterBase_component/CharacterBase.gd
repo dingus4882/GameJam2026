@@ -136,3 +136,10 @@ func _physics_process(_delta):
 	if not is_on_floor() and is_gravity_on:
 		velocity.y += GRAVITY * _delta
 	move_and_slide()
+	
+	
+	
+signal position_changed (global_position)
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED:
+		position_changed.emit (global_position)

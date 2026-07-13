@@ -4,8 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_5xcqo"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="5_752co"]
 [ext_resource type="PackedScene" uid="uid://bhhmtoi0eigg7" path="res://Main/Entities/Fire_enemy/glorbo_fire.tscn" id="5_hxm02"]
+[ext_resource type="Texture2D" uid="uid://drjesny2ryeh7" path="res://Assets/Trans.png" id="5_paexr"]
 [ext_resource type="TileSet" uid="uid://bssm2k1a7naq1" path="res://Main/Map/level.tres" id="5_q22yn"]
 [ext_resource type="PackedScene" uid="uid://2vc7kwnwu0dg" path="res://Main/Entities/Strong_enemy/Glorbo_strong.tscn" id="5_r6akh"]
+[ext_resource type="Script" uid="uid://jpcvrnatus77" path="res://Main/Map/Chunky_map.gd" id="5_xmsy7"]
 [ext_resource type="PackedScene" uid="uid://dbn7phfs4fq0o" path="res://Main/Entities/Fast_enemy/Glorbo_fast.tscn" id="6_752co"]
 [ext_resource type="PackedScene" uid="uid://o60v2ssd087p" path="res://Main/Entities/FourArmed_enemy/glorbo_fourarmed.tscn" id="6_tjmgu"]
 [ext_resource type="PackedScene" uid="uid://coy6yav0mtg3f" path="res://Main/Entities/Durable_enemy/Glorbo_durable.tscn" id="7_r6akh"]
@@ -15,6 +17,15 @@
 [ext_resource type="PackedScene" uid="uid://durndgx6uylyb" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/glorbo_brainless.tscn" id="12_gehky"]
 [ext_resource type="PackedScene" uid="uid://c8jy88la6bu0" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/glorbo_brainlessWhite.tscn" id="14_sxjtx"]
 [ext_resource type="PackedScene" uid="uid://dwimtfd51ebcu" path="res://Main/Map/Next_level_heal/next_level_heal.tscn" id="17_paexr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q22yn"]
+texture = ExtResource("5_paexr")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 3
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_0cvp5"]
+sources/0 = SubResource("TileSetAtlasSource_q22yn")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dhpv8"]
 resource_name = "Glorbo"
@@ -68,10 +79,13 @@ visible = false
 z_index = 20
 is_in_game = true
 
-[node name="Map" type="Node2D" parent="." unique_id=2022004810]
+[node name="Map" type="TileMapLayer" parent="." unique_id=1839988819 node_paths=PackedStringArray("player")]
+tile_set = SubResource("TileSet_0cvp5")
+script = ExtResource("5_xmsy7")
+player = NodePath("../Geto")
+metadata/_custom_type_script = "uid://jpcvrnatus77"
 
 [node name="Enemies" type="TileMapLayer" parent="Map" unique_id=1577728904]
-position = Vector2(-2850, -2765)
 tile_map_data = PackedByteArray("AAAOABQAAAAAAAAAAQALABkAAAAAAAAAAQALABsAAAAAAAAAAQARABoAAAAAAAAAAgAEABkAAAAAAAAAAwAjABoAAAAAAAAABAAeABkAAAAAAAAABQAgABgAAAAAAAAABQCY/wgAAAAAAAAABgBG//D/AQAAAAAAAQA5/+7/AQAAAAAAAgAY/+P/AAAAAAAABwA=")
 tile_set = SubResource("TileSet_rp17r")
 
