@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://ddpxkoymtp7th" path="res://Main/Entities/Fire_enemy/FireOcto.png" id="4_esrup"]
 [ext_resource type="Texture2D" uid="uid://b77vcadkramvx" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="5_01sav"]
 [ext_resource type="Texture2D" uid="uid://bjnsbu7wp06mc" path="res://Assets/logo_dark.svg" id="5_i5j4f"]
-[ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="6_01sav"]
 
 [sub_resource type="GDScript" id="GDScript_ui_bg"]
 script/source = "extends Control
@@ -24,7 +23,7 @@ glow_enabled = true
 glow_intensity = 2.0
 glow_strength = 1.2
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmaq3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_esrup"]
 texture = ExtResource("1_cmaq3")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -69,7 +68,7 @@ texture = ExtResource("1_cmaq3")
 
 [sub_resource type="TileSet" id="TileSet_37olu"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_cmaq3")
+sources/0 = SubResource("TileSetAtlasSource_esrup")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pr1l1"]
 atlas = ExtResource("3_37olu")
@@ -324,19 +323,3 @@ scale = Vector2(6.506733, 8.207133)
 sprite_frames = SubResource("SpriteFrames_f0nvx")
 animation = &"walk"
 autoplay = "idle"
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1848232495]
-position = Vector2(959.99994, 150)
-scale = Vector2(19.766, 6.719)
-texture = ExtResource("6_01sav")
-
-[node name="Label" type="Label" parent="." unique_id=1486501668]
-layout_mode = 0
-offset_left = 823.0
-offset_top = 110.0
-offset_right = 1098.0
-offset_bottom = 191.0
-theme_override_font_sizes/font_size = 20
-text = "The Glutton's Netherbreak"
-horizontal_alignment = 1
-vertical_alignment = 1

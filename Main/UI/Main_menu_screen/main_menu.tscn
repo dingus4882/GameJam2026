@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dwi1gplwqsk82" path="res://Main/UI/Main_menu_screen/main_menu.gd" id="1_pcp5t"]
 [ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Main/UI/UI_Background.tscn" id="2_hhena"]
 [ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Main/UI/button.tscn" id="3_rnxqk"]
+[ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="4_hhena"]
 
 [node name="MainMenu" type="Control" unique_id=1544638842]
 layout_mode = 3
@@ -64,6 +65,22 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
 text = "Quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1690106553]
+position = Vector2(959.99994, 150)
+scale = Vector2(19.766, 6.719)
+texture = ExtResource("4_hhena")
+
+[node name="Label" type="Label" parent="." unique_id=1130338365]
+layout_mode = 0
+offset_left = 823.0
+offset_top = 110.0
+offset_right = 1098.0
+offset_bottom = 191.0
+theme_override_font_sizes/font_size = 20
+text = "The Glutton's Netherbreak"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Buttons/Game_Levels" to="." method="_game_selection_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_settings_pressed"]
