@@ -42,7 +42,7 @@ var current_chunk_id: Vector2i = Vector2i (0,0):
 					var old_chunk = Vector2i (x,y)  + chunk_off_set + current_chunk_id
 					if not the_chunk.has_point(old_chunk):
 						set_cell( old_chunk)
-						deload_chunk(chunk_id)
+						deload_chunk(old_chunk)
 			current_chunk_id = new_chunk
 
 
@@ -56,7 +56,7 @@ func _ready():
 		layers_data.append(layer.duplicate())
 		
 		var temp_size = layer.tile_set.tile_size
-		layer.tile_set = tile_set.duplicate()
+		layer.tile_set = layer.tile_set.duplicate()
 		layer.clear()
 		
 		layer.tile_set.tile_size = temp_size
@@ -75,25 +75,12 @@ func load_chunk(chunk_id: Vector2i):
 
 			for index in len(layers):
 				var temp_map_cords = layers_data[index].local_to_map(temp_global_cords)
-				#print(temp_temp_cords)
-				if chunk_id == Vector2i(0,0):
-					#print(chunk_id)
-					print(temp_global_cords )
-					print(temp_map_cords)
-					print("!!!!")
 				var temp_atlas_cords = layers_data[index].get_cell_atlas_coords(temp_map_cords)
 				var temp_source_id = layers_data[index].get_cell_source_id(temp_map_cords)
 				
 				
 				
-				if x== 1 and y == 1 and index == 2:
-					#print(temp_temp_cords)
-#
-					#print(layers_data[index].get_used_cells())
-					#
-					#print(temp_atlas_cords)
-					#print(temp_source_id)
-					pass
+
 				layers[index].set_cell(temp_map_cords,temp_source_id,temp_atlas_cords)
 	#
 	#
@@ -101,9 +88,10 @@ func load_chunk(chunk_id: Vector2i):
 func deload_chunk(chunk_id: Vector2i):
 	for x in chunk_size.x:
 		for y in chunk_size.y:
-			var temp_cords = chunk_size * chunk_id * tile_ratio + Vector2i(x,y)
+			var temp_global_cords = chunk_size * tile_ratio * chunk_id  + Vector2i(x,y) * tile_ratio
 			for index in len(layers):
-				layers[index].set_cell(temp_cords)
+				var temp_map_cords = layers_data[index].local_to_map(temp_global_cords)
+				layers[index].set_cell(temp_map_cords)
 
 func _process(_delta):
 	
