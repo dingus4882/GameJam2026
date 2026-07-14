@@ -82,7 +82,6 @@ animation = &"walk"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=277635125]
-visible = false
 position = Vector2(3.3208291e-06, 5.7142844)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_y1k7a")
@@ -98,10 +97,8 @@ direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
 [node name="Shoot_point" type="Marker2D" parent="." unique_id=843492898]
-position = Vector2(0, -88)
 
 [node name="Direction_point" type="Marker2D" parent="." unique_id=794520424]
-visible = false
 position = Vector2(20.000008, -7.6293945e-06)
 
 [node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=625012540]

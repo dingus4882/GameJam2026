@@ -111,7 +111,6 @@ direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
 [node name="Shoot_point" type="Marker2D" parent="." unique_id=512913734]
-position = Vector2(0, -88)
 
 [node name="Direction_point" type="Marker2D" parent="." unique_id=1777218379]
 visible = false
@@ -141,11 +140,9 @@ position = Vector2(11.428563, 28.571436)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_uaij6")
 
-[node name="AttackComponent" type="Node" parent="." unique_id=606829873 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
+[node name="AttackComponent" type="Node" parent="." unique_id=606829873 node_paths=PackedStringArray("bullets")]
 script = ExtResource("4_6spu2")
 bullets = [NodePath("Hurt_box")]
-shoot_point = NodePath("")
-character = NodePath("")
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_fg5y0")]

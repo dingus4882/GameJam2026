@@ -55,11 +55,10 @@ func _ready():
 	for layer in layers:
 		layers_data.append(layer.duplicate())
 		
-		var temp_size = layer.tile_set.tile_size
+
 		layer.tile_set = layer.tile_set.duplicate()
 		layer.clear()
 		
-		layer.tile_set.tile_size = temp_size
 
 	pass
 
@@ -78,10 +77,15 @@ func load_chunk(chunk_id: Vector2i):
 				var temp_atlas_cords = layers_data[index].get_cell_atlas_coords(temp_map_cords)
 				var temp_source_id = layers_data[index].get_cell_source_id(temp_map_cords)
 				
-				
-				
-
-				layers[index].set_cell(temp_map_cords,temp_source_id,temp_atlas_cords)
+				if temp_source_id > -1:
+					var source = layers_data[index].tile_set.get_source(temp_source_id)
+					
+					if source is TileSetAtlasSource:
+						layers[index].set_cell(temp_map_cords,temp_source_id,temp_atlas_cords)
+						
+					if source is TileSetScenesCollectionSource:
+						var alt_id = layers_data[index].get_cell_alternative_tile(temp_map_cords)
+						layers[index].set_cell(temp_map_cords, temp_source_id,Vector2i.ZERO,alt_id)
 	#
 	#
 	

@@ -104,7 +104,6 @@ direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
 [node name="Shoot_point" type="Marker2D" parent="." unique_id=1560319611]
-position = Vector2(0, -88)
 
 [node name="Direction_point" type="Marker2D" parent="." unique_id=1213718496]
 visible = false
