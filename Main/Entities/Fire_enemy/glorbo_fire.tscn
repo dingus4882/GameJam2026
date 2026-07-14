@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bhhmtoi0eigg7"]
 
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_mompm"]
-[ext_resource type="Texture2D" uid="uid://bqcljpuxijw1m" path="res://Main/Entities/Fire_enemy/FireOcto.png" id="2_mompm"]
+[ext_resource type="Texture2D" uid="uid://ddpxkoymtp7th" path="res://Main/Entities/Fire_enemy/FireOcto.png" id="2_mompm"]
 [ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_04bkw"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_ei2dp"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_shbot"]
@@ -69,15 +69,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bn5f1"]
-size = Vector2(160, 185)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mompm"]
+size = Vector2(19.999998, 20.000004)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3qpar"]
-radius = 133.03383
+[sub_resource type="CircleShape2D" id="CircleShape2D_fx4af"]
+radius = 26.263968
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cap33"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04bkw"]
+size = Vector2(5.2857094, 5.7142878)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_svjn8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei2dp"]
+size = Vector2(5.2857094, 5.7142754)
 
 [node name="Glorbo_fire" type="CharacterBody2D" unique_id=349108625 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
 scale = Vector2(0.7, 0.7)
@@ -92,18 +94,17 @@ direction_point = NodePath("Direction_point")
 metadata/_custom_type_script = "uid://chypt44vkylf5"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=949499809]
-position = Vector2(0, -119)
-scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_cu4or")
 animation = &"walk"
 autoplay = "idle"
 
-[node name="Collision" type="CollisionShape2D" parent="." unique_id=359877986]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1066060121]
 visible = false
-position = Vector2(-5, -85.5)
-shape = SubResource("RectangleShape2D_bn5f1")
+position = Vector2(3.3208291e-06, 5.7142844)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_mompm")
 
-[node name="Base_Ai" type="Node" parent="." unique_id=192541157 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source")]
+[node name="Base_Ai" type="Node" parent="." unique_id=967121034 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source")]
 script = ExtResource("3_04bkw")
 character = NodePath("..")
 attacking_range = NodePath("../Direction_point/Attack_range")
@@ -113,36 +114,38 @@ Attack_source = NodePath("../AttackComponent")
 direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
-[node name="Shoot_point" type="Marker2D" parent="." unique_id=1048541123]
+[node name="Shoot_point" type="Marker2D" parent="." unique_id=1027272859]
 position = Vector2(0, -88)
 
-[node name="Direction_point" type="Marker2D" parent="." unique_id=1199457434]
+[node name="Direction_point" type="Marker2D" parent="." unique_id=1788075907]
 visible = false
-position = Vector2(77, -80)
+position = Vector2(20.000008, -7.6293945e-06)
 
-[node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=1136265131]
+[node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=495501726]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=1280478326]
-position = Vector2(-77, -8)
-shape = SubResource("CircleShape2D_3qpar")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=832671108]
+position = Vector2(-20.000011, 7.6293945e-06)
+shape = SubResource("CircleShape2D_fx4af")
 
-[node name="Detect_block" type="Area2D" parent="Direction_point" unique_id=40906133]
+[node name="Detect_block" type="Area2D" parent="Direction_point" unique_id=2038099982]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_block" unique_id=1313318054]
-position = Vector2(19, 0)
-shape = SubResource("RectangleShape2D_cap33")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_block" unique_id=490587472]
+position = Vector2(11.642851, 7.96999e-06)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_04bkw")
 
-[node name="Detect_no_block" type="Area2D" parent="Direction_point" unique_id=1607620918]
+[node name="Detect_no_block" type="Area2D" parent="Direction_point" unique_id=306937566]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_no_block" unique_id=594675408]
-position = Vector2(19, 104)
-shape = SubResource("RectangleShape2D_svjn8")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_no_block" unique_id=1742823471]
+position = Vector2(11.428563, 28.571436)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_ei2dp")
 
-[node name="AttackComponent" type="Node" parent="." unique_id=37389394 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
+[node name="AttackComponent" type="Node" parent="." unique_id=1548827323 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
 script = ExtResource("4_ei2dp")
 bullets = [NodePath("Hurt_box")]
 shoot_point = NodePath("../Shoot_point")
@@ -151,10 +154,9 @@ metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_shbot")]
 visible = false
-position = Vector2(0, -64)
-scale = Vector2(11.894737, 11.894737)
+scale = Vector2(3.094738, 3.094738)
 is_library = true
 
-[node name="HealthComponent" type="Node" parent="." unique_id=102898197]
+[node name="HealthComponent" type="Node" parent="." unique_id=595129125]
 script = ExtResource("6_c2bci")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
