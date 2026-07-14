@@ -75,8 +75,6 @@ layer = 20
 [node name="Options" parent="Geto/Cam/CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
 unique_name_in_owner = true
 z_index = 20
-position = Vector2(-31.999998, -543.99994)
-scale = Vector2(0.4000005, 0.4000005)
 is_in_game = true
 
 [node name="Map" type="TileMapLayer" parent="." unique_id=1839988819 node_paths=PackedStringArray("layers", "player")]
