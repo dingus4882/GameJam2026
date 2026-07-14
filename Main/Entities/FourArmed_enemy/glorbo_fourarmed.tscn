@@ -81,6 +81,7 @@ scale = Vector2(0.8, 0.8)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_p6h67")
+speed = 100.0
 is_sprite_towards_the_right = true
 health_component = NodePath("HealthComponent")
 attack_component = NodePath("AttackComponent")

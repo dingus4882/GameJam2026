@@ -77,9 +77,11 @@ size = Vector2(5.2857094, 5.7142878)
 size = Vector2(5.2857094, 5.7142754)
 
 [node name="Glorbo_durable" type="CharacterBody2D" unique_id=349108625 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
+scale = Vector2(1.5, 1.5)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_umlbo")
+speed = 100.0
 is_sprite_towards_the_right = true
 health_component = NodePath("HealthComponent")
 attack_component = NodePath("AttackComponent")

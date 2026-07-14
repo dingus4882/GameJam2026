@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_5xcqo"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="5_752co"]
 [ext_resource type="PackedScene" uid="uid://bhhmtoi0eigg7" path="res://Main/Entities/Fire_enemy/glorbo_fire.tscn" id="5_hxm02"]
-[ext_resource type="Texture2D" uid="uid://bs5ptslwcyfsi" path="res://icon.svg" id="5_paexr"]
+[ext_resource type="Texture2D" uid="uid://drjesny2ryeh7" path="res://Assets/Trans.png" id="5_paexr"]
 [ext_resource type="TileSet" uid="uid://bssm2k1a7naq1" path="res://Main/Map/level.tres" id="5_q22yn"]
 [ext_resource type="PackedScene" uid="uid://2vc7kwnwu0dg" path="res://Main/Entities/Strong_enemy/Glorbo_strong.tscn" id="5_r6akh"]
 [ext_resource type="Script" uid="uid://jpcvrnatus77" path="res://Main/Map/Chunky_loader.gd" id="5_xmsy7"]
@@ -20,7 +20,7 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q22yn"]
 texture = ExtResource("5_paexr")
-texture_region_size = Vector2i(64, 128)
+texture_region_size = Vector2i(32, 32)
 0:0/next_alternative_id = 3
 0:0/0 = 0
 
@@ -64,16 +64,21 @@ metadata/_edit_use_anchors_ = true
 z_index = 1
 position = Vector2(-448, -800)
 
-[node name="Cam" type="Camera2D" parent="Geto" unique_id=1705573718 node_paths=PackedStringArray("target")]
-zoom = Vector2(2, 2)
-script = ExtResource("10_tjmgu")
-target = NodePath("..")
+[node name="Cam_off_set" type="Node2D" parent="Geto" unique_id=1012723054]
+position = Vector2(0, -32)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Geto/Cam" unique_id=260389767]
+[node name="Cam" type="Camera2D" parent="." unique_id=1705573718 node_paths=PackedStringArray("target")]
+position = Vector2(-448, -800)
+zoom = Vector2(4, 4)
+script = ExtResource("10_tjmgu")
+target = NodePath("../Geto/Cam_off_set")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Cam" unique_id=260389767]
 layer = 20
 
-[node name="Options" parent="Geto/Cam/CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
+[node name="Options" parent="Cam/CanvasLayer" unique_id=685411329 instance=ExtResource("2_5xcqo")]
 unique_name_in_owner = true
+visible = false
 z_index = 20
 is_in_game = true
 
@@ -83,6 +88,8 @@ script = ExtResource("5_xmsy7")
 layers = [NodePath("Enemies"), NodePath("Special"), NodePath("Ground")]
 player = NodePath("../Geto")
 tile_ratio = Vector2i(16, 16)
+render_distance = Vector2i(9, 3)
+chunk_off_set = Vector2i(-4, -1)
 metadata/_custom_type_script = "uid://jpcvrnatus77"
 
 [node name="Enemies" type="TileMapLayer" parent="Map" unique_id=1577728904]
