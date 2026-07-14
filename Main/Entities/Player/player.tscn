@@ -135,11 +135,9 @@ animations = [{
 size = Vector2(707.75, 270.75)
 
 [node name="Geto" type="CharacterBody2D" unique_id=492334250 node_paths=PackedStringArray("health_component", "sprite", "direction_point")]
-scale = Vector2(4, 4)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_1k5x0")
-speed = 600.0
 is_sprite_towards_the_right = true
 health_component = NodePath("HealthComponent")
 sprite = NodePath("Sprite")
@@ -194,7 +192,7 @@ position = Vector2(20.75, 0)
 
 [node name="JumpComponent" type="Node" parent="." unique_id=832193259]
 script = ExtResource("5_r86g3")
-JUMP_VELOCITY = -900.0
+JUMP_VELOCITY = -300.0
 max_extra_jumps = 1
 metadata/_custom_type_script = "uid://1u2c2e41771e"
 

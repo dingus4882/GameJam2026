@@ -6,6 +6,9 @@ extends Node2D
 @export var attack_sorce: AttackComponent
 
 
+
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	#region disable

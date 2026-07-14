@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dbn7phfs4fq0o"]
 
-[ext_resource type="Texture2D" uid="uid://dm4edw2it7ch5" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="1_cxytt"]
-[ext_resource type="Script" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_m3agm"]
-[ext_resource type="Script" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_mjjms"]
-[ext_resource type="Script" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_mr1jg"]
-[ext_resource type="Script" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="4_p3awt"]
+[ext_resource type="Texture2D" uid="uid://gk44vvw8hg3g" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="1_cxytt"]
+[ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_m3agm"]
+[ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_mjjms"]
+[ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_mr1jg"]
+[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="4_p3awt"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_cgror"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjjms"]
@@ -51,15 +51,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsd"]
-size = Vector2(160, 185)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y1k7a"]
+size = Vector2(19.999998, 20.000004)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0cvp5"]
-radius = 133.03383
+[sub_resource type="CircleShape2D" id="CircleShape2D_i6mef"]
+radius = 26.263968
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjjms"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j67yq"]
+size = Vector2(5.2857094, 5.7142878)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr1jg"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_um2d6"]
+size = Vector2(5.2857094, 5.7142754)
 
 [node name="Glorbo_Fast" type="CharacterBody2D" unique_id=1813766542 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
 scale = Vector2(0.7, 0.7)
@@ -75,18 +77,16 @@ direction_point = NodePath("Direction_point")
 metadata/_custom_type_script = "uid://chypt44vkylf5"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1516798216]
-position = Vector2(0, -119)
-scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 animation = &"walk"
 autoplay = "idle"
 
-[node name="Collision" type="CollisionShape2D" parent="." unique_id=1374343038]
-visible = false
-position = Vector2(-5, -85.5)
-shape = SubResource("RectangleShape2D_s7wsd")
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=277635125]
+position = Vector2(3.3208291e-06, 5.7142844)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_y1k7a")
 
-[node name="Base_Ai" type="Node" parent="." unique_id=481095541 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source")]
+[node name="Base_Ai" type="Node" parent="." unique_id=897151747 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source")]
 script = ExtResource("3_mjjms")
 character = NodePath("..")
 attacking_range = NodePath("../Direction_point/Attack_range")
@@ -96,36 +96,36 @@ Attack_source = NodePath("../AttackComponent")
 direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
-[node name="Shoot_point" type="Marker2D" parent="." unique_id=1242807937]
-position = Vector2(0, -88)
+[node name="Shoot_point" type="Marker2D" parent="." unique_id=843492898]
 
-[node name="Direction_point" type="Marker2D" parent="." unique_id=1206671242]
-visible = false
-position = Vector2(77, -80)
+[node name="Direction_point" type="Marker2D" parent="." unique_id=794520424]
+position = Vector2(20.000008, -7.6293945e-06)
 
-[node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=1988673475]
+[node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=625012540]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=1813473322]
-position = Vector2(-77, -8)
-shape = SubResource("CircleShape2D_0cvp5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=2096290070]
+position = Vector2(-20.000011, 7.6293945e-06)
+shape = SubResource("CircleShape2D_i6mef")
 
-[node name="Detect_block" type="Area2D" parent="Direction_point" unique_id=1812175199]
+[node name="Detect_block" type="Area2D" parent="Direction_point" unique_id=83803318]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_block" unique_id=687298076]
-position = Vector2(19, 0)
-shape = SubResource("RectangleShape2D_mjjms")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_block" unique_id=623600426]
+position = Vector2(11.642851, 7.96999e-06)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_j67yq")
 
-[node name="Detect_no_block" type="Area2D" parent="Direction_point" unique_id=1638927826]
+[node name="Detect_no_block" type="Area2D" parent="Direction_point" unique_id=341451598]
 collision_layer = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_no_block" unique_id=1800575174]
-position = Vector2(19, 104)
-shape = SubResource("RectangleShape2D_mr1jg")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_no_block" unique_id=1305898359]
+position = Vector2(11.428563, 28.571436)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_um2d6")
 
-[node name="AttackComponent" type="Node" parent="." unique_id=1139968049 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
+[node name="AttackComponent" type="Node" parent="." unique_id=1203752470 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
 script = ExtResource("4_mr1jg")
 bullets = [NodePath("Hurt_box")]
 shoot_point = NodePath("../Shoot_point")
@@ -134,11 +134,9 @@ metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_cgror")]
 visible = false
-position = Vector2(0, -64)
-scale = Vector2(14.5747385, 14.5747385)
-damage = 5.0
+scale = Vector2(3.094738, 3.094738)
 is_library = true
 
-[node name="HealthComponent" type="Node" parent="." unique_id=623949627]
+[node name="HealthComponent" type="Node" parent="." unique_id=1610363641]
 script = ExtResource("4_p3awt")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
