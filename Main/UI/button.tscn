@@ -17,13 +17,13 @@ script = ExtResource("1_asxj4")
 visible = false
 z_index = -1
 position = Vector2(126.5, 36.999996)
-scale = Vector2(15.8125, 5.375)
+scale = Vector2(4, 4)
 texture = ExtResource("1_5m2cf")
 
 [node name="normal" type="Sprite2D" parent="." unique_id=594626530]
 z_index = -2
 position = Vector2(126.5, 37.999996)
-scale = Vector2(15.8125, 5.375)
+scale = Vector2(4, 4)
 texture = ExtResource("3_5o13r")
 
 [connection signal="mouse_entered" from="." to="." method="hover_start"]
