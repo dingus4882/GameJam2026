@@ -1,4 +1,4 @@
-﻿class_name AttackComponent
+class_name AttackComponent
 extends Node
 
 var is_mutated: bool = false
@@ -55,7 +55,6 @@ func fire() -> void:
 	#region initialize bullet
 	var bullet_path = currentBullet.scene_file_path
 	var bullet = GlobalFunc.instantiate_node(bullet_path)
-
 	bullet.bullet_sprite = currentBullet.bullet_sprite
 	bullet.damage = currentBullet.damage
 	bullet.scale = currentBullet.scale
