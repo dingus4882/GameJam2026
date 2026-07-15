@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://qg30d4ja51e5" path="res://Main/UI/Keybinds/keybinds.gd" id="1_wl70v"]
 [ext_resource type="Texture2D" uid="uid://cehxibl6dr4nt" path="res://Main/UI/button hover.png" id="2_8a4y7"]
+[ext_resource type="FontFile" uid="uid://bblgfksqrfodg" path="res://Assets/Drybrush-KV2wD.ttf" id="2_twsg5"]
 [ext_resource type="PackedScene" uid="uid://dnt6vm73iyku4" path="res://Main/UI/keybinds_button.tscn" id="3_8a4y7"]
 [ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="3_j4mu8"]
 
@@ -28,14 +29,15 @@ layout_mode = 2
 [node name="name" type="Label" parent="Titles" unique_id=1724644551]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_twsg5")
 text = "Keytype"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Titles/name" unique_id=544432849]
 z_index = -1
-position = Vector2(75, 13)
-scale = Vector2(7.5, 3)
+position = Vector2(75, 8)
+scale = Vector2(2, 3)
 texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Titles" unique_id=1244308643]
@@ -45,14 +47,15 @@ layout_mode = 2
 [node name="name2" type="Label" parent="Titles" unique_id=2040197126]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_twsg5")
 text = "Input 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Titles/name2" unique_id=382265344]
 z_index = -1
-position = Vector2(72, 13)
-scale = Vector2(7.5, 3)
+position = Vector2(72, 8)
+scale = Vector2(2, 3)
 texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer3" type="MarginContainer" parent="Titles" unique_id=8603340]
@@ -66,14 +69,15 @@ layout_mode = 2
 [node name="name4" type="Label" parent="Titles" unique_id=1303403829]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_twsg5")
 text = "Input 2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Titles/name4" unique_id=891481769]
 z_index = -1
-position = Vector2(72, 13)
-scale = Vector2(7.5, 3)
+position = Vector2(72, 8)
+scale = Vector2(2, 3)
 texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer5" type="MarginContainer" parent="Titles" unique_id=222291726]
@@ -107,6 +111,7 @@ layout_mode = 2
 [node name="warning" type="Label" parent="Buttons/VBoxContainer/Keybind0" unique_id=1353442408]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_twsg5")
 text = "Duplicate"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -114,8 +119,8 @@ vertical_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/warning" unique_id=2043337974]
 modulate = Color(1, 0.54124093, 0.4767593, 1)
 z_index = -1
-position = Vector2(76, 13)
-scale = Vector2(7.5, 3)
+position = Vector2(76, 8)
+scale = Vector2(2, 3)
 texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=976885074]
@@ -125,6 +130,7 @@ layout_mode = 2
 [node name="name" type="Label" parent="Buttons/VBoxContainer/Keybind0" unique_id=884510061]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_twsg5")
 text = "Keytype"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -132,8 +138,8 @@ vertical_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/name" unique_id=1546814620]
 modulate = Color(0.8132577, 0.8132577, 0.81325763, 1)
 z_index = -1
-position = Vector2(78, 13)
-scale = Vector2(7.5, 3)
+position = Vector2(78, 8)
+scale = Vector2(2, 3)
 texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=684666984]
@@ -143,6 +149,7 @@ layout_mode = 2
 [node name="input1" type="Label" parent="Buttons/VBoxContainer/Keybind0" unique_id=1048230326]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_twsg5")
 text = "Input 1"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -150,8 +157,8 @@ vertical_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/input1" unique_id=799354021]
 modulate = Color(0.8132577, 0.8132577, 0.81325763, 1)
 z_index = -1
-position = Vector2(72.00006, 13)
-scale = Vector2(7.5, 3)
+position = Vector2(72.00006, 8)
+scale = Vector2(2, 3)
 texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer3" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=260948721]
@@ -168,6 +175,7 @@ layout_mode = 2
 [node name="input2" type="Label" parent="Buttons/VBoxContainer/Keybind0" unique_id=1534606882]
 custom_minimum_size = Vector2(150, 20)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_twsg5")
 text = "Input 2"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -175,8 +183,8 @@ vertical_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="Buttons/VBoxContainer/Keybind0/input2" unique_id=1030889326]
 modulate = Color(0.8132577, 0.8132577, 0.81325763, 1)
 z_index = -1
-position = Vector2(72, 13)
-scale = Vector2(7.5, 3)
+position = Vector2(72, 8)
+scale = Vector2(2, 3)
 texture = ExtResource("2_8a4y7")
 
 [node name="MarginContainer5" type="MarginContainer" parent="Buttons/VBoxContainer/Keybind0" unique_id=1971334328]
@@ -194,17 +202,13 @@ offset_left = 791.0
 offset_top = 23.0
 offset_right = 1129.0
 offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("2_twsg5")
 theme_override_font_sizes/font_size = 36
 text = "Keybinds"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="Decorations" unique_id=83466348]
-z_index = 1
-position = Vector2(960, 80)
-scale = Vector2(0.2, 0.2)
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=642518548]
-position = Vector2(959.99994, 82.00001)
-scale = Vector2(19.766, 6.719)
+position = Vector2(960, 77.00001)
+scale = Vector2(4, 4)
 texture = ExtResource("3_j4mu8")

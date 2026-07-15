@@ -8,11 +8,11 @@ extends Node2D
 func _ready():
 	# Open settings menu by default
 	exit_button.visible = is_in_game
-	if !is_in_game: $Button.text = "Return to Menu"
+	if !is_in_game: $Return.text = "Return to Menu"
 	settings_btn.show_buttons(true)
 
 func _update_ui_text():
-	var return_btn = get_node_or_null("Button")
+	var return_btn = get_node_or_null("Return")
 	var keybinds_btn = get_node_or_null("Keybinds")
 
 func _return_pressed():
