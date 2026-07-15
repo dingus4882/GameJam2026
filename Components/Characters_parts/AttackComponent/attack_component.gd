@@ -55,7 +55,7 @@ func fire() -> void:
 	if not is_instance_valid(character) or not is_instance_valid(sprite) or not is_instance_valid(shoot_point) or currentBullet == null:
 		return
 
-	if skip_shooting_prevention:
+	if not skip_shooting_prevention:
 		can_fire = false
 
 	# if the entity has this component and the "attacking" animation
@@ -95,5 +95,5 @@ func fire() -> void:
 	if "States" in character:
 		character.current_state = character.States.IDLE
 	sprite.sprite_frames.set_animation_speed("attacking", old_animation_speed)
-	if skip_shooting_prevention:
+	if not skip_shooting_prevention:
 		can_fire = true

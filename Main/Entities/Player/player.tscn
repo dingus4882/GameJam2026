@@ -219,14 +219,14 @@ script = ExtResource("4_wau81")
 health_bar = NodePath("../Static/Follower/Health_bar")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
 
-[node name="AttackComponent" type="Node" parent="." unique_id=669009349 node_paths=PackedStringArray("bullets", "shoot_point", "character", "animation_player")]
+[node name="AttackComponent" type="Node" parent="." unique_id=669009349 node_paths=PackedStringArray("bullets", "currentBullet", "shoot_point", "character", "animation_player")]
 script = ExtResource("5_k2cii")
 bullets = [NodePath("Hurt_box")]
+currentBullet = NodePath("Hurt_box")
+fire_rate = 1.0
 shoot_point = NodePath("../Shoot_point")
 character = NodePath("..")
 animation_player = NodePath("../AnimationPlayer")
-skip_sprite_animation = true
-skip_animation_player = true
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("6_bkrey")]

@@ -64,10 +64,9 @@ metadata/_edit_use_anchors_ = true
 z_index = 1
 position = Vector2(-4864, -1344)
 
-[node name="Map" type="TileMapLayer" parent="." unique_id=1839988819 node_paths=PackedStringArray("layers", "player")]
+[node name="Map" type="TileMapLayer" parent="." unique_id=1839988819 node_paths=PackedStringArray("player")]
 tile_set = SubResource("TileSet_0cvp5")
 script = ExtResource("5_xmsy7")
-layers = [NodePath("Enemies"), NodePath("Special"), NodePath("Ground")]
 player = NodePath("../Geto")
 tile_ratio = Vector2i(16, 16)
 render_distance = Vector2i(13, 5)
