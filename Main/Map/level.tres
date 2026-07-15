@@ -1,7 +1,7 @@
 [gd_resource type="TileSet" format=3 uid="uid://bssm2k1a7naq1"]
 
-[ext_resource type="Texture2D" uid="uid://bi3ngs6sf88hi" path="res://Main/Map/BrainlessGameJamMapSet.png" id="1_0flaa"]
-[ext_resource type="Texture2D" uid="uid://cuawhjeu71ika" path="res://Main/Map/Grassandundergroundblocks1.png" id="2_8evh8"]
+[ext_resource type="Texture2D" uid="uid://ch8031nqpt1og" path="res://Main/Map/BrainlessGameJamMapSet.png" id="1_0flaa"]
+[ext_resource type="Texture2D" uid="uid://clkra1a8wfnyn" path="res://Main/Map/Grassandundergroundblocks1.png" id="2_8evh8"]
 [ext_resource type="Texture2D" uid="uid://xcf0jxfx8fvi" path="res://Main/Map/SKY1.png" id="3_52ple"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dhpv8"]

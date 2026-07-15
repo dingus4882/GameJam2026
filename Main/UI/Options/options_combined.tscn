@@ -12,7 +12,7 @@ script = ExtResource("1_fdqpn")
 
 [node name="UI_Background" parent="." unique_id=1357555529 instance=ExtResource("2_lj24i")]
 
-[node name="Button" parent="." unique_id=1314000419 instance=ExtResource("3_y7b1q")]
+[node name="Return" parent="." unique_id=1314000419 instance=ExtResource("3_y7b1q")]
 offset_left = 30.0
 offset_top = 970.0
 offset_right = 283.0
@@ -63,5 +63,5 @@ offset_right = 283.0
 offset_bottom = 880.0
 text = "Exit to Menu"
 
-[connection signal="pressed" from="Button" to="." method="_return_pressed"]
+[connection signal="pressed" from="Return" to="." method="_return_pressed"]
 [connection signal="pressed" from="exit" to="." method="_exit_pressed"]
