@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0dvto8puhwr7"]
 
 [ext_resource type="Texture2D" uid="uid://cehxibl6dr4nt" path="res://Main/UI/button hover.png" id="1_5m2cf"]
+[ext_resource type="FontFile" uid="uid://bblgfksqrfodg" path="res://Assets/Drybrush-KV2wD.ttf" id="1_5o13r"]
 [ext_resource type="Script" uid="uid://dfbh5lrcv760a" path="res://Main/UI/button.gd" id="1_asxj4"]
 [ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="3_5o13r"]
 
@@ -8,6 +9,7 @@
 z_index = 6
 offset_right = 253.0
 offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("1_5o13r")
 theme_override_font_sizes/font_size = 20
 text = "Button"
 flat = true
@@ -17,13 +19,13 @@ script = ExtResource("1_asxj4")
 visible = false
 z_index = -1
 position = Vector2(126.5, 36.999996)
-scale = Vector2(15.8125, 5.375)
+scale = Vector2(4, 4)
 texture = ExtResource("1_5m2cf")
 
 [node name="normal" type="Sprite2D" parent="." unique_id=594626530]
 z_index = -2
 position = Vector2(126.5, 37.999996)
-scale = Vector2(15.8125, 5.375)
+scale = Vector2(4, 4)
 texture = ExtResource("3_5o13r")
 
 [connection signal="mouse_entered" from="." to="." method="hover_start"]

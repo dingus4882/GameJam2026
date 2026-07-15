@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dl1li43ls2rps"]
 
 [ext_resource type="Texture2D" uid="uid://cka828ye5dkqd" path="res://Main/Map/BrainlessGameJamMapSet.png" id="1_cmaq3"]
+[ext_resource type="FontFile" uid="uid://bblgfksqrfodg" path="res://Assets/Drybrush-KV2wD.ttf" id="3_01sav"]
 [ext_resource type="Texture2D" uid="uid://c1axr3sntd2xp" path="res://Main/Entities/FourArmed_enemy/FourArmOcto.png" id="3_37olu"]
 [ext_resource type="Texture2D" uid="uid://ddpxkoymtp7th" path="res://Main/Entities/Fire_enemy/FireOcto.png" id="4_esrup"]
 [ext_resource type="Texture2D" uid="uid://b77vcadkramvx" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="5_01sav"]
@@ -295,11 +296,12 @@ texture = ExtResource("5_i5j4f")
 
 [node name="Text" type="Label" parent="Credits" unique_id=1540224410]
 layout_mode = 0
-offset_left = 1660.0
-offset_top = 916.0
-offset_right = 2260.9937
-offset_bottom = 1090.9993
-theme_override_font_sizes/font_size = 46
+offset_left = 1665.0
+offset_top = 914.0
+offset_right = 2265.9937
+offset_bottom = 1088.9993
+theme_override_fonts/font = ExtResource("3_01sav")
+theme_override_font_sizes/font_size = 55
 text = "Made with"
 
 [node name="Sprite2" type="AnimatedSprite2D" parent="." unique_id=1351849575]

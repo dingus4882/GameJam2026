@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cip1txbi5pegd" path="res://Main/UI/Settings/settings.gd" id="1_qxg8b"]
 [ext_resource type="PackedScene" uid="uid://bsygl5ah3gmhv" path="res://Main/UI/slider.tscn" id="2_6xqt3"]
 [ext_resource type="Texture2D" uid="uid://cehxibl6dr4nt" path="res://Main/UI/button hover.png" id="2_88orn"]
+[ext_resource type="FontFile" uid="uid://bblgfksqrfodg" path="res://Assets/Drybrush-KV2wD.ttf" id="2_ejvmo"]
 [ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="3_6xqt3"]
 
 [node name="OptionsMenu" type="Control" unique_id=651911818]
@@ -20,6 +21,7 @@ offset_left = 791.0
 offset_top = 25.0
 offset_right = 1128.0
 offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("2_ejvmo")
 theme_override_font_sizes/font_size = 36
 text = "Settings"
 horizontal_alignment = 1
@@ -29,9 +31,10 @@ vertical_alignment = 1
 z_index = 2
 layout_mode = 0
 offset_left = 423.0
-offset_top = 276.0
+offset_top = 290.0
 offset_right = 757.0
-offset_bottom = 321.0
+offset_bottom = 335.0
+theme_override_fonts/font = ExtResource("2_ejvmo")
 theme_override_font_sizes/font_size = 24
 text = "Music"
 horizontal_alignment = 1
@@ -39,8 +42,8 @@ horizontal_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="Music" unique_id=1670222996]
 modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
 z_index = -1
-position = Vector2(166, 19)
-scale = Vector2(7.5, 3)
+position = Vector2(166, 13)
+scale = Vector2(3, 3)
 texture = ExtResource("2_88orn")
 
 [node name="Music Volume" parent="." unique_id=1166674059 instance=ExtResource("2_6xqt3")]
@@ -51,9 +54,10 @@ value = 50.0
 z_index = 2
 layout_mode = 0
 offset_left = 1074.0
-offset_top = 276.0
+offset_top = 290.0
 offset_right = 1412.0
-offset_bottom = 321.0
+offset_bottom = 335.0
+theme_override_fonts/font = ExtResource("2_ejvmo")
 theme_override_font_sizes/font_size = 24
 text = "Sound"
 horizontal_alignment = 1
@@ -61,8 +65,8 @@ horizontal_alignment = 1
 [node name="Sprite2D" type="Sprite2D" parent="Sound" unique_id=1001668917]
 modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
 z_index = -1
-position = Vector2(166, 17)
-scale = Vector2(7.5, 3)
+position = Vector2(166.00003, 11)
+scale = Vector2(3, 3)
 texture = ExtResource("2_88orn")
 
 [node name="Sound Volume" parent="." unique_id=1869480924 instance=ExtResource("2_6xqt3")]
@@ -70,6 +74,6 @@ position = Vector2(1087, 350)
 value = 50.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1336028802]
-position = Vector2(959.99994, 84.00001)
-scale = Vector2(19.766, 6.719)
+position = Vector2(960, 79.00001)
+scale = Vector2(4, 4)
 texture = ExtResource("3_6xqt3")
