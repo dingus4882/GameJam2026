@@ -11,7 +11,13 @@ var can_fire = true
 @export var shoot_point: Marker2D
 
 @export var character: CharacterBase
-var sprite: AnimatedSprite2D
+var sprite: AnimatedSprite2D 
+
+
+## an area on the map that dictate if it can fire or not [br]
+## if left w or h is negative will not run
+@export var resricted_area: Rect2i = Rect2i(0,0,-1,-1) 
+
 
 var _set_function: int:
 	set(new_value):
@@ -36,6 +42,12 @@ func _resolve_references() -> void:
 
 
 func fire() -> void:
+	
+	if resricted_area.size.x > 0 and  resricted_area.size.y > 0:
+		if not resricted_area.has_point( shoot_point.global_position ):
+			return
+	
+	
 	if not can_fire:
 		return
 	if not is_instance_valid(character) or not is_instance_valid(sprite) or not is_instance_valid(shoot_point) or currentBullet == null:

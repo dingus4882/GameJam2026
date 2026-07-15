@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://byilmnr8kusco"]
+
+[ext_resource type="Script" uid="uid://b42k15yg7363h" path="res://Main/Game/world_gen.gd" id="1_whprh"]
+[ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_lcn46"]
+
+[node name="Miniboss_level" type="Node2D" unique_id=1966386662]
+script = ExtResource("1_whprh")
+
+[node name="FPS_COUNTER" type="Label" parent="." unique_id=711004072]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=494167694]
+layer = 20
+
+[node name="Options" parent="CanvasLayer" unique_id=685411329 node_paths=PackedStringArray("root_scene") instance=ExtResource("2_lcn46")]
+unique_name_in_owner = true
+visible = false
+z_index = 20
+is_in_game = true
+root_scene = NodePath("../..")

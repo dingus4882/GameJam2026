@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_urrqo"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_iixdt"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_jo1oe"]
+[ext_resource type="PackedScene" uid="uid://dmjp4liybplik" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/flame_surge.tscn" id="6_aopsf"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_wfja8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5y2n"]
@@ -68,7 +69,7 @@ animations = [{
 size = Vector2(19.999998, 20.000004)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aopsf"]
-radius = 26.263968
+radius = 230.00034
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_urrqo"]
 size = Vector2(5.2857094, 5.7142878)
@@ -88,6 +89,9 @@ attack_component = NodePath("AttackComponent")
 sprite = NodePath("Sprite")
 direction_point = NodePath("Direction_point")
 metadata/_custom_type_script = "uid://chypt44vkylf5"
+
+[node name="Cheese_potential" type="AnimationPlayer" parent="." unique_id=341996228]
+root_node = NodePath("../Sprite")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=949499809]
 sprite_frames = SubResource("SpriteFrames_iixdt")
@@ -111,6 +115,7 @@ direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
 [node name="Shoot_point" type="Marker2D" parent="." unique_id=1666882417]
+position = Vector2(3.8146973e-06, 0)
 
 [node name="Direction_point" type="Marker2D" parent="." unique_id=1900565491]
 visible = false
@@ -140,14 +145,38 @@ position = Vector2(11.428563, 28.571436)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_iixdt")
 
-[node name="AttackComponent" type="Node" parent="." unique_id=15334914 node_paths=PackedStringArray("bullets")]
+[node name="Second_attack" type="Node2D" parent="." unique_id=529294245]
+scale = Vector2(0.39999998, 0.39999998)
+
+[node name="Shoot2_point" type="Marker2D" parent="Second_attack" unique_id=283040247]
+position = Vector2(70, 10)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Shoot2_point2" type="Marker2D" parent="Second_attack" unique_id=422796139]
+position = Vector2(140, 10)
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="Shoot2_point3" type="Marker2D" parent="Second_attack" unique_id=787213461]
+position = Vector2(210, 10)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Shoot2_point4" type="Marker2D" parent="Second_attack" unique_id=605085522]
+position = Vector2(280, 10)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="AttackComponent" type="Node" parent="." unique_id=15334914 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
 script = ExtResource("4_iixdt")
-bullets = [NodePath("Hurt_box")]
+bullets = [NodePath("Hurt_box"), NodePath("Flame_surge")]
+shoot_point = NodePath("../Shoot_point")
+character = NodePath("..")
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_jo1oe")]
 visible = false
 scale = Vector2(3.094738, 3.094738)
+is_library = true
+
+[node name="Flame_surge" parent="AttackComponent" unique_id=826708759 instance=ExtResource("6_aopsf")]
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=550991420]

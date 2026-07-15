@@ -7,6 +7,8 @@ var loading_screen_instance
 var loading = false
 
 var level_dict: Dictionary = {}
+var level_one: String = "res://Scenes/Game/level.tscn"
+
 
 enum Scenes {
 	MAIN_MENU,
@@ -14,6 +16,8 @@ enum Scenes {
 	CREDITS,
 	GAME_SELECTION,
 	GAME,
+	MINI_BOSS_START,
+	MINI_BOSS_END
 }
 
 func _load_scene():
@@ -21,7 +25,11 @@ func _load_scene():
 	level_dict[Scenes.SETTINGS]						= "res://Main/UI/Options/options_combined.tscn"
 	#level_dict[Scenes.GAME_SELECTION]				= "res://Scenes/UI/game_selection.tscn"
 	#level_dict[Scenes.CREDITS]   					= "res://Scenes/UI/credits.tscn"
-	level_dict[Scenes.GAME]   						= "res://Scenes/Game/level.tscn"
+	level_dict[Scenes.GAME]   						= level_one
+	
+	
+	
+	
 
 var active_preloads: Array = []
 var unloading_queue: Array = []

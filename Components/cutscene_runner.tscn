@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dt24aagweytuy"]
+
+[ext_resource type="Script" uid="uid://ddlsy55tp3bl7" path="res://Components/cutscene_runner_component.gd" id="1_w2314"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsd"]
+size = Vector2(134, 116)
+
+[node name="Cutscene_runner" type="Area2D" unique_id=131658085]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_w2314")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1896340255]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_s7wsd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
