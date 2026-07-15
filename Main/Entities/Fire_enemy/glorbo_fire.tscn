@@ -73,7 +73,7 @@ animations = [{
 size = Vector2(19.999998, 20.000004)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fx4af"]
-radius = 26.263968
+radius = 25.806442
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04bkw"]
 size = Vector2(5.2857094, 5.7142878)
@@ -82,7 +82,7 @@ size = Vector2(5.2857094, 5.7142878)
 size = Vector2(5.2857094, 5.7142754)
 
 [node name="Glorbo_fire" type="CharacterBody2D" unique_id=349108625 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_mompm")
@@ -127,6 +127,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=832671108]
 position = Vector2(-20.000011, 7.6293945e-06)
+scale = Vector2(0.62000036, 1)
 shape = SubResource("CircleShape2D_fx4af")
 
 [node name="Detect_block" type="Area2D" parent="Direction_point" unique_id=2038099982]
@@ -154,7 +155,7 @@ metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_shbot")]
 visible = false
-scale = Vector2(3.094738, 3.094738)
+scale = Vector2(4.9129543, 4.9129543)
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=595129125]

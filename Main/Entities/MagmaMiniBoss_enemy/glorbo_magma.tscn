@@ -77,7 +77,7 @@ size = Vector2(5.2857094, 5.7142878)
 size = Vector2(5.2857094, 5.7142754)
 
 [node name="Glorbo_magma" type="CharacterBody2D" unique_id=349108625 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
-scale = Vector2(0.7, 0.7)
+scale = Vector2(2.5, 2.5)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_q5y2n")
