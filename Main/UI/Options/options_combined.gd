@@ -26,5 +26,8 @@ func ingame_show():
 	TimeManager.pause_for_menu()
 
 func _exit_pressed():
+	
+	TimeManager.resume_from_menu()
+	visible = false
 	get_parent().get_parent().get_parent()._exit_tree()
 	SceneLoader.load_scene(SceneLoader.Scenes.MAIN_MENU)
