@@ -152,6 +152,7 @@ metadata/_custom_type_script = "uid://da5q3wm4386jl"
 visible = false
 position = Vector2(0, 8)
 scale = Vector2(2.790821, 2.790821)
+bullet_life_time = 0.2
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=573665739]

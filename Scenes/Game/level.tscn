@@ -93,7 +93,7 @@ chunk_off_set = Vector2i(-6, -1)
 metadata/_custom_type_script = "uid://jpcvrnatus77"
 
 [node name="Enemies" type="TileMapLayer" parent="Map" unique_id=1577728904]
-tile_map_data = PackedByteArray("AAC+/8z/AAAAAAAAAQDQ/9D/AAAAAAAABQDT/9L/AAAAAAAABAC4/q3/AAAAAAAABgBd/9D/AAAAAAAAAwD9/sT/AAAAAAAAAgBy/pP/AQAAAAAAAQBY/pD/AQAAAAAAAgAV/nn/AAAAAAAABwA=")
+tile_map_data = PackedByteArray("AAC4/q3/AAAAAAAABgBd/9D/AAAAAAAAAwD9/sT/AAAAAAAAAgBy/pP/AQAAAAAAAQBY/pD/AQAAAAAAAgAV/nn/AAAAAAAABwCQ/87/AAAAAAAAAQCi/9L/AAAAAAAABQCl/9T/AAAAAAAABACt/9T/AAAAAAAAAQA=")
 tile_set = SubResource("TileSet_rp17r")
 
 [node name="Special" type="TileMapLayer" parent="Map" unique_id=251646573]

@@ -57,6 +57,7 @@ func fire() -> void:
 	var bullet = GlobalFunc.instantiate_node(bullet_path)
 	bullet.bullet_sprite = currentBullet.bullet_sprite
 	bullet.damage = currentBullet.damage
+	bullet.bullet_life_time = currentBullet.bullet_life_time
 	bullet.scale = currentBullet.scale
 	bullet.global_position = shoot_point.global_position
 	bullet.bullet_owner = character

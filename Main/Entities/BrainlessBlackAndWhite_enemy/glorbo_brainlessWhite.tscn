@@ -146,6 +146,7 @@ metadata/_custom_type_script = "uid://da5q3wm4386jl"
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_2kisd")]
 visible = false
 scale = Vector2(4.6547384, 4.6547384)
+bullet_life_time = 0.2
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1324842287]

@@ -153,6 +153,7 @@ visible = false
 position = Vector2(0, 12.000002)
 scale = Vector2(2.548431, 2.548431)
 damage = 20.0
+bullet_life_time = 0.2
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1659335102]

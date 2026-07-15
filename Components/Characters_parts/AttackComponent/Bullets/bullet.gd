@@ -22,10 +22,9 @@ func _ready():
 	get_node("Sprite").texture = bullet_sprite
 	self.connect("body_entered",do_bullet_thing)
 	
-	if bullet_life_time >= 0 :
+	if bullet_life_time >= 0 and is_library == false:
 		
 		await get_tree().create_timer(bullet_life_time).timeout
-		print("an")
 		queue_free()
 
 
