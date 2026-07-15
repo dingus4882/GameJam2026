@@ -132,9 +132,6 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsd"]
-size = Vector2(707.75, 270.75)
-
 [node name="Geto" type="CharacterBody2D" unique_id=492334250 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
 collision_layer = 2
 collision_mask = 5
@@ -227,12 +224,3 @@ scale = Vector2(0.25, 0.25)
 remote_path = NodePath("../Static/Follower")
 update_rotation = false
 update_scale = false
-
-[node name="chunk_handler" type="Area2D" parent="." unique_id=250306228]
-visible = false
-collision_layer = 128
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chunk_handler" unique_id=1149452925]
-position = Vector2(2.125, 0)
-shape = SubResource("RectangleShape2D_s7wsd")

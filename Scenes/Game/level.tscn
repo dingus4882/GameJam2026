@@ -88,16 +88,16 @@ script = ExtResource("5_xmsy7")
 layers = [NodePath("Enemies"), NodePath("Special"), NodePath("Ground")]
 player = NodePath("../Geto")
 tile_ratio = Vector2i(16, 16)
-render_distance = Vector2i(9, 3)
-chunk_off_set = Vector2i(-4, -1)
+render_distance = Vector2i(13, 5)
+chunk_off_set = Vector2i(-6, -1)
 metadata/_custom_type_script = "uid://jpcvrnatus77"
 
 [node name="Enemies" type="TileMapLayer" parent="Map" unique_id=1577728904]
-tile_map_data = PackedByteArray("AAC+/8z/AAAAAAAAAQDQ/9D/AAAAAAAABQDT/9L/AAAAAAAABAC4/q3/AAAAAAAABgARAPH/AAAAAAAABQAYAO7/AAAAAAAAAQBd/9D/AAAAAAAAAwD9/sT/AAAAAAAAAgBy/pP/AQAAAAAAAQBY/pD/AQAAAAAAAgAV/nn/AAAAAAAABwA=")
+tile_map_data = PackedByteArray("AAC+/8z/AAAAAAAAAQDQ/9D/AAAAAAAABQDT/9L/AAAAAAAABAC4/q3/AAAAAAAABgBd/9D/AAAAAAAAAwD9/sT/AAAAAAAAAgBy/pP/AQAAAAAAAQBY/pD/AQAAAAAAAgAV/nn/AAAAAAAABwA=")
 tile_set = SubResource("TileSet_rp17r")
 
 [node name="Special" type="TileMapLayer" parent="Map" unique_id=251646573]
-tile_map_data = PackedByteArray("AACC/87/AAAAAAAAAQDu/rX/AAAAAAAAAQCR/p//AAAAAAAAAQDI/WP/AAAAAAAAAQA1/oH/AAAAAAAAAQA=")
+tile_map_data = PackedByteArray("AACR/p//AAAAAAAAAQDI/WP/AAAAAAAAAQA1/oH/AAAAAAAAAQCC/87/AAAAAAAAAQDv/rX/AAAAAAAAAQDu/rX/AAAAAAAAAQDt/rX/AAAAAAAAAQDs/rX/AAAAAAAAAQCB/87/AAAAAAAAAQCA/87/AAAAAAAAAQB//87/AAAAAAAAAQCQ/p7/AAAAAAAAAQCP/p7/AAAAAAAAAQA2/oH/AAAAAAAAAQA0/oH/AAAAAAAAAQA=")
 tile_set = SubResource("TileSet_s7rlf")
 
 [node name="Ground" type="TileMapLayer" parent="Map" unique_id=992194037]
