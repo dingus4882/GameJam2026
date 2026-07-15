@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://bysnthakbn5jk"]
+
+[ext_resource type="Script" uid="uid://bpbc3drlvjiou" path="res://Components/Characters_parts/AttackComponent/Bullets/bullet.gd" id="1_rhgq8"]
+[ext_resource type="Texture2D" uid="uid://jy3pn08d3tqm" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/Warning.png" id="2_j4wj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7exi"]
+atlas = ExtResource("2_j4wj4")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyxcs"]
+atlas = ExtResource("2_j4wj4")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7wsd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7exi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyxcs")
+}],
+"loop": 1,
+"name": &"flash",
+"speed": 5.0
+}]
+
+[node name="Warning" type="Area2D" unique_id=956257877]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_rhgq8")
+bullet_life_time = 1.0
+metadata/_custom_type_script = "uid://bpbc3drlvjiou"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1955101105]
+visible = false
+shape = SubResource("RectangleShape2D_s7wsd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=30058042]
+sprite_frames = SubResource("SpriteFrames_s7wsd")
+animation = &"flash"
+autoplay = "flash"
+frame = 1
+frame_progress = 0.34457454

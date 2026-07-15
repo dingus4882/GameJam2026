@@ -106,6 +106,8 @@ animations = [{
 }]
 
 [node name="Flame_surge" type="Area2D" unique_id=826708759]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("1_i4j1s")
 bullet_life_time = 1.1
 metadata/_custom_type_script = "uid://bpbc3drlvjiou"

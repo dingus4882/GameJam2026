@@ -4,9 +4,85 @@
 [ext_resource type="Texture2D" uid="uid://vomqxyduv1aq" path="res://Main/Entities/MagmaMiniBoss_enemy/MagmaOcto.png" id="2_aopsf"]
 [ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_urrqo"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_iixdt"]
+[ext_resource type="Script" uid="uid://00ji1ysx24ix" path="res://Main/Entities/MagmaMiniBoss_enemy/mini_boss_ai.gd" id="4_urrqo"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_jo1oe"]
 [ext_resource type="PackedScene" uid="uid://dmjp4liybplik" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/flame_surge.tscn" id="6_aopsf"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_wfja8"]
+[ext_resource type="PackedScene" uid="uid://bysnthakbn5jk" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/warning.tscn" id="8_iixdt"]
+
+[sub_resource type="Animation" id="Animation_wfja8"]
+resource_name = "Jump_and_slam"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.5, 0.96666664),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40.8), Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Base_Ai/Mini_boss_ai")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.96666664),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"camera_shake"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_snlnu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AttackComponent:currentBullet")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../AttackComponent:shoot_point")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wfja8"]
+_data = {
+&"Jump_and_slam": SubResource("Animation_wfja8"),
+&"RESET": SubResource("Animation_snlnu")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q5y2n"]
 atlas = ExtResource("2_aopsf")
@@ -88,10 +164,12 @@ health_component = NodePath("HealthComponent")
 attack_component = NodePath("AttackComponent")
 sprite = NodePath("Sprite")
 direction_point = NodePath("Direction_point")
+attack_stop = true
 metadata/_custom_type_script = "uid://chypt44vkylf5"
 
 [node name="Cheese_potential" type="AnimationPlayer" parent="." unique_id=341996228]
 root_node = NodePath("../Sprite")
+libraries/ = SubResource("AnimationLibrary_wfja8")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=949499809]
 sprite_frames = SubResource("SpriteFrames_iixdt")
@@ -104,29 +182,44 @@ position = Vector2(3.3208291e-06, 5.7142844)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_q5y2n")
 
-[node name="Base_Ai" type="Node" parent="." unique_id=1634117473 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source")]
+[node name="Base_Ai" type="Node" parent="." unique_id=1634117473 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source", "bullet_overide", "shoot_point_overide")]
 script = ExtResource("3_urrqo")
 character = NodePath("..")
-attacking_range = NodePath("../Direction_point/Attack_range")
+attacking_range = NodePath("../Direction_point/Collision_range")
 block_detection = NodePath("../Direction_point/Detect_block")
 no_block_detection = NodePath("../Direction_point/Detect_no_block")
 Attack_source = NodePath("../AttackComponent")
+bullet_overide = NodePath("../AttackComponent/Hurt_box")
+shoot_point_overide = NodePath("../Shoot_point")
 direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
+
+[node name="Mini_boss_ai" type="Node" parent="Base_Ai" unique_id=1662176931 node_paths=PackedStringArray("timer", "attack_range", "left_wing", "right_wing")]
+script = ExtResource("4_urrqo")
+timer = NodePath("Timer")
+amount_of_left_point = 8
+amount_of_right_point = 8
+attack_range = NodePath("../../Direction_point/Attack_range")
+left_wing = NodePath("../../Second_attack/Left")
+right_wing = NodePath("../../Second_attack/Right")
+unique_erupt_earth = 4
+
+[node name="Timer" type="Timer" parent="Base_Ai/Mini_boss_ai" unique_id=1536058840]
+one_shot = true
 
 [node name="Shoot_point" type="Marker2D" parent="." unique_id=1666882417]
 position = Vector2(3.8146973e-06, 0)
 
 [node name="Direction_point" type="Marker2D" parent="." unique_id=1900565491]
-visible = false
 position = Vector2(20.000008, -7.6293945e-06)
 
-[node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=600768623]
+[node name="Collision_range" type="Area2D" parent="Direction_point" unique_id=600768623]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=215534726]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Collision_range" unique_id=215534726]
 position = Vector2(-20.000011, 7.6293945e-06)
+scale = Vector2(-0.065948576, -0.065948576)
 shape = SubResource("CircleShape2D_aopsf")
 
 [node name="Detect_block" type="Area2D" parent="Direction_point" unique_id=2056183609]
@@ -145,38 +238,180 @@ position = Vector2(11.428563, 28.571436)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_iixdt")
 
+[node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=65614638]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=272434327]
+position = Vector2(-20.000011, 7.6293945e-06)
+shape = SubResource("CircleShape2D_aopsf")
+
 [node name="Second_attack" type="Node2D" parent="." unique_id=529294245]
 scale = Vector2(0.39999998, 0.39999998)
 
-[node name="Shoot2_point" type="Marker2D" parent="Second_attack" unique_id=283040247]
-position = Vector2(70, 10)
+[node name="Right" type="Node2D" parent="Second_attack" unique_id=281915131]
+
+[node name="Right1" type="Marker2D" parent="Second_attack/Right" unique_id=283040247]
+position = Vector2(69.99999, 9.999999)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right2" type="Marker2D" parent="Second_attack/Right" unique_id=422796139]
+position = Vector2(101.99999, 9.999999)
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="Right3" type="Marker2D" parent="Second_attack/Right" unique_id=787213461]
+position = Vector2(133.99998, 9.999999)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right4" type="Marker2D" parent="Second_attack/Right" unique_id=605085522]
+position = Vector2(165.99998, 9.999999)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right5" type="Marker2D" parent="Second_attack/Right" unique_id=1704077191]
+position = Vector2(198, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right6" type="Marker2D" parent="Second_attack/Right" unique_id=2124510207]
+position = Vector2(230, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right7" type="Marker2D" parent="Second_attack/Right" unique_id=642684216]
+position = Vector2(262, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right8" type="Marker2D" parent="Second_attack/Right" unique_id=1850872017]
+position = Vector2(294, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left" type="Node2D" parent="Second_attack" unique_id=1632896413]
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="Shoot2_point2" type="Marker2D" parent="Second_attack" unique_id=422796139]
-position = Vector2(140, 10)
-scale = Vector2(0.9999998, 0.9999998)
+[node name="Left1" type="Marker2D" parent="Second_attack/Left" unique_id=1288838454]
+position = Vector2(-70, 10)
+scale = Vector2(0.9999999, 0.9999999)
 
-[node name="Shoot2_point3" type="Marker2D" parent="Second_attack" unique_id=787213461]
-position = Vector2(210, 10)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="Left2" type="Marker2D" parent="Second_attack/Left" unique_id=1214439459]
+position = Vector2(-102, 10)
+scale = Vector2(0.99999976, 0.99999976)
 
-[node name="Shoot2_point4" type="Marker2D" parent="Second_attack" unique_id=605085522]
-position = Vector2(280, 10)
-scale = Vector2(0.99999994, 0.99999994)
+[node name="Left3" type="Marker2D" parent="Second_attack/Left" unique_id=1151413585]
+position = Vector2(-134, 10)
+scale = Vector2(0.9999999, 0.9999999)
 
-[node name="AttackComponent" type="Node" parent="." unique_id=15334914 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
+[node name="Left4" type="Marker2D" parent="Second_attack/Left" unique_id=1855516942]
+position = Vector2(-166, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left5" type="Marker2D" parent="Second_attack/Left" unique_id=1933095809]
+position = Vector2(-198, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left6" type="Marker2D" parent="Second_attack/Left" unique_id=1644711574]
+position = Vector2(-230, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left7" type="Marker2D" parent="Second_attack/Left" unique_id=299054210]
+position = Vector2(-262, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left8" type="Marker2D" parent="Second_attack/Left" unique_id=662165932]
+position = Vector2(-294, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Third_attack" type="Node2D" parent="." unique_id=1354179823]
+scale = Vector2(0.39999992, 0.39999992)
+
+[node name="Right" type="Node2D" parent="Third_attack" unique_id=1583281788]
+position = Vector2(0, -185.00005)
+
+[node name="Right1" type="Marker2D" parent="Third_attack/Right" unique_id=289052983]
+position = Vector2(69.99999, 9.999999)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right2" type="Marker2D" parent="Third_attack/Right" unique_id=1816619797]
+position = Vector2(101.99999, 9.999999)
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="Right3" type="Marker2D" parent="Third_attack/Right" unique_id=2122143254]
+position = Vector2(133.99998, 9.999999)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right4" type="Marker2D" parent="Third_attack/Right" unique_id=170588221]
+position = Vector2(165.99998, 9.999999)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right5" type="Marker2D" parent="Third_attack/Right" unique_id=16556849]
+position = Vector2(198, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right6" type="Marker2D" parent="Third_attack/Right" unique_id=458521074]
+position = Vector2(230, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right7" type="Marker2D" parent="Third_attack/Right" unique_id=155562950]
+position = Vector2(262, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Right8" type="Marker2D" parent="Third_attack/Right" unique_id=834627697]
+position = Vector2(294, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left" type="Node2D" parent="Third_attack" unique_id=1117035008]
+position = Vector2(0, -185.00003)
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="Left1" type="Marker2D" parent="Third_attack/Left" unique_id=228829576]
+position = Vector2(-70, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left2" type="Marker2D" parent="Third_attack/Left" unique_id=1019291609]
+position = Vector2(-102, 10)
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="Left3" type="Marker2D" parent="Third_attack/Left" unique_id=1404913757]
+position = Vector2(-134, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left4" type="Marker2D" parent="Third_attack/Left" unique_id=1915040066]
+position = Vector2(-166, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left5" type="Marker2D" parent="Third_attack/Left" unique_id=661432431]
+position = Vector2(-198, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left6" type="Marker2D" parent="Third_attack/Left" unique_id=1446795985]
+position = Vector2(-230, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left7" type="Marker2D" parent="Third_attack/Left" unique_id=93289827]
+position = Vector2(-262, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="Left8" type="Marker2D" parent="Third_attack/Left" unique_id=1115441414]
+position = Vector2(-294, 10)
+scale = Vector2(0.9999999, 0.9999999)
+
+[node name="AttackComponent" type="Node" parent="." unique_id=15334914 node_paths=PackedStringArray("bullets", "character", "animation_player")]
 script = ExtResource("4_iixdt")
-bullets = [NodePath("Hurt_box"), NodePath("Flame_surge")]
-shoot_point = NodePath("../Shoot_point")
+bullets = [NodePath("Hurt_box"), NodePath("Flame_surge"), NodePath("Warning")]
 character = NodePath("..")
+animation_player = NodePath("../Cheese_potential")
+skip_sprite_animation = true
+skip_animation_player = true
+skip_shooting_prevention = true
+skip_attack_speed_check = true
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_jo1oe")]
-visible = false
-scale = Vector2(3.094738, 3.094738)
+scale = Vector2(4.0564713, 4.0564713)
+bullet_life_time = 0.3
 is_library = true
 
 [node name="Flame_surge" parent="AttackComponent" unique_id=826708759 instance=ExtResource("6_aopsf")]
+is_library = true
+
+[node name="Warning" parent="AttackComponent" unique_id=956257877 instance=ExtResource("8_iixdt")]
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=550991420]

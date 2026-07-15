@@ -331,4 +331,4 @@ unique_name_in_owner = true
 visible = false
 z_index = 20
 is_in_game = true
-root_scene = NodePath("")
+root_scene = NodePath("../..")

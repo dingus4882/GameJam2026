@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_1k5x0"]
 [ext_resource type="PackedScene" uid="uid://bs20oy4bpbibq" path="res://Components/For-Players_parts/Player_component/player_component_scene.tscn" id="1_53jsn"]
+[ext_resource type="Script" uid="uid://divgrg1t3n3ta" path="res://Main/Entities/Player/camera.gd" id="2_7ndns"]
 [ext_resource type="Texture2D" uid="uid://bw8scdjcriolf" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="4_wau81"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="5_k2cii"]
@@ -163,6 +164,16 @@ sprite = NodePath("Sprite")
 direction_point = NodePath("Shoot_point")
 metadata/_custom_type_script = "uid://chypt44vkylf5"
 
+[node name="Cam_off_set" type="Node2D" parent="." unique_id=1581875050]
+position = Vector2(0, -32)
+
+[node name="Cam" type="Camera2D" parent="." unique_id=1732084318 node_paths=PackedStringArray("target")]
+position = Vector2(-434, -1567.9996)
+scale = Vector2(1, 1.9599996)
+zoom = Vector2(4, 4)
+script = ExtResource("2_7ndns")
+target = NodePath("../Cam_off_set")
+
 [node name="moutn_pos" type="Node2D" parent="." unique_id=1291663938]
 position = Vector2(0, -12.5)
 scale = Vector2(0.25, 0.25)
@@ -208,12 +219,14 @@ script = ExtResource("4_wau81")
 health_bar = NodePath("../Static/Follower/Health_bar")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
 
-[node name="AttackComponent" type="Node" parent="." unique_id=669009349 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
+[node name="AttackComponent" type="Node" parent="." unique_id=669009349 node_paths=PackedStringArray("bullets", "shoot_point", "character", "animation_player")]
 script = ExtResource("5_k2cii")
 bullets = [NodePath("Hurt_box")]
-fire_rate = 0.2
 shoot_point = NodePath("../Shoot_point")
 character = NodePath("..")
+animation_player = NodePath("../AnimationPlayer")
+skip_sprite_animation = true
+skip_animation_player = true
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("6_bkrey")]

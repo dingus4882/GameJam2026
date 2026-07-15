@@ -136,9 +136,10 @@ position = Vector2(11.428563, 28.571436)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_0qikj")
 
-[node name="AttackComponent" type="Node" parent="." unique_id=1828791992 node_paths=PackedStringArray("bullets", "shoot_point", "character")]
+[node name="AttackComponent" type="Node" parent="." unique_id=1828791992 node_paths=PackedStringArray("bullets", "currentBullet", "shoot_point", "character")]
 script = ExtResource("4_0qikj")
 bullets = [NodePath("Hurt_box")]
+currentBullet = NodePath("Hurt_box")
 shoot_point = NodePath("../Shoot_point")
 character = NodePath("..")
 metadata/_custom_type_script = "uid://da5q3wm4386jl"

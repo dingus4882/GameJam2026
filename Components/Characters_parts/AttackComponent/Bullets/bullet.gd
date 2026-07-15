@@ -1,9 +1,13 @@
 class_name Bullet
 extends Area2D
 
+signal expire
+
 @export var damage: float = 10
 @export var bullet_speed: float = 300.0
-@export var bullet_sprite: Texture2D
+@export var bullet_sprite_overide: Texture2D
+@export var bullet_sprites_overide: AnimatedTexture
+
 @export var bullet_life_time: float = -1.0
 
 
@@ -18,13 +22,18 @@ func _ready():
 		position.y = 10000
 	
 	
+	if bullet_sprite_overide != null:
+		get_node("Sprite").texture = bullet_sprite_overide
 	
-	get_node("Sprite").texture = bullet_sprite
+	if bullet_sprites_overide != null:
+		get_node("Sprite").texture = bullet_sprite_overide
+		
 	self.connect("body_entered",do_bullet_thing)
 	
 	if bullet_life_time >= 0 and is_library == false:
 		
 		await get_tree().create_timer(bullet_life_time).timeout
+		emit_signal("expire")
 		queue_free()
 
 
