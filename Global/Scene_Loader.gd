@@ -15,6 +15,7 @@ enum Scenes {
 	MAIN_MENU,
 	SETTINGS,
 	CREDITS,
+	DEATH_SCENE,
 	GAME_SELECTION,
 	GAME,
 	GAME_TWO,
@@ -31,6 +32,7 @@ func _load_scene():
 	level_dict[Scenes.MIMI_BOSS_SCENE]				= "res://Scenes/Game/miniboss_level.tscn"
 	level_dict[Scenes.MIMI_BOSS_END_CUT_SCENE]		= "res://Main/Entities/MagmaMiniBoss_enemy/scene_mini_boss_end.tscn"
 	#level_dict[Scenes.CREDITS]   					= "res://Scenes/UI/credits.tscn"
+	level_dict[Scenes.DEATH_SCENE]   				= "res://Main/UI/Death_screen/death_menu.tscn"
 	level_dict[Scenes.GAME]   						= level_one
 	level_dict[Scenes.GAME_TWO]   					= level_two
 	level_dict[Scenes.THE_DEATH]					= "res://Main/UI/Death_screen/death_menu.tscn"
@@ -239,14 +241,14 @@ func _manage_preloads(entered_scene: Scenes):
 		Scenes.MAIN_MENU:
 			desired_preloads = [Scenes.SETTINGS, Scenes.CREDITS, Scenes.GAME_SELECTION]
 			clear_others = false
-		Scenes.GAME:
-			desired_preloads = [Scenes.MAIN_MENU, Scenes.MIMI_BOSS_CUT_SCENE_START]
+		Scenes.GAME, Scenes.GAME_TWO:
+			desired_preloads = [Scenes.MAIN_MENU, Scenes.MIMI_BOSS_CUT_SCENE_START, Scenes.DEATH_SCENE]
 			clear_others = true
 		Scenes.MIMI_BOSS_CUT_SCENE_START:
 			desired_preloads = [Scenes.MAIN_MENU, Scenes.MIMI_BOSS_SCENE]
 			clear_others = true
 		Scenes.MIMI_BOSS_SCENE:
-			desired_preloads = [Scenes.MAIN_MENU, Scenes.MIMI_BOSS_END_CUT_SCENE]
+			desired_preloads = [Scenes.MAIN_MENU, Scenes.MIMI_BOSS_END_CUT_SCENE, Scenes.DEATH_SCENE]
 			clear_others = true
 		Scenes.MIMI_BOSS_END_CUT_SCENE:
 			desired_preloads = [Scenes.MAIN_MENU, Scenes.GAME_TWO]

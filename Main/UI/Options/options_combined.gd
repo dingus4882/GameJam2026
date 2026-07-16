@@ -5,7 +5,11 @@ extends Node2D
 @onready var exit_button = %exit
 @export var root_scene: Node
 
+@export var is_death_scene : bool = false
+
 func _ready():
+	if is_death_scene:
+		return
 	# Open settings menu by default
 	exit_button.visible = is_in_game
 	if !is_in_game: $Return.text = "Return to Menu"
@@ -32,3 +36,15 @@ func _exit_pressed():
 	visible = false
 	root_scene._exit_tree()
 	SceneLoader.load_scene(SceneLoader.Scenes.MAIN_MENU)
+
+func restart_pressed():
+	SceneLoader.load_scene(SceneLoader.Scenes.GAME)
+
+func _exit_tree():
+	TimeManager.in_game = false
+	VariableController.elapsed_time = TimeManager.in_game_elapsed_time
+	TimeManager.in_game_elapsed_time = 0
+	TimeManager._menu_open_count = 0
+	# remove anything, that may stick between games
+	pass
+	
