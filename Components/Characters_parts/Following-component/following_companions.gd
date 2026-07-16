@@ -256,7 +256,8 @@ func _physics_process(delta: float):
 		var last_follower = followers.back()
 		if is_instance_valid(last_follower):
 			if sacrifice_follower_of_type(last_follower.get_meta("companion_type", "")):
-				target.health_component.fully_heal()
+				#target.health_component.fully_heal()
+				pass
 
 	if not is_following_active or not is_instance_valid(target):
 		return
