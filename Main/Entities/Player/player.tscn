@@ -153,7 +153,6 @@ health_component = NodePath("HealthComponent")
 attack_component = NodePath("AttackComponent")
 sprite = NodePath("Sprite")
 direction_point = NodePath("Shoot_point")
-attack_stop = true
 metadata/_custom_type_script = "uid://chypt44vkylf5"
 
 [node name="moutn_pos" type="Node2D" parent="." unique_id=1291663938]

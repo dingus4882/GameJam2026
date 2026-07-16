@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://00ji1ysx24ix" path="res://Main/Entities/MagmaMiniBoss_enemy/mini_boss_ai.gd" id="4_urrqo"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_jo1oe"]
 [ext_resource type="PackedScene" uid="uid://dmjp4liybplik" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/flame_surge.tscn" id="6_aopsf"]
-[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_wfja8"]
 [ext_resource type="PackedScene" uid="uid://bysnthakbn5jk" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/warning.tscn" id="8_iixdt"]
+[ext_resource type="Script" uid="uid://bptw25ffnsd2a" path="res://Main/Entities/MagmaMiniBoss_enemy/Death_map_loader.gd" id="9_iixdt"]
 
 [sub_resource type="Animation" id="Animation_wfja8"]
 resource_name = "Jump_and_slam"
@@ -415,5 +415,5 @@ is_library = true
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=550991420]
-script = ExtResource("6_wfja8")
+script = ExtResource("9_iixdt")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
