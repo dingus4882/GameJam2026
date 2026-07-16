@@ -15,16 +15,16 @@ const STRONG = "res://Main/Entities/Strong_enemy/Glorbo_strong.tscn"
 var followers: Array[Node2D] = []
 
 @export var target: Node2D
-@export var follow_distance: float = 100.0
+@export var follow_distance: float = 75.0
 @export var follow_speed: float = 4.5
 @export var idle_follow_speed: float = 0.08
 @export var reformation_speed: float = 3.8
 @export var follower_scale: Vector2 = Vector2(0.5, 0.5)
 @export var walk_side_offset: float = 50.0
 @export var walk_vertical_offset: float = -20.0
-@export var idle_wander_radius: float = 220.0
-@export var player_avoidance_radius: float = 140.0
-@export var idle_path_radius: float = 220.0 
+@export var idle_wander_radius: float = 100.0
+@export var player_avoidance_radius: float = 50.0
+@export var idle_path_radius: float = 100.0 
 @export var idle_path_speed: float = 0.35
 @export var min_follower_spacing: float = 50.0
 

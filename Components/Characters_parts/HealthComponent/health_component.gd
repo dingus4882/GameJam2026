@@ -50,11 +50,13 @@ func take_damage(amount: int, damage_source: Node = null):
 		# Check if this is an enemy killed by the player, to convert it into a companion.
 		if get_parent().has_node("Base_Ai"): # A simple way to identify enemies.
 			var killer = damage_source
-			if killer and "owner" in killer and killer.owner is Node:
-				killer = killer.owner
 
-			if killer and killer.has_node("PlayerComponent"):
+			#if killer and "owner" in killer and killer.owner is Node:
+			#	killer = killer.owner
+
+			if killer and killer.get_node_or_null("FollowingCompanions") != null:
 				var following_comp = killer.get_node_or_null("FollowingCompanions")
+				print(following_comp)
 				if following_comp:
 					following_comp.add_follower(get_parent())
 					return # Converted to follower, so we don't queue_free.
