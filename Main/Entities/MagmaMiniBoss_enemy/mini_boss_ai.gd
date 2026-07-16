@@ -1,6 +1,7 @@
 extends Node
 
 signal attack_done
+signal  attack_selection_done
 
 @onready var base_ai = $".."
 @export var Attack_source: AttackComponent
@@ -45,13 +46,13 @@ func _ready():
 func player_encounter(_body):
 	#print("connected")
 	choose_attack()
-	connect("attack_done",choose_attack)
+	connect("attack_selection_done",choose_attack)
 	is_inside_range = true
 	
 	
 
 func player_disengaged(_body):
-	disconnect("attack_done",choose_attack)
+	disconnect("attack_selection_done",choose_attack)
 	is_inside_range = false
 
 
@@ -83,7 +84,6 @@ func camera_shake():
 	#Attack_source.skip_sprite_animation = false
 	#Attack_source.skip_state_changer = false
 func choose_attack():
-	await get_tree().create_timer(action_speed).timeout
 	rng_seed.randomize()
 	match rng_seed.randi_range(1,3):
 		1:
@@ -108,10 +108,13 @@ func choose_attack():
 			erupt_earth()
 			#print("attack")
 			await self.attack_done
+			await  get_tree().create_timer(time_after_using_erupt_earth).timeout
 			#await  get_tree().create_timer(time_after_using_erupt_earth).timeout
 			#print("done")
 			$"../..".current_state = $"../..".States.IDLE
+	await get_tree().create_timer(action_speed).timeout
 	
+	emit_signal("attack_selection_done")
 	
 	pass
 	
