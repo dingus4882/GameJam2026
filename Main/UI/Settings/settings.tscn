@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cehxibl6dr4nt" path="res://Main/UI/button hover.png" id="2_88orn"]
 [ext_resource type="FontFile" uid="uid://bblgfksqrfodg" path="res://Assets/Drybrush-KV2wD.ttf" id="2_ejvmo"]
 [ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="3_6xqt3"]
+[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Main/UI/button.tscn" id="6_b4jcw"]
 
 [node name="OptionsMenu" type="Control" unique_id=651911818]
 layout_mode = 3
@@ -77,3 +78,32 @@ value = 50.0
 position = Vector2(960, 79.00001)
 scale = Vector2(4, 4)
 texture = ExtResource("3_6xqt3")
+
+[node name="screen" type="Label" parent="." unique_id=1446526032]
+z_index = 2
+layout_mode = 0
+offset_left = 791.0
+offset_top = 499.0
+offset_right = 1129.0
+offset_bottom = 544.0
+theme_override_fonts/font = ExtResource("2_ejvmo")
+theme_override_font_sizes/font_size = 24
+text = "Screen Shake"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="screen" unique_id=87993465]
+modulate = Color(0.78431374, 0.78431374, 0.78431374, 1)
+z_index = -1
+position = Vector2(166.00003, 11)
+scale = Vector2(3, 3)
+texture = ExtResource("2_88orn")
+
+[node name="ScreenShake" parent="." unique_id=1314000419 instance=ExtResource("6_b4jcw")]
+layout_mode = 0
+offset_left = 831.0
+offset_top = 550.0
+offset_right = 1084.0
+offset_bottom = 625.0
+text = "Enabled"
+
+[connection signal="pressed" from="ScreenShake" to="." method="toggle_screenshake"]
