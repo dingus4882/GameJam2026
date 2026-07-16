@@ -57,9 +57,9 @@ func do_bullet_thing(body):
 @export var list_of_spliter: Array[String]
 
 func fracture():
-	print(list_of_spliter)
+	#print(list_of_spliter)
 	for i in list_of_spliter:
-		print(i)
+		#print(i)
 		var the_fracture = GlobalFunc.instantiate_node(i)
 		the_fracture.global_position = global_position
 		get_parent().add_child(the_fracture)

@@ -7,29 +7,29 @@
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_vwjsr"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_oj4o0"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6h67"]
+atlas = ExtResource("2_p6h67")
+region = Rect2(0, 0, 48, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pr1l1"]
 atlas = ExtResource("2_p6h67")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(0, 32, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jbs5"]
 atlas = ExtResource("2_p6h67")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hoekp"]
-atlas = ExtResource("2_p6h67")
-region = Rect2(32, 64, 32, 32)
+region = Rect2(0, 64, 48, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0uoa6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p6h67")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pr1l1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0jbs5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hoekp")
 }],
 "loop": 1,
 "name": &"attacking",
@@ -37,13 +37,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p6h67")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pr1l1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0jbs5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hoekp")
 }],
 "loop": 1,
 "name": &"idle",
@@ -51,13 +51,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p6h67")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pr1l1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0jbs5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hoekp")
 }],
 "loop": 1,
 "name": &"walk",
@@ -91,7 +91,7 @@ metadata/_custom_type_script = "uid://chypt44vkylf5"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=949499809]
 sprite_frames = SubResource("SpriteFrames_0uoa6")
-animation = &"idle"
+animation = &"attacking"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=2073237182]

@@ -138,6 +138,20 @@ animations = [{
 "texture": SubResource("AtlasTexture_urrqo")
 }],
 "loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5y2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aopsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urrqo")
+}],
+"loop": 1,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -174,7 +188,7 @@ libraries/ = SubResource("AnimationLibrary_wfja8")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=949499809]
 sprite_frames = SubResource("SpriteFrames_iixdt")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1515062127]
@@ -420,6 +434,7 @@ list_of_spliter = Array[String](["res://Main/Entities/Rock_enemy/glorbo_rock.tsc
 [node name="Bullet_that_summon_roller" parent="Custom_moves" unique_id=982282499 instance=ExtResource("8_jo1oe")]
 bullet_life_time = 0.2
 is_library = true
+list_of_spliter = Array[String](["res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/rolling_stone.tscn"])
 
 [node name="Collision_attack" type="Node" parent="." unique_id=778508221 node_paths=PackedStringArray("bullets", "currentBullet", "shoot_point", "character")]
 script = ExtResource("4_iixdt")
