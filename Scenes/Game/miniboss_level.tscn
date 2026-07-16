@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="4_1nr3d"]
 [ext_resource type="PackedScene" uid="uid://c1ut558fexpx8" path="res://Main/Entities/MagmaMiniBoss_enemy/glorbo_magma.tscn" id="5_crxb5"]
 
-[node name="Miniboss_level" type="Node2D" unique_id=1966386662]
+[node name="Miniboss_level" type="Node2D" unique_id=1966386662 node_paths=PackedStringArray("enemy")]
 script = ExtResource("1_whprh")
+enemy = NodePath("Glorbo_magma")
 
 [node name="FPS_COUNTER" type="Label" parent="." unique_id=711004072]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true

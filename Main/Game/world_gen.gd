@@ -10,9 +10,16 @@ var generation_started := false
 @onready var fps_label  = $FPS_COUNTER # for debug only or checking frames overall
 var update_timer := 0.0
 
+@export var enemy : CharacterBody2D
+var was_alive : bool = false
+
 func _process(delta: float) -> void:
 	update_timer += delta
 	delta *= TimeManager.current_time_scale
+	
+	if was_alive && !enemy:
+		was_alive = false
+		_load_next_scene_with_delay(2.0)
 	
 	if fps_label: #update_timer >= 0.5:
 		#update_timer = 0.0
@@ -26,6 +33,11 @@ func _process(delta: float) -> void:
 		else:
 			fps_label.add_theme_color_override("font_color", Color.GREEN)
 
+
+func _load_next_scene_with_delay(delay: float) -> void:
+	await get_tree().create_timer(delay).timeout
+	SceneLoader.load_scene(SceneLoader.Scenes.GAME_TWO)
+
 const CHUNK_SIZE = 64
 var num_chunks_x = 1
 var num_chunks_y = 1
@@ -35,6 +47,10 @@ var processed_chunks := 0.0
 func _ready():
 	# Disable all UI/Button interactions globally
 	get_tree().root.gui_disable_input = true
+	MusicManager.play_music(MusicManager.MusicType.LEVEL)
+	
+	if enemy:
+		was_alive = true
 
 func _exit_tree():
 	TimeManager.in_game = false

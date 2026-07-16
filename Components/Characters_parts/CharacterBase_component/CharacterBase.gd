@@ -73,6 +73,7 @@ func movement(_delta: float):
 	
 	#SideNote: JUMP/ FALL States take priority over MOVE State.
 	if (current_state == States.ATTACKING and (sprite.animation == "attacking" and  attack_stop)) or force_stop:
+		velocity.x = speed * 0
 		return
 		
 	if direction:
