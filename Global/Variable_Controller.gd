@@ -10,6 +10,8 @@ var old_music : int = 50
 var has_played_before : bool = false
 var old_has_played_before : bool = false
 
+var screen_shake_enabled : bool = true
+
 # keybind changes save
 var custom_keybinds : Dictionary = {}
 var old_custom_keybinds : Dictionary = {}
