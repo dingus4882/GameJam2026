@@ -235,6 +235,7 @@ metadata/_custom_type_script = "uid://d36cmfdwa0te6"
 [node name="Static" type="Node" parent="." unique_id=769726374]
 
 [node name="Follower" type="Marker2D" parent="Static" unique_id=1406350777]
+position = Vector2(0, -7)
 
 [node name="Health_bar" type="ProgressBar" parent="Static/Follower" unique_id=393438325]
 offset_left = -22.0

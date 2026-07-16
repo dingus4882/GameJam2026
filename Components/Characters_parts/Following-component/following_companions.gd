@@ -250,7 +250,8 @@ func _physics_process(delta: float):
 	if Input.is_action_just_pressed("use_companion") and can_sacrifice():
 		var last_follower = followers.back()
 		if is_instance_valid(last_follower):
-			sacrifice_follower_of_type(last_follower.get_meta("companion_type", ""))
+			if sacrifice_follower_of_type(last_follower.get_meta("companion_type", "")):
+				target.health_component.heal_damage(100)
 
 	if not is_following_active or not is_instance_valid(target):
 		return
