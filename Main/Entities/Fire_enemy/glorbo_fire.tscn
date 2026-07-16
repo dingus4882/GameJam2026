@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_ei2dp"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_shbot"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_c2bci"]
+[ext_resource type="Script" uid="uid://by7uadtwjvbh3" path="res://Main/Entities/Fire_enemy/On_fire.gd" id="7_04bkw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mompm"]
 atlas = ExtResource("2_mompm")
@@ -153,11 +154,17 @@ shoot_point = NodePath("../Shoot_point")
 character = NodePath("..")
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
-[node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_shbot")]
+[node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 node_paths=PackedStringArray("list_of_effects") instance=ExtResource("5_shbot")]
 visible = false
 scale = Vector2(4.9129543, 4.9129543)
 bullet_life_time = 0.2
 is_library = true
+list_of_effects = [NodePath("On_fire")]
+
+[node name="On_fire" type="Node" parent="AttackComponent/Hurt_box" unique_id=1361001791]
+script = ExtResource("7_04bkw")
+effect_script = ExtResource("7_04bkw")
+metadata/_custom_type_script = "uid://bg3rkcvoqclm4"
 
 [node name="HealthComponent" type="Node" parent="." unique_id=595129125]
 script = ExtResource("6_c2bci")

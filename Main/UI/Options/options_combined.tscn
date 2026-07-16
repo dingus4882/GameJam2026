@@ -7,8 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://w5qni7fw8e6t" path="res://Main/UI/Settings/settings.tscn" id="5_joqkp"]
 [ext_resource type="PackedScene" uid="uid://cq3jtapqvyk22" path="res://Main/UI/Keybinds/keybinds.tscn" id="6_ec4o1"]
 
-[node name="Options" type="Node2D" unique_id=685411329]
+[node name="Options" type="Node2D" unique_id=685411329 node_paths=PackedStringArray("settings_btn", "exit_button", "root_scene")]
 script = ExtResource("1_fdqpn")
+settings_btn = NodePath("Settings")
+exit_button = NodePath("exit")
+root_scene = NodePath(".")
 
 [node name="UI_Background" parent="." unique_id=1357555529 instance=ExtResource("2_lj24i")]
 

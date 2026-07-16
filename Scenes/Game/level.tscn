@@ -62,7 +62,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Geto" parent="." unique_id=1310183170 instance=ExtResource("5_752co")]
 z_index = 1
-position = Vector2(-72, -701)
+position = Vector2(-85, -689)
 
 [node name="Map" type="TileMapLayer" parent="." unique_id=1839988819 node_paths=PackedStringArray("player")]
 tile_set = SubResource("TileSet_0cvp5")

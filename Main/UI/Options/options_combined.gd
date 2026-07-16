@@ -1,8 +1,10 @@
 extends Node2D
 
-@onready var settings_btn = $Settings
+@export var settings_btn :Control
+@export var exit_button :Control
+
 @export var is_in_game : bool = false
-@onready var exit_button = %exit
+
 @export var root_scene: Node
 
 @export var is_death_scene : bool = false

@@ -68,20 +68,14 @@ func fire() -> void:
 		character.current_state = character.States.ATTACKING
 
 	#region initialize bullet
-	var bullet_path = currentBullet.scene_file_path
-	var bullet = GlobalFunc.instantiate_node(bullet_path)
-	
-	bullet.bullet_sprite_overide = currentBullet.bullet_sprite_overide 
-	bullet.bullet_sprites_overide = currentBullet.bullet_sprites_overide 
-	bullet.list_of_spliter = currentBullet.list_of_spliter
-	bullet.damage = currentBullet.damage
-	bullet.bullet_life_time = currentBullet.bullet_life_time
-	bullet.scale = currentBullet.scale
+	var bullet = currentBullet.duplicate()
 	bullet.global_position = shoot_point.global_position
 	bullet.bullet_owner = character
+	bullet.is_library = false
 	#endregion
 
 	get_tree().current_scene.call_deferred("add_child", bullet)
+	
 	if $"..".attack_stop_please == true:
 		if sprite and not skip_sprite_animation:
 			await $"../Sprite".animation_finished

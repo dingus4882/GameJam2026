@@ -49,8 +49,12 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 func do_bullet_thing(body):
 	fracture()
 	if body.has_node("HealthComponent") and (bullet_owner != body):
-
 		body.get_node("HealthComponent").take_damage(damage, bullet_owner)
+		
+		#print(list_of_effects)
+		if body:
+			resolve_extra_effects(body)
+		
 		if not is_library:
 			queue_free()
 
@@ -63,7 +67,15 @@ func fracture():
 		var the_fracture = GlobalFunc.instantiate_node(i)
 		the_fracture.global_position = global_position
 		get_parent().add_child(the_fracture)
-	
-	
-	
-	
+
+
+
+@export var list_of_effects: Array[Effect_Parasite]
+func resolve_extra_effects(body):
+	for i in list_of_effects:
+		print("ow")
+		var effect = i.duplicate()
+		effect.activate_parasite(body)
+		body.add_child(effect)
+		
+		

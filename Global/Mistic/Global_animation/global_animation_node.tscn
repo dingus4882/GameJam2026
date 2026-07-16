@@ -66,6 +66,3 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0.10980392, 0.10980392, 0.10980392, 0)
-
-[node name="Handle_screen_fade" type="AnimationPlayer" parent="fade_in_global" unique_id=1684416956]
-libraries/ = SubResource("AnimationLibrary_qib27")
