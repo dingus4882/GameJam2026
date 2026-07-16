@@ -11,7 +11,7 @@ func _ready():
 		burn_out()
 
 func heal_instance():
-	#print(parent)
+	#print(host)
 	if host.health_component:
 		host.health_component.heal_damage(heal)
 	await get_tree().create_timer(heal_interval).timeout
