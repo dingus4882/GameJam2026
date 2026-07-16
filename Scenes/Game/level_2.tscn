@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dwimtfd51ebcu" path="res://Main/Map/Next_level_heal/next_level_heal.tscn" id="14_00mua"]
 [ext_resource type="TileSet" uid="uid://bssm2k1a7naq1" path="res://Main/Map/level.tres" id="15_64wun"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="16_jxkd1"]
-[ext_resource type="Script" uid="uid://divgrg1t3n3ta" path="res://Main/Entities/Player/camera.gd" id="17_6gxmv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3y66"]
 texture = ExtResource("3_c0jei")
@@ -47,7 +46,9 @@ sources/0 = SubResource("TileSetScenesCollectionSource_yxf2b")
 sources/1 = SubResource("TileSetScenesCollectionSource_67qf2")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0tj4r"]
+resource_name = "brainless"
 scenes/1/scene = ExtResource("14_00mua")
+scenes/2/scene = ExtResource("13_oqavd")
 
 [sub_resource type="TileSet" id="TileSet_23sqi"]
 sources/0 = SubResource("TileSetScenesCollectionSource_0tj4r")
@@ -59,16 +60,6 @@ script = ExtResource("1_4myif")
 offset_right = 40.0
 offset_bottom = 23.0
 metadata/_edit_use_anchors_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=963225264]
-layer = 20
-visible = false
-
-[node name="Options" parent="CanvasLayer" unique_id=685411329 node_paths=PackedStringArray("root_scene") instance=ExtResource("2_3wav3")]
-unique_name_in_owner = true
-z_index = 20
-is_in_game = true
-root_scene = NodePath("../..")
 
 [node name="Map" type="TileMapLayer" parent="." unique_id=513368662 node_paths=PackedStringArray("player")]
 tile_set = SubResource("TileSet_ik3ns")
@@ -95,12 +86,12 @@ tile_set = ExtResource("15_64wun")
 [node name="Geto" parent="." unique_id=492334250 instance=ExtResource("16_jxkd1")]
 position = Vector2(-5824, -72)
 
-[node name="Cam_off_set2" type="Node2D" parent="Geto" unique_id=1433612065]
-position = Vector2(0, -30)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=963225264]
+layer = 20
 
-[node name="Cam2" type="Camera2D" parent="." unique_id=591599137 node_paths=PackedStringArray("target")]
-position = Vector2(-5808, -176)
-scale = Vector2(1, 1.9599996)
-zoom = Vector2(4, 4)
-script = ExtResource("17_6gxmv")
-target = NodePath("../Geto/Cam_off_set2")
+[node name="Options" parent="CanvasLayer" unique_id=685411329 node_paths=PackedStringArray("root_scene") instance=ExtResource("2_3wav3")]
+unique_name_in_owner = true
+visible = false
+z_index = 20
+is_in_game = true
+root_scene = NodePath("../..")
