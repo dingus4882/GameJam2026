@@ -3,7 +3,7 @@ extends Node
 signal attack_done
 
 @onready var base_ai = $".."
-@onready var attack_source = $"../../AttackComponent"
+@export var Attack_source: AttackComponent
 
 
 @export var action_speed:float = 1
@@ -15,6 +15,11 @@ var target:CharacterBase
 @export var left_wing:Node
 @export var right_wing:Node
 @onready var rng_seed:RandomNumberGenerator = RandomNumberGenerator.new()
+
+
+@export var flame_surge:Bullet
+@export var warning:Bullet
+
 
 var is_inside_range := false
 # Called when the node enters the scene tree for the first time.
@@ -48,52 +53,52 @@ func player_disengaged(_body):
 func set_target_point(where:Node2D, Left_or_Right: String,id: int):
 	if where.has_node(Left_or_Right + str(id)):
 		
-		base_ai.Attack_source.shoot_point = where.get_node(Left_or_Right + str(id))
+		Attack_source.shoot_point = where.get_node(Left_or_Right + str(id))
 
 func camera_shake():
 	GlobalAnimation.shake_camera(get_viewport().get_camera_2d())
 
-func skip():
-	$"../..".force_stop = true
-	
-	attack_source.skip_animation_player = true
-	attack_source.skip_attack_speed_check = true
-	attack_source.skip_shooting_prevention = true
-	attack_source.skip_sprite_animation = true
-	attack_source.skip_state_changer = true
-
-func unskip():
-	$"../..".force_stop =false
-	
-	attack_source.skip_animation_player = false
-	attack_source.skip_attack_speed_check = false
-	attack_source.skip_shooting_prevention = false
-	attack_source.skip_sprite_animation = false
-	attack_source.skip_state_changer = false
+#func skip():
+	#$"../..".force_stop = true
+	#
+	#Attack_source.skip_animation_player = true
+	#Attack_source.skip_attack_speed_check = true
+	#Attack_source.skip_shooting_prevention = true
+	#Attack_source.skip_sprite_animation = true
+	#Attack_source.skip_state_changer = true
+#
+#func unskip():
+	#$"../..".force_stop =false
+	#
+	#Attack_source.skip_animation_player = false
+	#Attack_source.skip_attack_speed_check = false
+	#Attack_source.skip_shooting_prevention = false
+	#Attack_source.skip_sprite_animation = false
+	#Attack_source.skip_state_changer = false
 func choose_attack():
 	rng_seed.randomize()
 	match rng_seed.randi_range(1,3):
 		1:
-			skip()
 			$"../..".current_state = $"../..".States.ATTACKING
 			spawn_rock_globo()
+			#print("attack")
 			await self.attack_done
+			#print("done")
 			$"../..".current_state = $"../..".States.IDLE
-			unskip()
 		2:
-			skip()
 			$"../..".current_state = $"../..".States.ATTACKING
 			spawn_roller_rock()
+			#print("attack")
 			await self.attack_done
+			#print("done")
 			$"../..".current_state = $"../..".States.IDLE
-			unskip()
 		3:
-			skip()
 			$"../..".current_state = $"../..".States.ATTACKING
 			erupt_earth()
+			#print("attack")
 			await self.attack_done
+			#print("done")
 			$"../..".current_state = $"../..".States.IDLE
-			unskip()
 	
 	
 	pass
@@ -108,13 +113,13 @@ func spawn_rock_globo():
 	for i in left:
 		set_target_point($"../../Third_attack/Left","Left",i)
 		var the_rock = GlobalFunc.instantiate_node("res://Main/Entities/Rock_enemy/glorbo_rock.tscn")
-		the_rock.global_position = attack_source.shoot_point.global_position
+		the_rock.global_position = Attack_source.shoot_point.global_position
 		$"../..".get_parent().add_child(the_rock)
 		
 	for i in right:
 		set_target_point($"../../Third_attack/Right","Right",i)
 		var the_rock = GlobalFunc.instantiate_node("res://Main/Entities/Rock_enemy/glorbo_rock.tscn")
-		the_rock.global_position = attack_source.shoot_point.global_position
+		the_rock.global_position = Attack_source.shoot_point.global_position
 		$"../..".get_parent().add_child(the_rock)
 
 	
@@ -128,7 +133,10 @@ func spawn_roller_rock():
 	
 	
 	emit_signal("attack_done")
-	
+
+func print_packet():
+	print($"../..".current_state)
+
 @export var unique_erupt_earth:int = 0
 func erupt_earth():
 	match rng_seed.randi_range(1,unique_erupt_earth):
@@ -136,104 +144,109 @@ func erupt_earth():
 			#print(attack_source.can_fire, "checker")
 			$"../../Cheese_potential".play("Jump_and_slam")
 			await $"../../Cheese_potential".animation_finished
-			attack_source.currentBullet = attack_source.bullets[2]
+			Attack_source.currentBullet = warning
+			print_packet()
 			for i in range(1,8,2):
 				set_target_point(left_wing,"Left",i)
-				attack_source.fire()
-				
+				Attack_source.fire()
+			print_packet()
 			for i in range(1,8,2):
 				set_target_point(right_wing,"Right",i)
-				attack_source.fire()
+				Attack_source.fire()
 				
 			await get_tree().create_timer(1).timeout
 				
-			attack_source.currentBullet = attack_source.bullets[1]
+			Attack_source.currentBullet = flame_surge
 			for i in range(1,8,2):
 				set_target_point(left_wing,"Left",i)
-				attack_source.fire()
+				Attack_source.fire()
 			for i in range(1,8,2):
 				set_target_point(right_wing,"Right",i)
-				attack_source.fire()
+				Attack_source.fire()
+			
 		2:#flower
 			#print(attack_source.can_fire, "flower")
 			$"../../Cheese_potential".play("Jump_and_slam")
 			await $"../../Cheese_potential".animation_finished
-			attack_source.currentBullet = attack_source.bullets[2]
+			Attack_source.currentBullet = warning
+			print_packet()
 			for i in range(1,5):
 				set_target_point(left_wing,"Left",i)
-				attack_source.fire()
+				Attack_source.fire()
 				set_target_point(right_wing,"Right",i)
-				attack_source.fire()
+				Attack_source.fire()
 				await get_tree().create_timer(0.1).timeout
 				
 			await get_tree().create_timer(0.6).timeout
-			
-			attack_source.currentBullet = attack_source.bullets[1]
+			print_packet()
+			Attack_source.currentBullet = flame_surge
 			for i in range(1,5):
 				set_target_point(left_wing,"Left",i)
-				attack_source.fire()
+				Attack_source.fire()
 				set_target_point(right_wing,"Right",i)
-				attack_source.fire()
+				Attack_source.fire()
 				await get_tree().create_timer(0.1).timeout
 		3:#one side then the other
 			#print(attack_source.can_fire, "one")
 			$"../../Cheese_potential".play("Jump_and_slam")
 			await $"../../Cheese_potential".animation_finished
-			attack_source.currentBullet = attack_source.bullets[2]
+			Attack_source.currentBullet = warning
+			print_packet()
 			for i in range(1,5):
 				set_target_point(right_wing,"Right",i)
-				attack_source.fire()
+				Attack_source.fire()
+				
+			await get_tree().create_timer(1).timeout
+			print_packet()
+			Attack_source.currentBullet = flame_surge
+			for i in range(1,5):
+				set_target_point(right_wing,"Right",i)
+				Attack_source.fire()
 				
 			await get_tree().create_timer(1).timeout
 			
-			attack_source.currentBullet = attack_source.bullets[1]
-			for i in range(1,5):
-				set_target_point(right_wing,"Right",i)
-				attack_source.fire()
-				
-			await get_tree().create_timer(1).timeout
-			
-			attack_source.currentBullet = attack_source.bullets[2]
+			Attack_source.currentBullet =warning
 			for i in range(1,5):
 				set_target_point(left_wing,"Left",i)
-				attack_source.fire()
+				Attack_source.fire()
 			await get_tree().create_timer(1).timeout
 			
-			attack_source.currentBullet = attack_source.bullets[1]
+			Attack_source.currentBullet =flame_surge
 			for i in range(1,5):
 				set_target_point(left_wing,"Left",i)
-				attack_source.fire()
+				Attack_source.fire()
 				
 				
 		4:#random
-			#print(attack_source.can_fire , "random")
+			#print(Attack_source.can_fire , "random")
 			$"../../Cheese_potential".play("Jump_and_slam")
 			await $"../../Cheese_potential".animation_finished
 			var left = random_fill(4,8,[])
 			var right = random_fill(4,8,[])
 			#print(right)
 			#print(left)
-			attack_source.currentBullet = attack_source.bullets[2]
+			print_packet()
+			Attack_source.currentBullet = warning
 			for i in right:
 				set_target_point(right_wing,"Right",i)
-				attack_source.fire()
+				Attack_source.fire()
 				await get_tree().create_timer(0.1).timeout
-			
+			print_packet()
 			for i in left:
 				set_target_point(left_wing,"Left",i)
-				attack_source.fire()
+				Attack_source.fire()
 				await get_tree().create_timer(0.1).timeout
 				
 			await get_tree().create_timer(0.6).timeout
-			attack_source.currentBullet = attack_source.bullets[1]
+			Attack_source.currentBullet = flame_surge
 			for i in right:
 				set_target_point(right_wing,"Right",i)
-				attack_source.fire()
+				Attack_source.fire()
 				await get_tree().create_timer(0.1).timeout
 			
 			for i in left:
 				set_target_point(left_wing,"Left",i)
-				attack_source.fire()
+				Attack_source.fire()
 				await get_tree().create_timer(0.1).timeout
 	emit_signal("attack_done")
 func random_fill(roll:int,max_:int,previous_values:Array[int]):

@@ -19,7 +19,7 @@ var sprite: AnimatedSprite2D
 @export var skip_animation_player:bool = true
 @export var skip_shooting_prevention:bool = false
 @export var skip_attack_speed_check:bool = false
-@export var skip_state_changer: bool = false
+@export var skip_state_changer_please: bool = false
 ## an area on the map that dictate if it can fire or not [br]
 ## if left w or h is negative will not run
 @export var resricted_area: Rect2i = Rect2i(0,0,-1,-1) 
@@ -64,7 +64,7 @@ func fire() -> void:
 	if sprite.sprite_frames.has_animation("attacking"):
 		sprite.sprite_frames.set_animation_speed("attacking", sprite.sprite_frames.get_animation_speed("attacking") / fire_rate)
 
-	if "States" in character and not skip_state_changer:
+	if "States" in character and not skip_state_changer_please:
 		character.current_state = character.States.ATTACKING
 
 	#region initialize bullet
@@ -92,7 +92,7 @@ func fire() -> void:
 	if not skip_attack_speed_check:
 		await get_tree().create_timer(fire_rate).timeout
 
-	if "States" in character and not skip_state_changer:
+	if "States" in character and not skip_state_changer_please:
 		character.current_state = character.States.IDLE
 	sprite.sprite_frames.set_animation_speed("attacking", old_animation_speed)
 	if not skip_shooting_prevention:

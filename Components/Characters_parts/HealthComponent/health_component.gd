@@ -21,16 +21,13 @@ func _ready() -> void:
 	if get_parent().has_node("FollowingCompanions"):
 		_following_companions = get_parent().get_node("FollowingCompanions")
 	
-	print(max_health_)
 	if health_bar != null:
-		print(health_bar.value)
 		health_bar.max_value = self.max_health_
 		health_bar.value = self.max_health_
 	
 	current_health = max_health_
 
 func take_damage(amount: int, damage_source: Node = null):
-	print("ow")
 	if is_dead:
 		return
 

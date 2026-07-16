@@ -56,7 +56,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../AttackComponent:currentBullet")
+tracks/1/path = NodePath("../Custom_moves:currentBullet")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -68,7 +68,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AttackComponent:shoot_point")
+tracks/2/path = NodePath("../Custom_moves:shoot_point")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -161,7 +161,7 @@ script = ExtResource("1_q5y2n")
 speed = 100.0
 is_sprite_towards_the_right = true
 health_component = NodePath("HealthComponent")
-attack_component = NodePath("AttackComponent")
+attack_component = NodePath("Custom_moves")
 sprite = NodePath("Sprite")
 direction_point = NodePath("Direction_point")
 attack_stop_please = true
@@ -188,14 +188,15 @@ character = NodePath("..")
 attacking_range = NodePath("../Direction_point/Collision_range")
 block_detection = NodePath("../Direction_point/Detect_block")
 no_block_detection = NodePath("../Direction_point/Detect_no_block")
-Attack_source = NodePath("../AttackComponent")
-bullet_overide = NodePath("../AttackComponent/Hurt_box")
+Attack_source = NodePath("../Collision_attack")
+bullet_overide = NodePath("../Collision_attack/Hurt_box")
 shoot_point_overide = NodePath("../Shoot_point")
 direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
-[node name="Mini_boss_ai" type="Node" parent="Base_Ai" unique_id=1662176931 node_paths=PackedStringArray("timer", "attack_range", "left_wing", "right_wing")]
+[node name="Mini_boss_ai" type="Node" parent="Base_Ai" unique_id=1662176931 node_paths=PackedStringArray("Attack_source", "timer", "attack_range", "left_wing", "right_wing", "flame_surge", "warning")]
 script = ExtResource("4_urrqo")
+Attack_source = NodePath("../../Custom_moves")
 action_speed = 4.0
 timer = NodePath("Timer")
 amount_of_left_point = 8
@@ -203,6 +204,8 @@ amount_of_right_point = 8
 attack_range = NodePath("../../Direction_point/Attack_range")
 left_wing = NodePath("../../Second_attack/Left")
 right_wing = NodePath("../../Second_attack/Right")
+flame_surge = NodePath("../../Custom_moves/Flame_surge")
+warning = NodePath("../../Custom_moves/Warning")
 unique_erupt_earth = 4
 
 [node name="Timer" type="Timer" parent="Base_Ai/Mini_boss_ai" unique_id=1536058840]
@@ -393,25 +396,33 @@ scale = Vector2(0.9999999, 0.9999999)
 position = Vector2(-294, 10)
 scale = Vector2(0.9999999, 0.9999999)
 
-[node name="AttackComponent" type="Node" parent="." unique_id=15334914 node_paths=PackedStringArray("bullets", "character", "animation_player")]
+[node name="Custom_moves" type="Node" parent="." unique_id=15334914 node_paths=PackedStringArray("bullets", "character", "animation_player")]
 script = ExtResource("4_iixdt")
-bullets = [NodePath("Hurt_box"), NodePath("Flame_surge"), NodePath("Warning")]
+bullets = [NodePath("Flame_surge"), NodePath("Warning")]
 character = NodePath("..")
 animation_player = NodePath("../Cheese_potential")
 skip_shooting_prevention = true
 skip_attack_speed_check = true
-skip_state_changer = true
+skip_state_changer_please = true
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
-[node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_jo1oe")]
-scale = Vector2(4.0564713, 4.0564713)
+[node name="Flame_surge" parent="Custom_moves" unique_id=826708759 instance=ExtResource("6_aopsf")]
+is_library = true
+
+[node name="Warning" parent="Custom_moves" unique_id=956257877 instance=ExtResource("8_iixdt")]
+is_library = true
+
+[node name="Collision_attack" type="Node" parent="." unique_id=778508221 node_paths=PackedStringArray("bullets", "currentBullet", "shoot_point", "character")]
+script = ExtResource("4_iixdt")
+bullets = [NodePath("Hurt_box")]
+currentBullet = NodePath("Hurt_box")
+shoot_point = NodePath("../Shoot_point")
+character = NodePath("..")
+metadata/_custom_type_script = "uid://da5q3wm4386jl"
+
+[node name="Hurt_box" parent="Collision_attack" unique_id=1579192024 instance=ExtResource("5_jo1oe")]
+scale = Vector2(4.056471, 4.056471)
 bullet_life_time = 0.3
-is_library = true
-
-[node name="Flame_surge" parent="AttackComponent" unique_id=826708759 instance=ExtResource("6_aopsf")]
-is_library = true
-
-[node name="Warning" parent="AttackComponent" unique_id=956257877 instance=ExtResource("8_iixdt")]
 is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=550991420]

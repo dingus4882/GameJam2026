@@ -79,13 +79,12 @@ func movement(_delta: float):
 	#SideNote: JUMP/ FALL States take priority over MOVE State.
 	if (current_state == States.ATTACKING and attack_stop_please == true) or force_stop == true:
 		
-		print("why")
-		print((current_state == States.ATTACKING and attack_stop_please == true))
-		print(force_stop == true)
-		print(false and false)
-		print(current_state == States.ATTACKING)
-		print(attack_stop_please, "!!!!!!!!!!!")
-		print(attack_stop_please == true)
+		#print("why")
+		#print((current_state == States.ATTACKING and attack_stop_please == true))
+		#print(force_stop == true)
+		#print(current_state == States.ATTACKING)
+		#print(attack_stop_please, "!!!!!!!!!!!")
+		#print(attack_stop_please == true)
 		velocity.x = 0
 		return
 	if direction:

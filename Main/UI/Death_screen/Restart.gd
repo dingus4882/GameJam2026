@@ -5,4 +5,4 @@ func _ready():
 	self.connect("pressed",restart_game)
 
 func restart_game():
-	GlobalFunc.next_scene(next_level)
+	SceneLoader.load_scene(SceneLoader.Scenes.GAME)

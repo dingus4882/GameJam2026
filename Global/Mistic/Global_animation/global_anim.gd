@@ -32,7 +32,7 @@ func shake_camera(camera: Camera2D, amount_of_shake = 3, intensity_of_shake = 30
 	var old_camera_position = camera.global_position
 	
 	@warning_ignore("integer_division")
-	camera.global_position.x += intensity_of_shake / 2
+	if camera: camera.global_position.x += intensity_of_shake / 2
 	
 	for i in amount_of_shake:
 		await get_tree().create_timer(time_between_each_move).timeout
@@ -40,6 +40,9 @@ func shake_camera(camera: Camera2D, amount_of_shake = 3, intensity_of_shake = 30
 		await get_tree().create_timer(time_between_each_move).timeout
 		if camera: camera.global_position.x += intensity_of_shake
 	
+	
+	if camera == null:
+		return
 	camera.global_position = old_camera_position
 	camera.set_process(true)
 	camera.set_physics_process(true)
