@@ -71,11 +71,15 @@ func _ready() -> void:
 @export var force_stop:bool = false
 func movement(_delta: float): 
 	
+
+		
+
+	
 	#SideNote: JUMP/ FALL States take priority over MOVE State.
 	if (current_state == States.ATTACKING and (sprite.animation == "attacking" and  attack_stop)) or force_stop:
-		velocity.x = speed * 0
+		velocity.x = 0
+		direction = 0
 		return
-		
 	if direction:
 
 	
@@ -86,9 +90,6 @@ func movement(_delta: float):
 		velocity.x = speed * direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-	
-	
-	
 	#region animation_overwrite
 	if current_state == States.ATTACKING:
 		return
