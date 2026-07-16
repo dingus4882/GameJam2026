@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_1k5x0"]
 [ext_resource type="PackedScene" uid="uid://bs20oy4bpbibq" path="res://Components/For-Players_parts/Player_component/player_component_scene.tscn" id="1_53jsn"]
-[ext_resource type="Texture2D" uid="uid://c4cd57xtdykki" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
+[ext_resource type="Texture2D" uid="uid://bw8scdjcriolf" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="4_wau81"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="5_k2cii"]
 [ext_resource type="Script" uid="uid://1u2c2e41771e" path="res://Components/Characters_parts/Jump_component/jump_component.gd" id="5_r86g3"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="6_bkrey"]
 [ext_resource type="Script" uid="uid://d36cmfdwa0te6" path="res://Components/Characters_parts/Following-component/following_companions.gd" id="6_s1y7g"]
+[ext_resource type="Script" uid="uid://divgrg1t3n3ta" path="res://Main/Entities/Player/camera.gd" id="9_7ndns"]
 
 [sub_resource type="Gradient" id="Gradient_5k54y"]
 offsets = PackedFloat32Array(0.65682656, 1)
@@ -250,6 +251,10 @@ remote_path = NodePath("../Static/Follower")
 update_rotation = false
 update_scale = false
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1627841132]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1627841132 node_paths=PackedStringArray("target")]
 position = Vector2(0, -19)
 zoom = Vector2(4, 4)
+script = ExtResource("9_7ndns")
+target = NodePath("../cam_off_set")
+
+[node name="cam_off_set" type="Node2D" parent="." unique_id=343059793]
