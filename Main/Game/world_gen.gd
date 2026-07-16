@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	#print(name)
 	if was_alive && enemy.health_component.is_dead:
 		was_alive = false
-		_load_next_scene_with_delay(2.0)
+		_load_next_scene_with_delay(0)
 	
 	if fps_label: #update_timer >= 0.5:
 		#update_timer = 0.0
@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 
 func _load_next_scene_with_delay(delay: float) -> void:
 	await get_tree().create_timer(delay).timeout
-	SceneLoader.load_scene(SceneLoader.Scenes.GAME_TWO)
+	SceneLoader.load_scene(SceneLoader.Scenes.MIMI_BOSS_END_CUT_SCENE)
 
 const CHUNK_SIZE = 64
 var num_chunks_x = 1
