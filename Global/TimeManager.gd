@@ -30,7 +30,7 @@ func pause_for_menu() -> void:
 
 # call if closing a game menu, save a game, quit ,...
 func resume_from_menu() -> void:
-	_menu_open_count = max(0, _menu_open_count - 1)
+	_menu_open_count = 0
 	if _menu_open_count == 0 and _saved_time_scale >= 0.0:
 		set_time_scale(_saved_time_scale)
 		_saved_time_scale = -1.0
