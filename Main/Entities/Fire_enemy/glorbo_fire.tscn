@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_ei2dp"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_shbot"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_c2bci"]
-[ext_resource type="Script" uid="uid://by7uadtwjvbh3" path="res://Main/Entities/Fire_enemy/On_fire.gd" id="7_04bkw"]
+[ext_resource type="Script" uid="uid://by7uadtwjvbh3" path="res://Components/Characters_parts/Effects/Damage_over_time.gd" id="7_04bkw"]
+[ext_resource type="Script" uid="uid://xpvak85xx07f" path="res://Components/Characters_parts/Comsumption_component/Consumption_component.gd" id="8_ei2dp"]
+[ext_resource type="Script" uid="uid://bbo6r2ajghxwj" path="res://Components/Characters_parts/Effects/Regen.gd" id="9_ei2dp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mompm"]
 atlas = ExtResource("2_mompm")
@@ -169,3 +171,12 @@ metadata/_custom_type_script = "uid://bg3rkcvoqclm4"
 [node name="HealthComponent" type="Node" parent="." unique_id=595129125]
 script = ExtResource("6_c2bci")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
+
+[node name="Nutrient" type="Node" parent="." unique_id=1700475491 node_paths=PackedStringArray("list_of_effects")]
+script = ExtResource("8_ei2dp")
+list_of_effects = [NodePath("Regen")]
+metadata/_custom_type_script = "uid://xpvak85xx07f"
+
+[node name="Regen" type="Node" parent="Nutrient" unique_id=1565969688]
+script = ExtResource("9_ei2dp")
+metadata/_custom_type_script = "uid://bg3rkcvoqclm4"

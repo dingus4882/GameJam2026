@@ -124,7 +124,7 @@ func _initialize_follower_metadata(follower: Node2D):
 	follower.set_meta("path_direction", 1.0 if randf() < 0.5 else -1.0)
 	follower.set_meta("path_bias", randf_range(-0.35, 0.35))
 	follower.set_meta("path_frequency", 0.75 + randf_range(0.0, 0.25))
-
+#region sacrifice
 func can_sacrifice() -> bool:
 	return not followers.is_empty() and not is_instance_valid(_sacrificing_follower)
 
@@ -185,6 +185,8 @@ func _emit_particles():
 
 func _on_sacrifice_animation_finished(follower: Node2D):
 	if is_instance_valid(follower):
+		if follower.has_node("Nutrient"):
+			follower.get_node("Nutrient").resolve_extra_effects(target)
 		follower.queue_free()
 	_sacrificing_follower = null
 
@@ -193,7 +195,10 @@ func remove_follower(follower: Node2D):
 	if index != -1:
 		followers.remove_at(index)
 		follower.queue_free()
+#endregion sacrifice
 
+
+#region handles movement
 func _find_ground_tilemap() -> TileMapLayer:
 	# Caches the ground tilemap for performance.
 	if is_instance_valid(ground_tilemap_cache):
@@ -333,3 +338,5 @@ func _physics_process(delta: float):
 				animated_sprite.play(next_anim)
 		
 		i += 1
+
+#endregion

@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_jjq68"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_nfkyx"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_qn5bo"]
+[ext_resource type="Script" uid="uid://xpvak85xx07f" path="res://Components/Characters_parts/Comsumption_component/Consumption_component.gd" id="7_01hqs"]
+[ext_resource type="Script" uid="uid://bbo6r2ajghxwj" path="res://Components/Characters_parts/Effects/Regen.gd" id="8_01hqs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1fsw6"]
 atlas = ExtResource("2_2gt50")
@@ -160,3 +162,12 @@ is_library = true
 [node name="HealthComponent" type="Node" parent="." unique_id=761292656]
 script = ExtResource("6_qn5bo")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
+
+[node name="Nutrient" type="Node" parent="." unique_id=101002874 node_paths=PackedStringArray("list_of_effects")]
+script = ExtResource("7_01hqs")
+list_of_effects = [NodePath("Regen")]
+metadata/_custom_type_script = "uid://xpvak85xx07f"
+
+[node name="Regen" type="Node" parent="Nutrient" unique_id=934254766]
+script = ExtResource("8_01hqs")
+metadata/_custom_type_script = "uid://bg3rkcvoqclm4"

@@ -7,9 +7,12 @@
 [ext_resource type="Script" uid="uid://00ji1ysx24ix" path="res://Main/Entities/MagmaMiniBoss_enemy/mini_boss_ai.gd" id="4_urrqo"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_jo1oe"]
 [ext_resource type="PackedScene" uid="uid://dmjp4liybplik" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/flame_surge.tscn" id="6_aopsf"]
+[ext_resource type="Script" uid="uid://by7uadtwjvbh3" path="res://Components/Characters_parts/Effects/Damage_over_time.gd" id="7_wfja8"]
 [ext_resource type="PackedScene" uid="uid://bysnthakbn5jk" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/warning.tscn" id="8_iixdt"]
 [ext_resource type="PackedScene" uid="uid://i1iauqfqyqtt" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/bullet_that_summon_sth.tscn" id="8_jo1oe"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="9_iixdt"]
+[ext_resource type="Script" uid="uid://xpvak85xx07f" path="res://Components/Characters_parts/Comsumption_component/Consumption_component.gd" id="12_pjyk1"]
+[ext_resource type="Script" uid="uid://bbo6r2ajghxwj" path="res://Components/Characters_parts/Effects/Regen.gd" id="13_pjyk1"]
 
 [sub_resource type="Animation" id="Animation_wfja8"]
 resource_name = "Jump_and_slam"
@@ -229,6 +232,7 @@ unique_erupt_earth = 4
 position = Vector2(3.8146973e-06, 0)
 
 [node name="Direction_point" type="Marker2D" parent="." unique_id=1900565491]
+visible = false
 position = Vector2(20.000008, -7.6293945e-06)
 
 [node name="Collision_range" type="Area2D" parent="Direction_point" unique_id=600768623]
@@ -420,18 +424,28 @@ skip_attack_speed_check = true
 skip_state_changer_please = true
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
-[node name="Flame_surge" parent="Custom_moves" unique_id=826708759 instance=ExtResource("6_aopsf")]
+[node name="Flame_surge" parent="Custom_moves" unique_id=826708759 node_paths=PackedStringArray("list_of_effects") instance=ExtResource("6_aopsf")]
+visible = false
 is_library = true
+list_of_effects = [NodePath("On_fire")]
+
+[node name="On_fire" type="Node" parent="Custom_moves/Flame_surge" unique_id=1830662335]
+script = ExtResource("7_wfja8")
+effect_script = ExtResource("7_wfja8")
+metadata/_custom_type_script = "uid://bg3rkcvoqclm4"
 
 [node name="Warning" parent="Custom_moves" unique_id=956257877 instance=ExtResource("8_iixdt")]
+visible = false
 is_library = true
 
 [node name="Bullet_that_summon_rock_glorbo" parent="Custom_moves" unique_id=1503676649 instance=ExtResource("8_jo1oe")]
+visible = false
 bullet_life_time = 0.2
 is_library = true
 list_of_spliter = Array[String](["res://Main/Entities/Rock_enemy/glorbo_rock.tscn"])
 
 [node name="Bullet_that_summon_roller" parent="Custom_moves" unique_id=982282499 instance=ExtResource("8_jo1oe")]
+visible = false
 bullet_life_time = 0.2
 is_library = true
 list_of_spliter = Array[String](["res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/rolling_stone.tscn"])
@@ -445,6 +459,7 @@ character = NodePath("..")
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="Collision_attack" unique_id=1579192024 instance=ExtResource("5_jo1oe")]
+visible = false
 scale = Vector2(4.056471, 4.056471)
 bullet_life_time = 0.3
 is_library = true
@@ -452,3 +467,12 @@ is_library = true
 [node name="HealthComponent" type="Node" parent="." unique_id=550991420]
 script = ExtResource("9_iixdt")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
+
+[node name="Nutrient" type="Node" parent="." unique_id=1466952225 node_paths=PackedStringArray("list_of_effects")]
+script = ExtResource("12_pjyk1")
+list_of_effects = [NodePath("Regen")]
+metadata/_custom_type_script = "uid://xpvak85xx07f"
+
+[node name="Regen" type="Node" parent="Nutrient" unique_id=704568025]
+script = ExtResource("13_pjyk1")
+metadata/_custom_type_script = "uid://bg3rkcvoqclm4"

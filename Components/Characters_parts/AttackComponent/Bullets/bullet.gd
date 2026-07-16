@@ -71,7 +71,7 @@ func fracture():
 
 
 @export var list_of_effects: Array[Effect_Parasite]
-func resolve_extra_effects(body):
+func resolve_extra_effects(body:Node):
 	for i in list_of_effects:
 		print("ow")
 		var effect = i.duplicate()

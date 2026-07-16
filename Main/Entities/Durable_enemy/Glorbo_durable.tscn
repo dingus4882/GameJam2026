@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://coy6yav0mtg3f"]
 
-[ext_resource type="Texture2D" uid="uid://crltgxwdkq7qn" path="res://Main/Entities/Durable_enemy/DurableStarter.png" id="1_2klqh"]
+[ext_resource type="Texture2D" uid="uid://vir7akipn8su" path="res://Main/Entities/Durable_enemy/DurableStarter.png" id="1_2klqh"]
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_umlbo"]
 [ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_bje7m"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_avor4"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_2voyg"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_ascpk"]
+[ext_resource type="Script" uid="uid://xpvak85xx07f" path="res://Components/Characters_parts/Comsumption_component/Consumption_component.gd" id="7_avor4"]
+[ext_resource type="Script" uid="uid://bbo6r2ajghxwj" path="res://Components/Characters_parts/Effects/Regen.gd" id="7_bje7m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_umlbo"]
 atlas = ExtResource("1_2klqh")
@@ -159,3 +161,13 @@ is_library = true
 [node name="HealthComponent" type="Node" parent="." unique_id=1683614592]
 script = ExtResource("6_ascpk")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
+
+[node name="Nutrient" type="Node" parent="." unique_id=1456251072 node_paths=PackedStringArray("list_of_effects")]
+script = ExtResource("7_avor4")
+list_of_effects = [NodePath("Regen")]
+metadata/_custom_type_script = "uid://xpvak85xx07f"
+
+[node name="Regen" type="Node" parent="Nutrient" unique_id=17088745]
+script = ExtResource("7_bje7m")
+effect_script = ExtResource("7_bje7m")
+metadata/_custom_type_script = "uid://bg3rkcvoqclm4"
