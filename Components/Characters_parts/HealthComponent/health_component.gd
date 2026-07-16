@@ -2,7 +2,12 @@ class_name HealthComponent
 extends Node
 
 @export var max_health_: float = 100.0
+@export var is_invinsible:bool = false
+@export var invinsibility_frame:float = 0.1
 
+@export var flash_duration:float = 0.1
+@export var damaged_flash:Color =Color(1.0, 0.0, 0.0, 0.686)
+@export var healed_flash:Color = Color(0.219, 0.638, 0.0, 0.686)
 
 
 @export var health_bar: ProgressBar
@@ -28,9 +33,14 @@ func _ready() -> void:
 	current_health = max_health_
 
 func take_damage(amount: int, damage_source: Node = null):
+	if is_invinsible:
+		return
+	
 	if is_dead:
 		return
-
+	
+	is_invinsible = true
+	
 	if _following_companions and damage_source:
 		# If the damage source is a follower, or owned by a follower (like a projectile), ignore it.
 		var source = damage_source
@@ -40,7 +50,11 @@ func take_damage(amount: int, damage_source: Node = null):
 
 		if _following_companions.followers.has(source):
 			return # Damage from a follower is ignored.
-
+	
+	if $"..".sprite:
+		GlobalAnimation.temp_color_change($"..".sprite,flash_duration,damaged_flash)
+		
+		
 	current_health -= amount
 	health_changed.emit(current_health, max_health_)
 	if health_bar != null:
@@ -66,16 +80,41 @@ func take_damage(amount: int, damage_source: Node = null):
 
 		# If not converted, or if it's the player, die normally.
 		get_node("..").queue_free()
-
-
+		
+	await get_tree().create_timer(invinsibility_frame).timeout
+	is_invinsible = false
+	
+	
+	
 func heal_damage(amount: int):
+	if is_invinsible:
+		return
+	is_invinsible = true
+	if $"..".sprite:
+		GlobalAnimation.temp_color_change($"..".sprite,flash_duration,healed_flash)
+		
 	current_health = clampf(current_health + amount, 0, max_health_)
 	if health_bar != null:
 		health_bar.value = current_health
 	health_changed.emit(current_health, max_health_)
+	
+	
+	await get_tree().create_timer(invinsibility_frame).timeout
+	is_invinsible = false
 
 func fully_heal():
+	if is_invinsible:
+		return
+	is_invinsible = true
+	
+	if $"..".sprite:
+		GlobalAnimation.temp_color_change($"..".sprite,flash_duration,healed_flash)
+		
 	current_health = max_health_
 	if health_bar != null:
 		health_bar.value = current_health
 	health_changed.emit(current_health, max_health_)
+	
+	
+	await get_tree().create_timer(invinsibility_frame).timeout
+	is_invinsible = false

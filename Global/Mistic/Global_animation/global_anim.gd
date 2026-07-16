@@ -46,3 +46,12 @@ func shake_camera(camera: Camera2D, amount_of_shake = 3, intensity_of_shake = 30
 	camera.global_position = old_camera_position
 	camera.set_process(true)
 	camera.set_physics_process(true)
+
+func temp_color_change(target:CanvasItem,duration,change_to:Color):
+	var original_color:Color = target.modulate
+	if target:
+		
+		target.modulate = change_to
+	await  get_tree().create_timer(duration).timeout
+	if target:
+		target.modulate = original_color

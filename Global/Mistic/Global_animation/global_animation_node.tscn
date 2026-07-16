@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://eaa8svv0lq0e"]
 
-[ext_resource type="Script" uid="uid://xuo2a7jsr0sn" path="res://Global/Global_animation/global_anim.gd" id="1_6m4j7"]
+[ext_resource type="Script" uid="uid://xuo2a7jsr0sn" path="res://Global/Mistic/Global_animation/global_anim.gd" id="1_6m4j7"]
 
 [sub_resource type="Animation" id="Animation_3biyg"]
 length = 0.001
