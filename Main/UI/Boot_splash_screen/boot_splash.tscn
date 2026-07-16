@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" uid="uid://b4yi5i0kfweqg" path="res://Main/UI/Boot_splash_screen/boot_splash.gd" id="1_xur6f"]
 [ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Main/UI/UI_Background.tscn" id="2_jqi61"]
-[ext_resource type="Texture2D" uid="uid://cka828ye5dkqd" path="res://Main/Map/BrainlessGameJamMapSet.png" id="3_jhtl1"]
-[ext_resource type="Texture2D" uid="uid://bjnsbu7wp06mc" path="res://Assets/logo_dark.svg" id="4_87wam"]
+[ext_resource type="Texture2D" uid="uid://ch8031nqpt1og" path="res://Main/Map/BrainlessGameJamMapSet.png" id="3_jhtl1"]
+[ext_resource type="Texture2D" uid="uid://cnysgy8hj2gmm" path="res://Assets/logo_dark.svg" id="4_87wam"]
 [ext_resource type="FontFile" uid="uid://bblgfksqrfodg" path="res://Assets/Drybrush-KV2wD.ttf" id="5_f0ath"]
 [ext_resource type="Texture2D" uid="uid://c1axr3sntd2xp" path="res://Main/Entities/FourArmed_enemy/FourArmOcto.png" id="5_fyv4t"]
 [ext_resource type="Texture2D" uid="uid://ddpxkoymtp7th" path="res://Main/Entities/Fire_enemy/FireOcto.png" id="6_f0ath"]
-[ext_resource type="Texture2D" uid="uid://b77vcadkramvx" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="7_mgym4"]
+[ext_resource type="Texture2D" uid="uid://gk44vvw8hg3g" path="res://Main/Entities/Fast_enemy/FastStarter.png" id="7_mgym4"]
 [ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="8_06evt"]
-[ext_resource type="Texture2D" uid="uid://dw18utx4wenx" path="res://Main/Entities/Strong_enemy/StrongStarter.png" id="9_fyv4t"]
+[ext_resource type="Texture2D" uid="uid://c036iudjvwmg7" path="res://Main/Entities/Strong_enemy/StrongStarter.png" id="9_fyv4t"]
 [ext_resource type="Texture2D" uid="uid://i4vaf3jc3aie" path="res://Main/Entities/Rock_enemy/RockOcto.png" id="10_f0ath"]
 
 [sub_resource type="Animation" id="Animation_aklch"]
@@ -391,29 +391,29 @@ texture = ExtResource("3_jhtl1")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dq5e0")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6h67"]
+atlas = ExtResource("5_fyv4t")
+region = Rect2(0, 0, 48, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pr1l1"]
 atlas = ExtResource("5_fyv4t")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(0, 32, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0jbs5"]
 atlas = ExtResource("5_fyv4t")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hoekp"]
-atlas = ExtResource("5_fyv4t")
-region = Rect2(32, 64, 32, 32)
+region = Rect2(0, 64, 48, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ny2mi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p6h67")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pr1l1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0jbs5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hoekp")
 }],
 "loop": 1,
 "name": &"attacking",
@@ -421,13 +421,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p6h67")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pr1l1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0jbs5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hoekp")
 }],
 "loop": 1,
 "name": &"idle",
@@ -435,50 +435,42 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_p6h67")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_pr1l1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0jbs5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hoekp")
 }],
 "loop": 1,
 "name": &"walk",
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mompm"]
+atlas = ExtResource("6_f0ath")
+region = Rect2(0, 0, 32, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fx4af"]
 atlas = ExtResource("6_f0ath")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(0, 48, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04bkw"]
 atlas = ExtResource("6_f0ath")
-region = Rect2(32, 96, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei2dp"]
-atlas = ExtResource("6_f0ath")
-region = Rect2(32, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shbot"]
-atlas = ExtResource("6_f0ath")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2bci"]
-atlas = ExtResource("6_f0ath")
-region = Rect2(96, 96, 32, 32)
+region = Rect2(0, 96, 32, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kcex1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mompm")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fx4af")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_04bkw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei2dp")
 }],
 "loop": 1,
 "name": &"attacking",
@@ -486,13 +478,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mompm")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fx4af")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_04bkw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei2dp")
 }],
 "loop": 1,
 "name": &"idle",
@@ -500,10 +492,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_shbot")
+"texture": SubResource("AtlasTexture_mompm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c2bci")
+"texture": SubResource("AtlasTexture_fx4af")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04bkw")
 }],
 "loop": 1,
 "name": &"walk",
@@ -768,7 +763,7 @@ text = "Made with"
 position = Vector2(178.10767, 303.93152)
 scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_ny2mi")
-animation = &"idle"
+animation = &"attacking"
 autoplay = "idle"
 flip_h = true
 
@@ -776,7 +771,7 @@ flip_h = true
 position = Vector2(1718.1077, 488.93152)
 scale = Vector2(6.506733, 7.308222)
 sprite_frames = SubResource("SpriteFrames_kcex1")
-animation = &"idle"
+animation = &"attacking"
 autoplay = "idle"
 flip_h = true
 

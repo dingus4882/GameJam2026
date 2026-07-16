@@ -7,37 +7,37 @@
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_shbot"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_c2bci"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mompm"]
+atlas = ExtResource("2_mompm")
+region = Rect2(0, 0, 32, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fx4af"]
 atlas = ExtResource("2_mompm")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(0, 48, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_04bkw"]
 atlas = ExtResource("2_mompm")
-region = Rect2(32, 96, 32, 32)
+region = Rect2(0, 96, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei2dp"]
 atlas = ExtResource("2_mompm")
-region = Rect2(32, 160, 32, 32)
+region = Rect2(32, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_shbot"]
 atlas = ExtResource("2_mompm")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c2bci"]
-atlas = ExtResource("2_mompm")
-region = Rect2(96, 96, 32, 32)
+region = Rect2(32, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cu4or"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mompm")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fx4af")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_04bkw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei2dp")
 }],
 "loop": 1,
 "name": &"attacking",
@@ -45,13 +45,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mompm")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fx4af")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_04bkw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei2dp")
 }],
 "loop": 1,
 "name": &"idle",
@@ -59,10 +59,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_shbot")
+"texture": SubResource("AtlasTexture_ei2dp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c2bci")
+"texture": SubResource("AtlasTexture_shbot")
 }],
 "loop": 1,
 "name": &"walk",
@@ -70,7 +70,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mompm"]
-size = Vector2(19.999998, 20.000004)
+size = Vector2(19.999998, 19.000006)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fx4af"]
 radius = 25.806442
@@ -96,12 +96,11 @@ metadata/_custom_type_script = "uid://chypt44vkylf5"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=949499809]
 sprite_frames = SubResource("SpriteFrames_cu4or")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Collision" type="CollisionShape2D" parent="." unique_id=1066060121]
-visible = false
-position = Vector2(3.3208291e-06, 5.7142844)
+position = Vector2(3.3208291e-06, 13.5)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_mompm")
 

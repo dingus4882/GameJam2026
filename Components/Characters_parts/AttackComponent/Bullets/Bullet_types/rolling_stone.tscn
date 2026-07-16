@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://ciy4t6tu15ne4"]
+
+[ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_sdfgr"]
+[ext_resource type="Texture2D" uid="uid://dxluuxvo1ycmg" path="res://Main/Map/RouckTreeAndPebbles/RockTreeAndPebbelsBackround.png" id="2_sdfgr"]
+[ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_doaup"]
+[ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_rb01u"]
+[ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_uiurp"]
+[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_i6hku"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccbeh"]
+atlas = ExtResource("2_sdfgr")
+region = Rect2(49, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_doaup"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccbeh")
+}],
+"loop": 1,
+"name": &"attacking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccbeh")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccbeh")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kflid"]
+size = Vector2(19.999998, 20.000004)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ogyl"]
+radius = 25.806442
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6mnm"]
+size = Vector2(5.2857094, 5.7142878)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7aqrk"]
+size = Vector2(5.2857094, 5.7142754)
+
+[node name="Rolling_stone" type="CharacterBody2D" unique_id=1339624668 node_paths=PackedStringArray("health_component", "attack_component", "sprite", "direction_point")]
+script = ExtResource("1_sdfgr")
+health_component = NodePath("HealthComponent")
+attack_component = NodePath("AttackComponent")
+sprite = NodePath("Sprite")
+direction_point = NodePath("Direction_point")
+metadata/_custom_type_script = "uid://chypt44vkylf5"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=270205266]
+sprite_frames = SubResource("SpriteFrames_doaup")
+animation = &"walk"
+autoplay = "idle"
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=113946688]
+visible = false
+position = Vector2(3.3208291e-06, 5.7142844)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_kflid")
+
+[node name="Base_Ai" type="Node" parent="." unique_id=1414435579 node_paths=PackedStringArray("character", "attacking_range", "block_detection", "no_block_detection", "Attack_source")]
+script = ExtResource("3_doaup")
+character = NodePath("..")
+attacking_range = NodePath("../Direction_point/Attack_range")
+block_detection = NodePath("../Direction_point/Detect_block")
+no_block_detection = NodePath("../Direction_point/Detect_no_block")
+Attack_source = NodePath("../AttackComponent")
+direction = 1.0
+metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
+
+[node name="Shoot_point" type="Marker2D" parent="." unique_id=1314350491]
+
+[node name="Direction_point" type="Marker2D" parent="." unique_id=577204938]
+visible = false
+position = Vector2(20.000008, -7.6293945e-06)
+
+[node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=545544262]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Attack_range" unique_id=2071789177]
+position = Vector2(-20.000011, 7.6293945e-06)
+scale = Vector2(0.62000036, 1)
+shape = SubResource("CircleShape2D_5ogyl")
+
+[node name="Detect_block" type="Area2D" parent="Direction_point" unique_id=1770854261]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_block" unique_id=1435303573]
+position = Vector2(11.642851, 7.96999e-06)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_v6mnm")
+
+[node name="Detect_no_block" type="Area2D" parent="Direction_point" unique_id=2108812451]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction_point/Detect_no_block" unique_id=1762482425]
+position = Vector2(11.428563, 28.571436)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_7aqrk")
+
+[node name="AttackComponent" type="Node" parent="." unique_id=1640026387 node_paths=PackedStringArray("bullets", "currentBullet", "shoot_point", "character")]
+script = ExtResource("4_rb01u")
+bullets = [NodePath("Hurt_box")]
+currentBullet = NodePath("Hurt_box")
+shoot_point = NodePath("../Shoot_point")
+character = NodePath("..")
+metadata/_custom_type_script = "uid://da5q3wm4386jl"
+
+[node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_uiurp")]
+visible = false
+scale = Vector2(4.9129543, 4.9129543)
+bullet_life_time = 0.2
+is_library = true
+
+[node name="HealthComponent" type="Node" parent="." unique_id=406270492]
+script = ExtResource("6_i6hku")
+metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
