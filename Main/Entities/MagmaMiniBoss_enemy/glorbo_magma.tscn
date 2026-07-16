@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="5_jo1oe"]
 [ext_resource type="PackedScene" uid="uid://dmjp4liybplik" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/flame_surge.tscn" id="6_aopsf"]
 [ext_resource type="PackedScene" uid="uid://bysnthakbn5jk" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/warning.tscn" id="8_iixdt"]
+[ext_resource type="PackedScene" uid="uid://i1iauqfqyqtt" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/bullet_that_summon_sth.tscn" id="8_jo1oe"]
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="9_iixdt"]
 
 [sub_resource type="Animation" id="Animation_wfja8"]
@@ -194,11 +195,10 @@ shoot_point_overide = NodePath("../Shoot_point")
 direction = 1.0
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
-[node name="Mini_boss_ai" type="Node" parent="Base_Ai" unique_id=1662176931 node_paths=PackedStringArray("Attack_source", "timer", "attack_range", "left_wing", "right_wing", "flame_surge", "warning")]
+[node name="Mini_boss_ai" type="Node" parent="Base_Ai" unique_id=1662176931 node_paths=PackedStringArray("Attack_source", "attack_range", "left_wing", "right_wing", "flame_surge", "warning", "spawn_rock_glorbo_bullet", "spawn_roller_bullet")]
 script = ExtResource("4_urrqo")
 Attack_source = NodePath("../../Custom_moves")
 action_speed = 4.0
-timer = NodePath("Timer")
 amount_of_left_point = 8
 amount_of_right_point = 8
 attack_range = NodePath("../../Direction_point/Attack_range")
@@ -206,10 +206,10 @@ left_wing = NodePath("../../Second_attack/Left")
 right_wing = NodePath("../../Second_attack/Right")
 flame_surge = NodePath("../../Custom_moves/Flame_surge")
 warning = NodePath("../../Custom_moves/Warning")
+spawn_rock_glorbo_bullet = NodePath("../../Custom_moves/Bullet_that_summon_rock_glorbo")
+spawn_roller_bullet = NodePath("../../Custom_moves/Bullet_that_summon_roller")
+time_after_using_rock_spawn = 3.0
 unique_erupt_earth = 4
-
-[node name="Timer" type="Timer" parent="Base_Ai/Mini_boss_ai" unique_id=1536058840]
-one_shot = true
 
 [node name="Shoot_point" type="Marker2D" parent="." unique_id=1666882417]
 position = Vector2(3.8146973e-06, 0)
@@ -398,7 +398,7 @@ scale = Vector2(0.9999999, 0.9999999)
 
 [node name="Custom_moves" type="Node" parent="." unique_id=15334914 node_paths=PackedStringArray("bullets", "character", "animation_player")]
 script = ExtResource("4_iixdt")
-bullets = [NodePath("Flame_surge"), NodePath("Warning")]
+bullets = [NodePath("Flame_surge"), NodePath("Warning"), NodePath("Bullet_that_summon_rock_glorbo"), NodePath("Bullet_that_summon_roller")]
 character = NodePath("..")
 animation_player = NodePath("../Cheese_potential")
 skip_shooting_prevention = true
@@ -410,6 +410,15 @@ metadata/_custom_type_script = "uid://da5q3wm4386jl"
 is_library = true
 
 [node name="Warning" parent="Custom_moves" unique_id=956257877 instance=ExtResource("8_iixdt")]
+is_library = true
+
+[node name="Bullet_that_summon_rock_glorbo" parent="Custom_moves" unique_id=1503676649 instance=ExtResource("8_jo1oe")]
+bullet_life_time = 0.2
+is_library = true
+list_of_spliter = Array[String](["res://Main/Entities/Rock_enemy/glorbo_rock.tscn"])
+
+[node name="Bullet_that_summon_roller" parent="Custom_moves" unique_id=982282499 instance=ExtResource("8_jo1oe")]
+bullet_life_time = 0.2
 is_library = true
 
 [node name="Collision_attack" type="Node" parent="." unique_id=778508221 node_paths=PackedStringArray("bullets", "currentBullet", "shoot_point", "character")]

@@ -73,7 +73,7 @@ func fire() -> void:
 	
 	bullet.bullet_sprite_overide = currentBullet.bullet_sprite_overide 
 	bullet.bullet_sprites_overide = currentBullet.bullet_sprites_overide 
-	
+	bullet.list_of_spliter = currentBullet.list_of_spliter
 	bullet.damage = currentBullet.damage
 	bullet.bullet_life_time = currentBullet.bullet_life_time
 	bullet.scale = currentBullet.scale

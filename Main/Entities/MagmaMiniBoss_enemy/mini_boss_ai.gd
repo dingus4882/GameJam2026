@@ -6,8 +6,7 @@ signal attack_done
 @export var Attack_source: AttackComponent
 
 
-@export var action_speed:float = 1
-@export var timer:Timer
+@export var action_speed:float = 1.0
 @export var amount_of_left_point: int
 @export var amount_of_right_point: int
 var target:CharacterBase
@@ -19,12 +18,25 @@ var target:CharacterBase
 
 @export var flame_surge:Bullet
 @export var warning:Bullet
+@export var spawn_rock_glorbo_bullet:Bullet
+@export var spawn_roller_bullet:Bullet
+
+
+@export var time_after_using_rock_spawn:float = 1.0
+@export var time_after_using_erupt_earth:float = 1.0
+@export var time_after_using_roller:float = 1.0
+
+
+
+
+
+
 
 
 var is_inside_range := false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.wait_time = action_speed
+
 	if attack_range != null:
 		attack_range.connect("body_entered",player_encounter)
 		attack_range.connect("body_exited",player_disengaged)
@@ -32,19 +44,14 @@ func _ready():
 
 func player_encounter(_body):
 	#print("connected")
-	timer.start()
-	if timer != null:
-		timer.connect("timeout",choose_attack)
-		connect("attack_done",timer.start)
+	choose_attack()
+	connect("attack_done",choose_attack)
 	is_inside_range = true
 	
 	
 
 func player_disengaged(_body):
-	timer.stop()
-	if timer != null:
-		timer.disconnect("timeout",choose_attack)
-		disconnect("attack_done",timer.start)
+	disconnect("attack_done",choose_attack)
 	is_inside_range = false
 
 
@@ -76,13 +83,16 @@ func camera_shake():
 	#Attack_source.skip_sprite_animation = false
 	#Attack_source.skip_state_changer = false
 func choose_attack():
+	await get_tree().create_timer(action_speed).timeout
 	rng_seed.randomize()
 	match rng_seed.randi_range(1,3):
 		1:
 			$"../..".current_state = $"../..".States.ATTACKING
 			spawn_rock_globo()
+			
 			#print("attack")
 			await self.attack_done
+			await  get_tree().create_timer(time_after_using_rock_spawn).timeout
 			#print("done")
 			$"../..".current_state = $"../..".States.IDLE
 		2:
@@ -90,6 +100,7 @@ func choose_attack():
 			spawn_roller_rock()
 			#print("attack")
 			await self.attack_done
+			await  get_tree().create_timer(time_after_using_roller).timeout
 			#print("done")
 			$"../..".current_state = $"../..".States.IDLE
 		3:
@@ -97,6 +108,7 @@ func choose_attack():
 			erupt_earth()
 			#print("attack")
 			await self.attack_done
+			#await  get_tree().create_timer(time_after_using_erupt_earth).timeout
 			#print("done")
 			$"../..".current_state = $"../..".States.IDLE
 	
@@ -109,18 +121,14 @@ func spawn_rock_globo():
 	await $"../../Cheese_potential".animation_finished
 	var left = random_fill(1,8,[])
 	var right = random_fill(2,8,[])
-	
+	Attack_source.currentBullet = spawn_rock_glorbo_bullet
 	for i in left:
 		set_target_point($"../../Third_attack/Left","Left",i)
-		var the_rock = GlobalFunc.instantiate_node("res://Main/Entities/Rock_enemy/glorbo_rock.tscn")
-		the_rock.global_position = Attack_source.shoot_point.global_position
-		$"../..".get_parent().add_child(the_rock)
+		Attack_source.fire()
 		
 	for i in right:
-		set_target_point($"../../Third_attack/Right","Right",i)
-		var the_rock = GlobalFunc.instantiate_node("res://Main/Entities/Rock_enemy/glorbo_rock.tscn")
-		the_rock.global_position = Attack_source.shoot_point.global_position
-		$"../..".get_parent().add_child(the_rock)
+		set_target_point($"../../Third_attack/Left","Left",i)
+		Attack_source.fire()
 
 	
 	
@@ -135,7 +143,8 @@ func spawn_roller_rock():
 	emit_signal("attack_done")
 
 func print_packet():
-	print($"../..".current_state)
+	pass
+	#print($"../..".current_state)
 
 @export var unique_erupt_earth:int = 0
 func erupt_earth():

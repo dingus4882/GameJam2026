@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://i1iauqfqyqtt"]
+
+[ext_resource type="Script" uid="uid://bpbc3drlvjiou" path="res://Components/Characters_parts/AttackComponent/Bullets/bullet.gd" id="1_c6emm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsd"]
+
+[node name="Bullet_that_summon_sth" type="Area2D" unique_id=1503676649]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_c6emm")
+metadata/_custom_type_script = "uid://bpbc3drlvjiou"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=218758956]
+shape = SubResource("RectangleShape2D_s7wsd")

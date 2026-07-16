@@ -33,6 +33,8 @@ func _ready():
 	if bullet_life_time >= 0 and is_library == false:
 		
 		await get_tree().create_timer(bullet_life_time).timeout
+		fracture()
+		
 		emit_signal("expire")
 		queue_free()
 
@@ -45,9 +47,23 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func do_bullet_thing(body):
-
+	fracture()
 	if body.has_node("HealthComponent") and (bullet_owner != body):
 
 		body.get_node("HealthComponent").take_damage(damage, bullet_owner)
 		if not is_library:
 			queue_free()
+
+@export var list_of_spliter: Array[String]
+
+func fracture():
+	print(list_of_spliter)
+	for i in list_of_spliter:
+		print(i)
+		var the_fracture = GlobalFunc.instantiate_node(i)
+		the_fracture.global_position = global_position
+		get_parent().add_child(the_fracture)
+	
+	
+	
+	
