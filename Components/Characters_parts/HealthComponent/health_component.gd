@@ -15,16 +15,17 @@ signal died
 signal health_changed(new_health: float, max_health: float)
 
 func _ready() -> void:
+	await  get_tree().create_timer(0.1).timeout
 	# This component is often on a character that might have followers.
 	# We get the sibling node to check against it when taking damage.
 	if get_parent().has_node("FollowingCompanions"):
 		_following_companions = get_parent().get_node("FollowingCompanions")
 	
-
+	print(max_health_)
 	if health_bar != null:
 		print(health_bar.value)
-		health_bar.max_value = self.max_health
-		health_bar.value = self.max_health
+		health_bar.max_value = self.max_health_
+		health_bar.value = self.max_health_
 	
 	current_health = max_health_
 

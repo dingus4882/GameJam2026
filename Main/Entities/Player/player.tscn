@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_1k5x0"]
 [ext_resource type="PackedScene" uid="uid://bs20oy4bpbibq" path="res://Components/For-Players_parts/Player_component/player_component_scene.tscn" id="1_53jsn"]
 [ext_resource type="Texture2D" uid="uid://bw8scdjcriolf" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_wau81"]
-[ext_resource type="Script" uid="uid://bptw25ffnsd2a" path="res://Main/UI/Death_screen/Death_map_loader.gd" id="4_7ndns"]
+[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="4_7ndns"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="5_k2cii"]
+[ext_resource type="Script" uid="uid://bptw25ffnsd2a" path="res://Main/UI/Death_screen/Death_map_loader.gd" id="5_qe3jf"]
 [ext_resource type="Script" uid="uid://1u2c2e41771e" path="res://Components/Characters_parts/Jump_component/jump_component.gd" id="5_r86g3"]
 [ext_resource type="PackedScene" uid="uid://cpk85aclyih0r" path="res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/hurt_box.tscn" id="6_bkrey"]
 [ext_resource type="Script" uid="uid://d36cmfdwa0te6" path="res://Components/Characters_parts/Following-component/following_companions.gd" id="6_s1y7g"]
@@ -197,6 +198,9 @@ attack_sorce = NodePath("../AttackComponent")
 script = ExtResource("4_7ndns")
 health_bar = NodePath("../Static/Follower/Health_bar")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
+
+[node name="Node" type="Node" parent="HealthComponent" unique_id=165338082]
+script = ExtResource("5_qe3jf")
 
 [node name="AttackComponent" type="Node" parent="." unique_id=669009349 node_paths=PackedStringArray("bullets", "currentBullet", "shoot_point", "character")]
 script = ExtResource("5_k2cii")

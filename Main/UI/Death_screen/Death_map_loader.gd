@@ -1,7 +1,6 @@
-extends HealthComponent
+extends Node
 
-var scene
-func _ready() -> void:
-	self.connect("died",load_scene)
+func  _ready() -> void:
+	get_parent().connect("died",load_scene)
 func load_scene():
 	SceneLoader.load_scene(SceneLoader.Scenes.THE_DEATH)
