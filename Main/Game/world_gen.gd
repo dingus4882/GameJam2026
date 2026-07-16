@@ -16,7 +16,7 @@ var was_alive : bool = false
 func _process(delta: float) -> void:
 	update_timer += delta
 	delta *= TimeManager.current_time_scale
-	
+	#print(name)
 	if was_alive && enemy.health_component.is_dead:
 		was_alive = false
 		_load_next_scene_with_delay(2.0)

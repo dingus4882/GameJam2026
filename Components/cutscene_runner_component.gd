@@ -5,4 +5,4 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body.has_node("PlayerComponent"):
-		SceneLoader.load_scene(SceneLoader.Scenes.MIMI_BOSS_CUT_SCENE)
+		SceneLoader.load_scene(SceneLoader.Scenes.MIMI_BOSS_CUT_SCENE_START)

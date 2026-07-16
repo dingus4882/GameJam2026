@@ -23,6 +23,10 @@ func flip_anim_track_h(Anim: Animation):
 				
 				
 func shake_camera(camera: Camera2D, amount_of_shake = 3, intensity_of_shake = 30, time_between_each_move = 0.1):
+	
+	if camera == null:
+		return
+	
 	camera.set_process(false)
 	camera.set_physics_process(false)
 	var old_camera_position = camera.global_position

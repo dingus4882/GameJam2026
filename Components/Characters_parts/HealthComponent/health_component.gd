@@ -1,7 +1,9 @@
 class_name HealthComponent
 extends Node
 
-@export var max_health: float = 100.0
+@export var max_health_: float = 100.0
+
+
 
 @export var health_bar: ProgressBar
 var is_dead: bool = false
@@ -17,14 +19,17 @@ func _ready() -> void:
 	# We get the sibling node to check against it when taking damage.
 	if get_parent().has_node("FollowingCompanions"):
 		_following_companions = get_parent().get_node("FollowingCompanions")
+	
 
 	if health_bar != null:
+		print(health_bar.value)
 		health_bar.max_value = self.max_health
 		health_bar.value = self.max_health
 	
-	current_health = max_health
+	current_health = max_health_
 
 func take_damage(amount: int, damage_source: Node = null):
+	print("ow")
 	if is_dead:
 		return
 
@@ -39,7 +44,7 @@ func take_damage(amount: int, damage_source: Node = null):
 			return # Damage from a follower is ignored.
 
 	current_health -= amount
-	health_changed.emit(current_health, max_health)
+	health_changed.emit(current_health, max_health_)
 	if health_bar != null:
 		health_bar.value = current_health
 
@@ -56,7 +61,7 @@ func take_damage(amount: int, damage_source: Node = null):
 
 			if killer and killer.get_node_or_null("FollowingCompanions") != null:
 				var following_comp = killer.get_node_or_null("FollowingCompanions")
-				print(following_comp)
+				#print(following_comp)
 				if following_comp:
 					following_comp.add_follower(get_parent())
 					return # Converted to follower, so we don't queue_free.
@@ -66,13 +71,13 @@ func take_damage(amount: int, damage_source: Node = null):
 
 
 func heal_damage(amount: int):
-	current_health = clampf(current_health + amount, 0, max_health)
+	current_health = clampf(current_health + amount, 0, max_health_)
 	if health_bar != null:
 		health_bar.value = current_health
-	health_changed.emit(current_health, max_health)
+	health_changed.emit(current_health, max_health_)
 
 func fully_heal():
-	current_health = max_health
+	current_health = max_health_
 	if health_bar != null:
 		health_bar.value = current_health
-	health_changed.emit(current_health, max_health)
+	health_changed.emit(current_health, max_health_)

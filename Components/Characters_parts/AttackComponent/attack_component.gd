@@ -82,7 +82,7 @@ func fire() -> void:
 	#endregion
 
 	get_tree().current_scene.call_deferred("add_child", bullet)
-	if $"..".attack_stop == true:
+	if $"..".attack_stop_please == true:
 		if sprite and not skip_sprite_animation:
 			await $"../Sprite".animation_finished
 		if animation_player  and not skip_animation_player:
