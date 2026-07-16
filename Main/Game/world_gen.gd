@@ -114,4 +114,7 @@ func _on_all_chunks_done():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		options.ingame_show()
+		if TimeManager._menu_open_count != 0:
+			options._return_pressed()
+		else:
+			options.ingame_show()
