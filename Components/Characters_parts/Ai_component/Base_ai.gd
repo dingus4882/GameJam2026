@@ -65,7 +65,7 @@ func spawn_attack(the_attacked):
 		Attack_source.fire()
 		
 func _physics_process(_delta):
-	if TimeManager._menu_open_count > 0:
+	if TimeManager._menu_open_count > 0 or character.force_stop:
 		return
 
 	if not is_instance_valid(character):
@@ -74,6 +74,6 @@ func _physics_process(_delta):
 			return
 
 	character.direction = direction
-	if is_normal_movement:
+	if is_normal_movement :
 		character.animation()
 		character.movement(_delta)

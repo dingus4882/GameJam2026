@@ -60,6 +60,7 @@ func skip():
 	attack_source.skip_attack_speed_check = true
 	attack_source.skip_shooting_prevention = true
 	attack_source.skip_sprite_animation = true
+	attack_source.skip_state_changer = true
 
 func unskip():
 	$"../..".force_stop =false
@@ -68,23 +69,30 @@ func unskip():
 	attack_source.skip_attack_speed_check = false
 	attack_source.skip_shooting_prevention = false
 	attack_source.skip_sprite_animation = false
+	attack_source.skip_state_changer = false
 func choose_attack():
 	rng_seed.randomize()
 	match rng_seed.randi_range(1,3):
 		1:
 			skip()
+			$"../..".current_state = $"../..".States.ATTACKING
 			spawn_rock_globo()
 			await self.attack_done
+			$"../..".current_state = $"../..".States.IDLE
 			unskip()
 		2:
 			skip()
+			$"../..".current_state = $"../..".States.ATTACKING
 			spawn_roller_rock()
 			await self.attack_done
+			$"../..".current_state = $"../..".States.IDLE
 			unskip()
 		3:
 			skip()
+			$"../..".current_state = $"../..".States.ATTACKING
 			erupt_earth()
 			await self.attack_done
+			$"../..".current_state = $"../..".States.IDLE
 			unskip()
 	
 	

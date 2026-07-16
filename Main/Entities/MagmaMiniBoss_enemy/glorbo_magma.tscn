@@ -196,6 +196,7 @@ metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
 [node name="Mini_boss_ai" type="Node" parent="Base_Ai" unique_id=1662176931 node_paths=PackedStringArray("timer", "attack_range", "left_wing", "right_wing")]
 script = ExtResource("4_urrqo")
+action_speed = 4.0
 timer = NodePath("Timer")
 amount_of_left_point = 8
 amount_of_right_point = 8
@@ -397,10 +398,9 @@ script = ExtResource("4_iixdt")
 bullets = [NodePath("Hurt_box"), NodePath("Flame_surge"), NodePath("Warning")]
 character = NodePath("..")
 animation_player = NodePath("../Cheese_potential")
-skip_sprite_animation = true
-skip_animation_player = true
 skip_shooting_prevention = true
 skip_attack_speed_check = true
+skip_state_changer = true
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Hurt_box" parent="AttackComponent" unique_id=1579192024 instance=ExtResource("5_jo1oe")]
