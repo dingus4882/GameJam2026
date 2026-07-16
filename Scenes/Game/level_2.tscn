@@ -15,7 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://c8jy88la6bu0" path="res://Main/Entities/BrainlessBlackAndWhite_enemy/glorbo_brainlessWhite.tscn" id="13_oqavd"]
 [ext_resource type="PackedScene" uid="uid://dwimtfd51ebcu" path="res://Main/Map/Next_level_heal/next_level_heal.tscn" id="14_00mua"]
 [ext_resource type="TileSet" uid="uid://bssm2k1a7naq1" path="res://Main/Map/level.tres" id="15_64wun"]
+[ext_resource type="Script" uid="uid://pgocctfrbktj" path="res://Main/finale_collider.gd" id="16_6gxmv"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="16_jxkd1"]
+[ext_resource type="PackedScene" uid="uid://dl1li43ls2rps" path="res://Main/UI/UI_Background.tscn" id="18_6gxmv"]
+[ext_resource type="Texture2D" uid="uid://ccub6cjxnsbpf" path="res://Main/UI/button.png" id="19_au7ql"]
+[ext_resource type="FontFile" uid="uid://bblgfksqrfodg" path="res://Assets/Drybrush-KV2wD.ttf" id="20_14gvs"]
+[ext_resource type="PackedScene" uid="uid://b0dvto8puhwr7" path="res://Main/UI/button.tscn" id="21_14gvs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a3y66"]
 texture = ExtResource("3_c0jei")
@@ -53,6 +58,670 @@ scenes/2/scene = ExtResource("13_oqavd")
 [sub_resource type="TileSet" id="TileSet_23sqi"]
 sources/0 = SubResource("TileSetScenesCollectionSource_0tj4r")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gxmv"]
+size = Vector2(30.5, 186)
+
+[sub_resource type="Animation" id="Animation_su7r2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI_Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%exit:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D4:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Label4:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Label5:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Label6:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite2D5:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Label7:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Sprite2D6:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Label8:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Label9:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Sprite2D7:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Sprite2D3:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(959.99994, 590)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Label3:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(685, 550)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Sprite2D4:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(959.99994, 725)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Label4:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(685, 685)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Label5:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(685, 685)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Label6:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(685, 685)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Label4:size")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(550.00024, 81)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Label5:size")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(550.00024, 81)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Label6:size")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(550.00024, 81)]
+}
+
+[sub_resource type="Animation" id="Animation_6gxmv"]
+resource_name = "win"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI_Background:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.78431374), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 7, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 7, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("%exit:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 18.933332, 19.933332),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D3:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 6, 6.5, 12, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 6, 6.5, 12, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D4:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 6.5666666, 7.0666666, 12.066667, 12.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Label4:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 6.5666666, 7.0666666, 8.066667, 8.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Label5:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 8.566667, 9.066667, 10.066667, 10.566667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Label6:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 10.5, 11, 12, 12.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite2D5:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(12.50065, 13, 13.151994, 13.501874, 14.010367, 14.272249, 14.5, 15.30065, 15.799999, 15.951994, 16.301874, 16.810366, 17.072248, 17.3, 17.967318, 18.466667, 18.618662, 18.968542, 19.477034, 19.738916, 19.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Label7:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(12.50065, 13, 13.151994, 13.501874, 14.010367, 14.272249, 14.5, 15.30065, 15.799999, 15.951994, 16.301874, 16.810366, 17.072248, 17.3, 17.967318, 18.466667, 18.618662, 18.968542, 19.477034, 19.738916, 19.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Sprite2D6:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(12.50065, 13, 13.151994, 13.501874, 14.010367, 14.272249, 14.5, 15.30065, 15.799999, 15.951994, 16.301874, 16.810366, 17.072248, 17.3, 17.967318, 18.466667, 18.618662, 18.968542, 19.477034, 19.738916, 19.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Label8:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(12.50065, 13, 13.151994, 13.501874, 14.010367, 14.272249, 14.5, 15.30065, 15.799999, 15.951994, 16.301874, 16.810366, 17.072248, 17.3, 17.967318, 18.466667, 18.618662, 18.968542, 19.477034, 19.738916, 19.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.39215687), Color(1, 1, 1, 0.88235295), Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Label9:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(2.1929073, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Sprite2D7:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(2.1929073, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Sprite2D3:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(7.5676804, 10.018577),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(959.99994, 590), Vector2(959.99994, 440)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Label3:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(7.5676804, 10.018577),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(685, 550), Vector2(685, 400)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Sprite2D4:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(7.5676804, 10.018577),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(959.99994, 725), Vector2(959.99994, 654)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Label4:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(7.5676804, 10.104573),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(685, 685), Vector2(685, 616)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Label5:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(7.5676804, 10.104573),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(685, 685), Vector2(685, 616)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Label6:position")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(7.5676804, 10.104573),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(685, 685), Vector2(685, 616)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Label4:size")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(10.018577),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(550.00024, 81)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Label5:size")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(10.018577),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(550.00024, 81)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Label6:size")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(10.018577),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(550.00024, 81)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_su7r2"]
+_data = {
+&"RESET": SubResource("Animation_su7r2"),
+&"win": SubResource("Animation_6gxmv")
+}
+
 [node name="Level2" type="Node2D" unique_id=2034620641]
 script = ExtResource("1_4myif")
 
@@ -84,7 +753,28 @@ tile_map_data = PackedByteArray("AAAlAOn/AAABAAcAAAB1/s//AAADAAAAAAB1/tD/AAADAAA
 tile_set = ExtResource("15_64wun")
 
 [node name="Geto" parent="." unique_id=492334250 instance=ExtResource("16_jxkd1")]
-position = Vector2(-5824, -72)
+position = Vector2(-5888, -78)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=351718086]
+position = Vector2(-9647, -3028)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1011912289 node_paths=PackedStringArray("end_animation_node")]
+position = Vector2(-269, 8)
+shape = SubResource("RectangleShape2D_6gxmv")
+debug_color = Color(1, 0, 0, 0.59607846)
+script = ExtResource("16_6gxmv")
+end_animation_node = NodePath("../../CanvasLayer/End")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=631778637 node_paths=PackedStringArray("end_animation_node")]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(276, -12)
+shape = SubResource("RectangleShape2D_6gxmv")
+debug_color = Color(1, 0, 0, 0.59607846)
+script = ExtResource("16_6gxmv")
+end_animation_node = NodePath("../../CanvasLayer/End")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=963225264]
 layer = 20
@@ -92,6 +782,197 @@ layer = 20
 [node name="Options" parent="CanvasLayer" unique_id=685411329 node_paths=PackedStringArray("root_scene") instance=ExtResource("2_3wav3")]
 unique_name_in_owner = true
 visible = false
-z_index = 20
+z_index = 10
 is_in_game = true
 root_scene = NodePath("../..")
+
+[node name="End" type="Node2D" parent="CanvasLayer" unique_id=2108779528]
+visible = false
+z_index = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/End" unique_id=1030698332]
+libraries/ = SubResource("AnimationLibrary_su7r2")
+
+[node name="UI_Background" parent="CanvasLayer/End" unique_id=1357555529 instance=ExtResource("18_6gxmv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/End" unique_id=1936507592]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(959.99994, 150)
+scale = Vector2(10, 10)
+texture = ExtResource("19_au7ql")
+
+[node name="Label" type="Label" parent="CanvasLayer/End" unique_id=362169645]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 110.0
+offset_right = 1235.0001
+offset_bottom = 191.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "The Glutton's Netherbreak"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer/End" unique_id=1690887526]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 392)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("19_au7ql")
+
+[node name="Label2" type="Label" parent="CanvasLayer/End" unique_id=310603259]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.00006
+offset_top = 352.0
+offset_right = 1235.0002
+offset_bottom = 433.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "You escaped"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer/End" unique_id=1062398102]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(959.99994, 544)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("19_au7ql")
+
+[node name="Label9" type="Label" parent="CanvasLayer/End" unique_id=350994783]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 504.0
+offset_right = 1235.0002
+offset_bottom = 585.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "Congratulations"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer/End" unique_id=758094703]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(959.99994, 590)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("19_au7ql")
+
+[node name="Label3" type="Label" parent="CanvasLayer/End" unique_id=1619813948]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 550.0
+offset_right = 1235.0002
+offset_bottom = 631.00024
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "A Game by:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer/End" unique_id=1925846788]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(959.99994, 725)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("19_au7ql")
+
+[node name="Label4" type="Label" parent="CanvasLayer/End" unique_id=778859461]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 685.0
+offset_right = 1235.0002
+offset_bottom = 766.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "Dragon Designer"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="CanvasLayer/End" unique_id=999565998]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 685.0
+offset_right = 1235.0002
+offset_bottom = 766.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "FlameLane"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="CanvasLayer/End" unique_id=1346345228]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 685.0
+offset_right = 1235.0002
+offset_bottom = 766.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "Caelan"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer/End" unique_id=812941908]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(959.99994, 417)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("19_au7ql")
+
+[node name="Label7" type="Label" parent="CanvasLayer/End" unique_id=1888800439]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 377.0
+offset_right = 1235.0002
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "Thanks for playing"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer/End" unique_id=871373230]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(959.99994, 590)
+scale = Vector2(7.5, 7.5)
+texture = ExtResource("19_au7ql")
+
+[node name="Label8" type="Label" parent="CanvasLayer/End" unique_id=900006813]
+modulate = Color(1, 1, 1, 0)
+offset_left = 685.0
+offset_top = 550.0
+offset_right = 1235.0002
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("20_14gvs")
+theme_override_font_sizes/font_size = 48
+text = "We hope you had fun"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="exit" parent="CanvasLayer/End" unique_id=1314000419 instance=ExtResource("21_14gvs")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_left = 834.0
+offset_top = 919.0
+offset_right = 1087.0
+offset_bottom = 994.0
+text = "Exit to Menu"
+
+[node name="Next_level_heal" parent="." unique_id=555142527 instance=ExtResource("14_00mua")]
+position = Vector2(-9854, -3034)
+
+[connection signal="pressed" from="CanvasLayer/End/exit" to="CanvasLayer/Options" method="_exit_pressed"]
