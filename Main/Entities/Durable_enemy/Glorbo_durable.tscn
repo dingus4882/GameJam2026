@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://coy6yav0mtg3f"]
 
-[ext_resource type="Texture2D" uid="uid://vir7akipn8su" path="res://Main/Entities/Durable_enemy/DurableStarter.png" id="1_2klqh"]
+[ext_resource type="Texture2D" uid="uid://crltgxwdkq7qn" path="res://Main/Entities/Durable_enemy/DurableStarter.png" id="1_2klqh"]
 [ext_resource type="Script" uid="uid://chypt44vkylf5" path="res://Components/Characters_parts/CharacterBase_component/CharacterBase.gd" id="1_umlbo"]
 [ext_resource type="Script" uid="uid://cikmg2xs7m0wv" path="res://Components/Characters_parts/Ai_component/Base_ai.gd" id="3_bje7m"]
 [ext_resource type="Script" uid="uid://da5q3wm4386jl" path="res://Components/Characters_parts/AttackComponent/attack_component.gd" id="4_avor4"]

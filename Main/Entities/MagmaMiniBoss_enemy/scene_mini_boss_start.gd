@@ -11,8 +11,7 @@ func Start_animation():
 		animationplayer.play(start_animation)
 	
 func Switch_scene(scene_path):
-	SceneLoader.level_dict[SceneLoader.Scenes.GAME] = scene_path
-	SceneLoader.load_scene(SceneLoader.Scenes.GAME)
+	SceneLoader.load_scene(SceneLoader.Scenes.MIMI_BOSS_SCENE)
 
 
 func _ready():

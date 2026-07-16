@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b42k15yg7363h" path="res://Main/Game/world_gen.gd" id="1_buqeg"]
 [ext_resource type="TileSet" uid="uid://bssm2k1a7naq1" path="res://Main/Map/level.tres" id="1_rb1el"]
-[ext_resource type="Texture2D" uid="uid://bw8scdjcriolf" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_buqeg"]
+[ext_resource type="Texture2D" uid="uid://c4cd57xtdykki" path="res://Main/Entities/Player/BrainlessgamejamGETO1.png" id="2_buqeg"]
 [ext_resource type="Script" uid="uid://b8nh7e41oiaf5" path="res://Main/Entities/MagmaMiniBoss_enemy/scene_mini_boss_start.gd" id="2_k7te0"]
 [ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="4_lk0ka"]
 

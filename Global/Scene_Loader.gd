@@ -8,6 +8,7 @@ var loading = false
 
 var level_dict: Dictionary = {}
 var level_one: String = "res://Scenes/Game/level.tscn"
+var level_two: String = "res://Scenes/Game/level_2.tscn"
 
 
 enum Scenes {
@@ -16,16 +17,19 @@ enum Scenes {
 	CREDITS,
 	GAME_SELECTION,
 	GAME,
-	MINI_BOSS_START,
-	MINI_BOSS_END
+	GAME_TWO,
+	MIMI_BOSS_CUT_SCENE,
+	MIMI_BOSS_SCENE
 }
 
 func _load_scene():
 	level_dict[Scenes.MAIN_MENU]					= "res://Main/UI/Main_menu_screen/main_menu.tscn"
 	level_dict[Scenes.SETTINGS]						= "res://Main/UI/Options/options_combined.tscn"
-	#level_dict[Scenes.GAME_SELECTION]				= "res://Scenes/UI/game_selection.tscn"
+	level_dict[Scenes.MIMI_BOSS_CUT_SCENE]			= "res://Main/Entities/MagmaMiniBoss_enemy/scene_mini_boss_start.tscn"
+	level_dict[Scenes.MIMI_BOSS_SCENE]				= "res://Scenes/Game/miniboss_level.tscn"
 	#level_dict[Scenes.CREDITS]   					= "res://Scenes/UI/credits.tscn"
 	level_dict[Scenes.GAME]   						= level_one
+	level_dict[Scenes.GAME_TWO]   					= level_two
 	
 	
 	
@@ -233,7 +237,13 @@ func _manage_preloads(entered_scene: Scenes):
 			desired_preloads = [Scenes.SETTINGS, Scenes.CREDITS, Scenes.GAME_SELECTION]
 			clear_others = false
 		Scenes.GAME:
-			desired_preloads = [Scenes.MAIN_MENU]
+			desired_preloads = [Scenes.MAIN_MENU, Scenes.MIMI_BOSS_CUT_SCENE]
+			clear_others = true
+		Scenes.MIMI_BOSS_CUT_SCENE:
+			desired_preloads = [Scenes.MAIN_MENU, Scenes.MIMI_BOSS_SCENE]
+			clear_others = true
+		Scenes.MIMI_BOSS_SCENE:
+			desired_preloads = [Scenes.MAIN_MENU, Scenes.GAME_TWO]
 			clear_others = true
 		Scenes.SETTINGS, Scenes.CREDITS, Scenes.GAME_SELECTION:
 			pass # Keep existing preloads to allow quick return to MAIN_MENU

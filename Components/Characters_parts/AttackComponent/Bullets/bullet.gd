@@ -48,6 +48,6 @@ func do_bullet_thing(body):
 
 	if body.has_node("HealthComponent") and (bullet_owner != body):
 
-		body.get_node("HealthComponent").take_damage(damage)
+		body.get_node("HealthComponent").take_damage(damage, bullet_owner)
 		if not is_library:
 			queue_free()
