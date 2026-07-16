@@ -177,6 +177,8 @@ func erupt_earth():
 				await get_tree().create_timer(0.1).timeout
 		3:#one side then the other
 			#print(attack_source.can_fire, "one")
+			$"../../Cheese_potential".play("Jump_and_slam")
+			await $"../../Cheese_potential".animation_finished
 			attack_source.currentBullet = attack_source.bullets[2]
 			for i in range(1,5):
 				set_target_point(right_wing,"Right",i)
@@ -205,6 +207,8 @@ func erupt_earth():
 				
 		4:#random
 			#print(attack_source.can_fire , "random")
+			$"../../Cheese_potential".play("Jump_and_slam")
+			await $"../../Cheese_potential".animation_finished
 			var left = random_fill(4,8,[])
 			var right = random_fill(4,8,[])
 			#print(right)
