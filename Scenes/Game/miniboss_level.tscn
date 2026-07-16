@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bhvknoaj7ovag" path="res://Main/UI/Options/options_combined.tscn" id="2_lcn46"]
 [ext_resource type="TileSet" uid="uid://bssm2k1a7naq1" path="res://Main/Map/level.tres" id="3_6wb3v"]
 [ext_resource type="PackedScene" uid="uid://ci70emcuttxgr" path="res://Main/Entities/Player/player.tscn" id="4_1nr3d"]
+[ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="5_1nr3d"]
 [ext_resource type="PackedScene" uid="uid://c1ut558fexpx8" path="res://Main/Entities/MagmaMiniBoss_enemy/glorbo_magma.tscn" id="5_crxb5"]
 
 [node name="Miniboss_level" type="Node2D" unique_id=1966386662 node_paths=PackedStringArray("enemy")]
@@ -27,8 +28,15 @@ attack_stop = true
 [node name="Glorbo_magma" parent="." unique_id=349108625 instance=ExtResource("5_crxb5")]
 position = Vector2(-2833.0002, 995)
 
+[node name="Mini_boss_ai" parent="Glorbo_magma/Base_Ai" parent_id_path=PackedInt32Array(349108625, 1634117473) index="0" unique_id=1662176931]
+action_speed = 1.0
+
 [node name="AttackComponent" parent="Glorbo_magma" index="8" unique_id=15334914]
+skip_state_changer = false
 resricted_area = Rect2i(-2960, 608, 1088, 464)
+
+[node name="HealthComponent" parent="Glorbo_magma" index="9" unique_id=550991420]
+script = ExtResource("5_1nr3d")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=494167694]
 layer = 20

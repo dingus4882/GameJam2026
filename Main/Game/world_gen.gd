@@ -56,6 +56,7 @@ func _exit_tree():
 	TimeManager.in_game = false
 	VariableController.elapsed_time = TimeManager.in_game_elapsed_time
 	TimeManager.in_game_elapsed_time = 0
+	TimeManager._menu_open_count = 0
 	# remove anything, that may stick between games
 	pass
 
