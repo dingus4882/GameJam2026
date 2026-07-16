@@ -24,7 +24,7 @@ func flip_anim_track_h(Anim: Animation):
 				
 func shake_camera(camera: Camera2D, amount_of_shake = 3, intensity_of_shake = 30, time_between_each_move = 0.1):
 	
-	if camera == null:
+	if camera == null or not VariableController.screen_shake_enabled:
 		return
 	
 	camera.set_process(false)
