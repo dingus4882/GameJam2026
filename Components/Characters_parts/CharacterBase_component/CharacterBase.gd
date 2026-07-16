@@ -57,9 +57,8 @@ func _ready() -> void:
 
 	
 
-	last_direction = float(is_sprite_towards_the_right) * 2 - 1
-	
-	
+	last_direction = float(is_sprite_towards_the_right) * 2 - 1 
+
 	
 
 

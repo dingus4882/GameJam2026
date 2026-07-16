@@ -17,9 +17,10 @@ func _process(delta: float) -> void:
 	update_timer += delta
 	delta *= TimeManager.current_time_scale
 	#print(name)
-	if was_alive && enemy.health_component.is_dead:
-		was_alive = false
-		_load_next_scene_with_delay(0)
+	if enemy:
+		if was_alive && enemy.health_component.is_dead:
+			was_alive = false
+			_load_next_scene_with_delay(0)
 	
 	if fps_label: #update_timer >= 0.5:
 		#update_timer = 0.0

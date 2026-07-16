@@ -120,7 +120,6 @@ metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 [node name="Shoot_point" type="Marker2D" parent="." unique_id=1027272859]
 
 [node name="Direction_point" type="Marker2D" parent="." unique_id=1788075907]
-visible = false
 position = Vector2(20.000008, -7.6293945e-06)
 
 [node name="Attack_range" type="Area2D" parent="Direction_point" unique_id=495501726]

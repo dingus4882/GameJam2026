@@ -9,6 +9,7 @@ collision_mask = 9
 script = ExtResource("1_uwt8k")
 damage = 50.0
 bullet_speed = 400.0
+would_bounce = true
 metadata/_custom_type_script = "uid://bpbc3drlvjiou"
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1542820653]

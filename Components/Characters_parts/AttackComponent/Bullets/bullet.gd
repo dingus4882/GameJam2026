@@ -9,9 +9,11 @@ signal expire
 @export var bullet_sprites_overide: AnimatedTexture
 
 @export var bullet_life_time: float = -1.0
+@export var pierce: int = 0
+@export var would_bounce :bool = false
 
+@export var is_library: bool = false
 
-@export var is_library: bool = false	
 var bullet_owner:CharacterBase
 
 
@@ -55,8 +57,12 @@ func do_bullet_thing(body):
 		if body:
 			resolve_extra_effects(body)
 		
-		if not is_library:
-			queue_free()
+		if  is_library:
+			return
+		if pierce >0:
+			pierce -= 1
+			return
+		queue_free()
 
 @export var list_of_spliter: Array[String]
 
@@ -73,7 +79,7 @@ func fracture():
 @export var list_of_effects: Array[Effect_Parasite]
 func resolve_extra_effects(body:Node):
 	for i in list_of_effects:
-		print("ow")
+		#print("ow")
 		var effect = i.duplicate()
 		effect.activate_parasite(body)
 		body.add_child(effect)

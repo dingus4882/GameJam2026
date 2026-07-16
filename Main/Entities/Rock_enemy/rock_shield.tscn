@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dio50qoi25dmo"]
+
+[ext_resource type="Script" uid="uid://bpbc3drlvjiou" path="res://Components/Characters_parts/AttackComponent/Bullets/bullet.gd" id="1_lflpb"]
+[ext_resource type="Texture2D" uid="uid://dufithxopw5vm" path="res://Main/Entities/Rock_enemy/Rock_shield.png" id="2_613ld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7wsd"]
+size = Vector2(20, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_022op"]
+atlas = ExtResource("2_613ld")
+region = Rect2(960, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu1pq"]
+atlas = ExtResource("2_613ld")
+region = Rect2(0, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cdhu"]
+atlas = ExtResource("2_613ld")
+region = Rect2(96, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ej0m"]
+atlas = ExtResource("2_613ld")
+region = Rect2(192, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uijyy"]
+atlas = ExtResource("2_613ld")
+region = Rect2(288, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gjx1"]
+atlas = ExtResource("2_613ld")
+region = Rect2(384, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75sxh"]
+atlas = ExtResource("2_613ld")
+region = Rect2(480, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5gie"]
+atlas = ExtResource("2_613ld")
+region = Rect2(576, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp24h"]
+atlas = ExtResource("2_613ld")
+region = Rect2(672, 0, 96, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlda5"]
+atlas = ExtResource("2_613ld")
+region = Rect2(768, 0, 96, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7rlf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_022op")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu1pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cdhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ej0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uijyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gjx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75sxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5gie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp24h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlda5")
+}],
+"loop": 0,
+"name": &"Initialize",
+"speed": 10.0
+}]
+
+[node name="Rock_shield" type="Area2D" unique_id=164740823]
+collision_layer = 0
+collision_mask = 12
+script = ExtResource("1_lflpb")
+pierce = 99
+metadata/_custom_type_script = "uid://bpbc3drlvjiou"
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=664977694]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_s7wsd")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=2147467906]
+sprite_frames = SubResource("SpriteFrames_s7rlf")
+animation = &"Initialize"
+autoplay = "Initialize"
+frame = 8
+frame_progress = 1.0

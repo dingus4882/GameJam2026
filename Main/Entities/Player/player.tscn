@@ -199,7 +199,7 @@ script = ExtResource("4_7ndns")
 health_bar = NodePath("../Static/Follower/Health_bar")
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
 
-[node name="Node" type="Node" parent="HealthComponent" unique_id=165338082]
+[node name="Death_scene_loader" type="Node" parent="HealthComponent" unique_id=165338082]
 script = ExtResource("5_qe3jf")
 
 [node name="AttackComponent" type="Node" parent="." unique_id=669009349 node_paths=PackedStringArray("bullets", "currentBullet", "shoot_point", "character")]

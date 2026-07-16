@@ -210,6 +210,7 @@ Attack_source = NodePath("../Collision_attack")
 bullet_overide = NodePath("../Collision_attack/Hurt_box")
 shoot_point_overide = NodePath("../Shoot_point")
 direction = 1.0
+is_random_direction = false
 metadata/_custom_type_script = "uid://cikmg2xs7m0wv"
 
 [node name="Mini_boss_ai" type="Node" parent="Base_Ai" unique_id=1662176931 node_paths=PackedStringArray("Attack_source", "attack_range", "left_wing", "right_wing", "flame_surge", "warning", "spawn_rock_glorbo_bullet", "spawn_roller_bullet")]
@@ -425,7 +426,6 @@ skip_state_changer_please = true
 metadata/_custom_type_script = "uid://da5q3wm4386jl"
 
 [node name="Flame_surge" parent="Custom_moves" unique_id=826708759 node_paths=PackedStringArray("list_of_effects") instance=ExtResource("6_aopsf")]
-visible = false
 is_library = true
 list_of_effects = [NodePath("On_fire")]
 
@@ -435,17 +435,14 @@ effect_script = ExtResource("7_wfja8")
 metadata/_custom_type_script = "uid://bg3rkcvoqclm4"
 
 [node name="Warning" parent="Custom_moves" unique_id=956257877 instance=ExtResource("8_iixdt")]
-visible = false
 is_library = true
 
 [node name="Bullet_that_summon_rock_glorbo" parent="Custom_moves" unique_id=1503676649 instance=ExtResource("8_jo1oe")]
-visible = false
 bullet_life_time = 0.2
 is_library = true
 list_of_spliter = Array[String](["res://Main/Entities/Rock_enemy/glorbo_rock.tscn"])
 
 [node name="Bullet_that_summon_roller" parent="Custom_moves" unique_id=982282499 instance=ExtResource("8_jo1oe")]
-visible = false
 bullet_life_time = 0.2
 is_library = true
 list_of_spliter = Array[String](["res://Components/Characters_parts/AttackComponent/Bullets/Bullet_types/rolling_stone.tscn"])
@@ -466,6 +463,7 @@ is_library = true
 
 [node name="HealthComponent" type="Node" parent="." unique_id=550991420]
 script = ExtResource("9_iixdt")
+max_health_ = 250.0
 metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
 
 [node name="Nutrient" type="Node" parent="." unique_id=1466952225 node_paths=PackedStringArray("list_of_effects")]

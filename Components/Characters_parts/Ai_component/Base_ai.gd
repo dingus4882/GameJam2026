@@ -1,6 +1,8 @@
 class_name Base_Ai
 extends Node
 
+signal turned_around
+
 @export var character: CharacterBase
 @export var attacking_range:Area2D
 @export var block_detection: Area2D
@@ -13,8 +15,12 @@ extends Node
 @export var shoot_point_overide: Marker2D
 
 @export var direction: float 
+@export var is_random_direction: bool = true
+
 
 @export var is_normal_movement:bool = true
+
+
 
 var _is_turning: bool = false
 # Called when the node enters the scene tree for the first time.
@@ -30,6 +36,9 @@ func _ready():
 		
 	if Attack_source.currentBullet == null:
 		Attack_source.currentBullet = Attack_source.bullets[0]
+	
+	if is_random_direction:
+		direction = direction * (randi_range(0,1) *2 -1)
 
 func _resolve_references() -> void:
 	if not is_instance_valid(character):
@@ -50,19 +59,20 @@ func turn_around(_body):
 	direction = -direction
 	await get_tree().create_timer(0.2).timeout # Cooldown to prevent rapid turning
 	_is_turning = false
-
+	
+	emit_signal("turned_around")
 @export var fire_rate: float = 0.5
 
 func spawn_attack(the_attacked):
+
 	if character.current_state == character.States.ATTACKING:
 		return
 	if bullet_overide:
 		Attack_source.currentBullet = bullet_overide
 	if shoot_point_overide:
 		Attack_source.shoot_point = shoot_point_overide
-	if the_attacked.has_node("PlayerComponent")	:
-		
-		Attack_source.fire()
+	
+	Attack_source.fire()
 		
 func _physics_process(_delta):
 	if TimeManager._menu_open_count > 0 or character.force_stop:

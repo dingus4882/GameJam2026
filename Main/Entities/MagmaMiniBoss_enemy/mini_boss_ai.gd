@@ -144,11 +144,14 @@ func spawn_roller_rock():
 	var left = random_fill(1,8,[])
 	var right = random_fill(2,8,[])
 	Attack_source.currentBullet = spawn_roller_bullet
+	
 	for i in left:
+		
 		set_target_point($"../../Third_attack/Left","Left",i)
 		Attack_source.fire()
 		
 	for i in right:
+		
 		set_target_point($"../../Third_attack/Left","Left",i)
 		Attack_source.fire()
 	

@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cq1wn2nt26uwy" path="res://Components/Characters_parts/HealthComponent/health_component.gd" id="6_cyjmk"]
 [ext_resource type="Script" uid="uid://xpvak85xx07f" path="res://Components/Characters_parts/Comsumption_component/Consumption_component.gd" id="7_bvyms"]
 [ext_resource type="Script" uid="uid://bbo6r2ajghxwj" path="res://Components/Characters_parts/Effects/Regen.gd" id="9_namq6"]
+[ext_resource type="Script" uid="uid://cgqiblr7pidjc" path="res://Main/Entities/Rock_enemy/Summon_rock_shield.gd" id="9_owatf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j43jc"]
 atlas = ExtResource("2_j43jc")
@@ -155,6 +156,7 @@ metadata/_custom_type_script = "uid://da5q3wm4386jl"
 visible = false
 position = Vector2(0, 8)
 scale = Vector2(2.790821, 2.790821)
+damage = 5.0
 bullet_life_time = 0.2
 is_library = true
 
@@ -164,10 +166,18 @@ metadata/_custom_type_script = "uid://cq1wn2nt26uwy"
 
 [node name="Nutrient" type="Node" parent="." unique_id=2087101454 node_paths=PackedStringArray("list_of_effects")]
 script = ExtResource("7_bvyms")
-list_of_effects = [NodePath("Regen")]
+list_of_effects = [NodePath("Regen"), NodePath("The_rock_shield")]
 metadata/_custom_type_script = "uid://xpvak85xx07f"
 
 [node name="Regen" type="Node" parent="Nutrient" unique_id=1628194324]
 script = ExtResource("9_namq6")
+heal = 1
+duration = 2.0
 effect_script = ExtResource("9_namq6")
+metadata/_custom_type_script = "uid://bg3rkcvoqclm4"
+
+[node name="The_rock_shield" type="Node" parent="Nutrient" unique_id=2085066464]
+script = ExtResource("9_owatf")
+rock_shield_path = "res://Main/Entities/Rock_enemy/rock_shield.tscn"
+effect_script = ExtResource("9_owatf")
 metadata/_custom_type_script = "uid://bg3rkcvoqclm4"
